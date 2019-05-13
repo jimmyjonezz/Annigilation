@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Image/tileset.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.63219
+height = 2.92169
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/Fire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 9, 10 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "walk"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+Bullet = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 5.5 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 6
+
+[node name="Gun" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+offset = Vector2( 2, 0 )
+vframes = 8
+hframes = 8
+frame = 1
+
+[node name="Position2D" type="Position2D" parent="Gun"]
+position = Vector2( 11, 1 )
+
+[node name="Fire" type="Sprite" parent="Gun/Position2D"]
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 10
+
+[node name="AFPlayer" type="AnimationPlayer" parent="Gun"]
+anims/fire = SubResource( 2 )
+
+[node name="APlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 3 )
+anims/walk = SubResource( 4 )
+
+[node name="Shooting" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true

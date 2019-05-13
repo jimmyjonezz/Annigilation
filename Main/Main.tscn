@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main/Main.gd" type="Script" id=1]
+[ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=4]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Navigation" parent="World" instance=ExtResource( 2 )]
+
+[node name="SpawnEnemy" type="Node2D" parent="."]
+
+[node name="SpawnProps" type="Node2D" parent="."]
+
+[node name="Position" type="Node2D" parent="."]
+
+[node name="Player" parent="Position" instance=ExtResource( 3 )]
+position = Vector2( 73.2454, 65.7008 )
+
+[node name="Camera2D" type="Camera2D" parent="Position/Player"]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+limit_left = -100
+limit_top = -100
+limit_right = 1000
+limit_bottom = 1000
+editor_draw_limits = true
+
+[node name="GUI" parent="." instance=ExtResource( 4 )]
