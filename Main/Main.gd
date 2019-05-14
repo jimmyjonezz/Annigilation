@@ -3,10 +3,14 @@ extends Node
 onready var camera = $Position/Player/Camera2D as Camera2D
 var shake_amount = 1.0
 
-# Called when the node enters the scene tree for the first time.
+func new_game():
+	randomize()
+
 func _ready():
 	set_camera_limits()
-	shake()
+	new_game()
+	$GUI/GUI/time.text = "05 : 00"
+	$GUI/GUI/score.text = "00000"
 	
 func set_camera_limits() -> void:
 	var map_limits = get_node("World/Navigation").get_child(0).get_used_rect()

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Character
 
+signal paused
+
 export (int) var speed = 80
 var velocity = Vector2()
 var is_reload = true
@@ -18,6 +20,10 @@ func direction():
 	$Gun.look_at(get_global_mouse_position())
 
 func get_input():
+	if Input.is_action_just_pressed("ui_cancel"):
+		emit_signal("paused")
+		get_tree().set_pause(true)
+	
 	if Input.is_action_pressed("ui_mouse_left") and $Shooting.is_stopped():
 		if is_reload:
 			is_shooting = true

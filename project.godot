@@ -60,6 +60,14 @@ ui_mouse_left={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="props"
+2d_physics/layer_4="walls"
+2d_physics/layer_5="bullet"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

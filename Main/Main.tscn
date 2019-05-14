@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -14,12 +15,16 @@ script = ExtResource( 1 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
+[node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 3 )]
+position = Vector2( 176.7, 112.1 )
+
 [node name="SpawnProps" type="Node2D" parent="."]
 
 [node name="Position" type="Node2D" parent="."]
 
-[node name="Player" parent="Position" instance=ExtResource( 3 )]
+[node name="Player" parent="Position" instance=ExtResource( 4 )]
 position = Vector2( 73.2454, 65.7008 )
+collision_mask = 15
 
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 current = true
@@ -30,4 +35,5 @@ limit_right = 1000
 limit_bottom = 1000
 editor_draw_limits = true
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+[connection signal="paused" from="Position/Player" to="GUI" method="_on_Player_paused"]
