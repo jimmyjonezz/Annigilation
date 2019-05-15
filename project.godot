@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Kamikaze",
 "language": "GDScript",
-"path": "res://Kamikaze/Kamikaze.gd"
+"path": "res://Robots/Kamikaze/Kamikaze.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
