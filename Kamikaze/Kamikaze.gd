@@ -23,9 +23,9 @@ func _process(delta) -> void:
 		var direction = distance.normalized()
 		
 		if sign(direction.x) == 1:
-			$Sprite.flip_h = true
+			$Image.flip_h = true
 		else:
-			$Sprite.flip_h = false
+			$Image.flip_h = false
 		
 		velocity = move_and_collide(direction * speed * delta)
 	else:

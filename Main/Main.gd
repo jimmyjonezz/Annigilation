@@ -53,13 +53,15 @@ func spawn_enemy() -> void:
 	Enemy_instance.path = new_path
 
 func new_path_for_enemy() -> void:
+	var get_pos = $Position/Player.pos()
 	var get_enemy = get_node("SpawnEnemy").get_child_count()
+	print("get_enemy: %s" % get_enemy)
 	if get_enemy:
-		print("count enemy: %s" % get_enemy)
 		for x in range(get_enemy):
+			print("child position: %s" % get_node("SpawnEnemy").get_child(x).position)
 			var new_path = get_node("World/Navigation").get_simple_path(
 					get_node("SpawnEnemy").get_child(x).position, 
-					$Position/PLayer.position, false)
+					get_pos, false)
 			new_path.remove(0)
 			if new_path.size() > 1:
 				get_node("SpawnEnemy").get_child(x).path = new_path
