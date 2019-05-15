@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Kamikaze/Kamikaze.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -13,17 +14,20 @@ script = ExtResource( 1 )
 
 [node name="Navigation" parent="World" instance=ExtResource( 2 )]
 
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176.7, 112.1 )
+
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
-[node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 3 )]
-position = Vector2( 176.7, 112.1 )
+[node name="Kamikaze" parent="SpawnEnemy" instance=ExtResource( 4 )]
+position = Vector2( 89.3476, 27.9775 )
 
 [node name="SpawnProps" type="Node2D" parent="."]
 
 [node name="Position" type="Node2D" parent="."]
 
-[node name="Player" parent="Position" instance=ExtResource( 4 )]
-position = Vector2( 73.2454, 65.7008 )
+[node name="Player" parent="Position" instance=ExtResource( 5 )]
+position = Vector2( 50, 50 )
 collision_mask = 15
 
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
@@ -35,5 +39,5 @@ limit_right = 1000
 limit_bottom = 1000
 editor_draw_limits = true
 
-[node name="GUI" parent="." instance=ExtResource( 5 )]
+[node name="GUI" parent="." instance=ExtResource( 6 )]
 [connection signal="paused" from="Position/Player" to="GUI" method="_on_Player_paused"]

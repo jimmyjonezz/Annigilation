@@ -4,12 +4,9 @@ export var Bullet : PackedScene
 
 var r = 25
 var offset = 0
-var bplayer = Player.new()
+#var bplayer = Player.new()
 
 func _ready():
-	pass
-	
-func _process(delta):
 	pass
 	
 func danmaku():
