@@ -1,5 +1,6 @@
 extends "Character.gd"
 
+"ввававававава"
 export var Bullet : PackedScene
 
 func _process(delta) -> void:
