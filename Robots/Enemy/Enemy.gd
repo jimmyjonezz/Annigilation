@@ -4,7 +4,7 @@ export var Bullet : PackedScene
 
 var r = 25
 var offset = 0
-#var bplayer = Player.new()
+onready var player = $"../Position/Player"
 
 func _ready():
 	pass
@@ -22,4 +22,6 @@ func danmaku():
 		bullet.start(Vector2(position.x + x, position.y + y), angle) 
 
 func _on_Tic_timeout():
-	 danmaku()
+	#вычисляем дистанцию до игрока и стреляем
+	if position.distance_to(player.position) < 250:
+		danmaku()

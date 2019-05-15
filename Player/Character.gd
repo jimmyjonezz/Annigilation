@@ -11,7 +11,7 @@ var is_reload = true
 var is_shooting = false
 
 func pos():
-	return self.position
+	return self.global_position
 
 #спрайт у Игрока зеркалим и ган тоже (вертикально)
 func direction():
