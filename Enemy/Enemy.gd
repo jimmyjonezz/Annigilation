@@ -9,6 +9,8 @@ var offset = 0
 func _ready():
 	pass
 	
+#это херота, ее надо переделать. 
+#закос под босса отстреливающего в разные стороны
 func danmaku():
 	for i in range(13):
 		var angle = (PI * 2) / 13 * i + offset

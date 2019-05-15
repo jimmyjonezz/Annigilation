@@ -52,13 +52,14 @@ func spawn_enemy() -> void:
 			$Position/PLayer.position)
 	Enemy_instance.path = new_path
 
+#находим сам путь
 func new_path_for_enemy() -> void:
 	var get_pos = $Position/Player.pos()
 	var get_enemy = get_node("SpawnEnemy").get_child_count()
-	print("get_enemy: %s" % get_enemy)
+	#print("get_enemy: %s" % get_enemy)
 	if get_enemy:
 		for x in range(get_enemy):
-			print("child position: %s" % get_node("SpawnEnemy").get_child(x).position)
+			#print("child position: %s" % get_node("SpawnEnemy").get_child(x).position)
 			var new_path = get_node("World/Navigation").get_simple_path(
 					get_node("SpawnEnemy").get_child(x).position, 
 					get_pos, false)
@@ -67,5 +68,7 @@ func new_path_for_enemy() -> void:
 				get_node("SpawnEnemy").get_child(x).path = new_path
 
 # warning-ignore:unused_argument
+#задаем путь для врагов до игрока
+#слишком часто - надо переделать!
 func _process(delta) -> void:
 	new_path_for_enemy()

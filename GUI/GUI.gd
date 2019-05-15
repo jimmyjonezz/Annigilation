@@ -4,8 +4,9 @@ var time_start
 var time_now = 0
 
 func _ready():
-	time_start = 300 #1140
+	time_start = 300 #1140 = 19 минут
 
+#таймер обратного отсчета
 func timer():
 	if get_tree().paused == false:
 		time_now += 1
