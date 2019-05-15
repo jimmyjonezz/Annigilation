@@ -1,25 +1,26 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
-[ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Kamikaze/Kamikaze.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Kamikaze/Kamikaze.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
+Kamikaze = ExtResource( 2 )
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Navigation" parent="World" instance=ExtResource( 2 )]
+[node name="Navigation" parent="World" instance=ExtResource( 3 )]
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 176.7, 112.1 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
-[node name="Kamikaze" parent="SpawnEnemy" instance=ExtResource( 4 )]
+[node name="Kamikaze" parent="SpawnEnemy" instance=ExtResource( 2 )]
 position = Vector2( 89.3476, 27.9775 )
 
 [node name="SpawnProps" type="Node2D" parent="."]

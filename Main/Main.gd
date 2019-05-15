@@ -6,6 +6,8 @@ extends Node
 Позвоните моей маме...
 """
 
+export var Kamikaze : PackedScene
+
 onready var camera = $Position/Player/Camera2D as Camera2D
 var shake_amount = 1.0
 export var spawn_pos = [Vector2(64, 64), Vector2(750, 100),
@@ -39,25 +41,25 @@ func shake():
 	camera.set_offset(Vector2(0,0))
 	
 func spawn_enemy() -> void:
-	var Enemy_instance = $"/root/GL".Enemy.instance()
+	var get_pos = $Position/Player.pos()
+	var Kamikaze_instance = Kamikaze.instance()
 	
 	#нужно переработать!!!!
 	#подобрать дистанцию для спавна enemy с ближайшей точки
 	pospos.clear()
 	for x in range(spawn_pos.size()):
-		pospos.append($Position/PLayer.position.distance_to(spawn_pos[x]))
+		pospos.append(get_pos.distance_to(spawn_pos[x]))
 	
 	for i in range(pospos.size()):
 		if pospos[i] < distance:
-			Enemy_instance.position = spawn_pos[i]
+			Kamikaze_instance.position = spawn_pos[i]
 		#elif pospos[i] > distance:  #<-переделать!
 		#	return
 	
-	get_node("SpawnEnemy").add_child(Enemy_instance)
+	get_node("SpawnEnemy").add_child(Kamikaze_instance)
 	var new_path = get_node("World/Navigation").get_simple_path(
-			Enemy_instance.position, 
-			$Position/PLayer.position)
-	Enemy_instance.path = new_path
+			Kamikaze_instance.position, get_pos)
+	Kamikaze_instance.path = new_path
 
 #находим сам путь
 func new_path_for_enemy() -> void:
