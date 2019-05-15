@@ -21,3 +21,7 @@ frame = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="Tic" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]
