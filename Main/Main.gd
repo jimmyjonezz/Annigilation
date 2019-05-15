@@ -1,5 +1,11 @@
 extends Node
 
+"""
+Помогите! Меня держат в подвале, я прикован наручниками к трубе.
+Не кормят, в потемках пишу код. Холодно.
+Позвоните моей маме...
+"""
+
 onready var camera = $Position/Player/Camera2D as Camera2D
 var shake_amount = 1.0
 export var spawn_pos = [Vector2(64, 64), Vector2(750, 100),
@@ -16,6 +22,7 @@ func _ready():
 	$GUI/GUI/time.text = "05 : 00"
 	$GUI/GUI/score.text = "00000"
 	
+#устанавливаем ограничения камеры - тайлмапа
 func set_camera_limits() -> void:
 	var map_limits = get_node("World/Navigation").get_child(0).get_used_rect()
 	var map_cellsize = get_node("World/Navigation").get_child(0).cell_size.round()
@@ -72,3 +79,7 @@ func new_path_for_enemy() -> void:
 #слишком часто - надо переделать!
 func _process(delta) -> void:
 	new_path_for_enemy()
+
+#спавним наших друзей
+func _on_SpawnTimer_timeout():
+	spawn_enemy()

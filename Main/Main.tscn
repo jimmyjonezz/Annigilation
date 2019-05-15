@@ -40,4 +40,9 @@ limit_bottom = 1000
 editor_draw_limits = true
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 [connection signal="paused" from="Position/Player" to="GUI" method="_on_Player_paused"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
