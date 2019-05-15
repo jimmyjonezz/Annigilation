@@ -18,8 +18,6 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Bullet" parent="." instance=ExtResource( 2 )]
-
 [node name="Tic" type="Timer" parent="."]
 autostart = true
 [connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]
