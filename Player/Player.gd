@@ -1,14 +1,16 @@
 extends "Character.gd"
 
-"ввававававава"
+#загружаем префаб пуль
 export var Bullet : PackedScene
 
 func _process(delta) -> void:
 	direction()
 	
+	#нажимаем клавиши
 	get_input()
 	velocity = move_and_collide(velocity * delta)
 	
+	#стреляем
 	shooting()
 	
 func shooting() -> void:
