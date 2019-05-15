@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Kamikaze",
 "language": "GDScript",
 "path": "res://Robots/Kamikaze/Kamikaze.gd"
+}, {
+"base": "Node",
+"class": "Main",
+"language": "GDScript",
+"path": "res://Main/Main.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
-"Kamikaze": ""
+"Kamikaze": "",
+"Main": ""
 }
 
 [application]

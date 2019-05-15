@@ -1,24 +1,25 @@
 extends Node
 
+class_name Main
+
 """
 Помогите! Меня держат в подвале, я прикован наручниками к трубе.
 Не кормят, в потемках пишу код. Холодно.
 Позвоните моей маме...
 """
 
+onready var camera = $Position/Player/Camera2D as Camera2D
 export var Kamikaze : PackedScene
 
-onready var camera = $Position/Player/Camera2D as Camera2D
-var shake_amount = 1.0
 export var spawn_pos = [Vector2(64, 64), Vector2(750, 100),
 		Vector2(64, 550), Vector2(750, 550)]
 var pospos = []
 export var distance = 300
 
-func new_game():
+func new_game() -> void:
 	randomize()
 
-func _ready():
+func _ready() -> void:
 	set_camera_limits()
 	new_game()
 	$GUI/GUI/time.text = "05 : 00"
@@ -33,12 +34,6 @@ func set_camera_limits() -> void:
 	camera.limit_right = map_limits.end.x * map_cellsize.x
 	camera.limit_top = map_limits.position.y * map_cellsize.y
 	camera.limit_bottom = map_limits.end.y * map_cellsize.y
-	
-func shake():
-	camera.set_offset(Vector2(rand_range(-1.0, 1.0) * shake_amount, 
-			rand_range(-1.0, 1.0) * shake_amount))
-	yield(get_tree().create_timer(10.2), "timeout")
-	camera.set_offset(Vector2(0,0))
 	
 func spawn_enemy() -> void:
 	var get_pos = $Position/Player.pos()
