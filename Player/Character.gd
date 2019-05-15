@@ -9,6 +9,9 @@ var velocity = Vector2()
 var is_reload = true
 var is_shooting = false
 
+func pos():
+	return position
+
 func direction():
 	if position < get_global_mouse_position():
 		$Sprite.flip_h = true

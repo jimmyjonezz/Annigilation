@@ -2,19 +2,21 @@ extends KinematicBody2D
 
 export var Bullet : PackedScene
 
-var pi = 3.14
 var r = 25
 var offset = 0
-#var bplayer = Player.new()
+var bplayer = Player.new()
 
 func _ready():
 	pass
 	
+func _process(delta):
+	pass
+	
 func danmaku():
-	for i in range(3):
-		var angle = (pi * 2) / 13 * i + offset
-		var y = r * cos(randi() % 180 / pi)#r * cos(i * randi() % 180 / pi)
-		var x = r * cos(randi() % 180 / pi)#r * sin(i + randi() % 180 / pi)
+	for i in range(13):
+		var angle = (PI * 2) / 13 * i + offset
+		var y = r * cos(randi() % 180 / PI)#r * cos(i * randi() % 180 / pi)
+		var x = r * cos(randi() % 180 / PI)#r * sin(i + randi() % 180 / pi)
 				
 		var bullet = Bullet.instance()
 		get_parent().add_child(bullet)
