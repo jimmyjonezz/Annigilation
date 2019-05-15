@@ -1,5 +1,9 @@
 extends "Character.gd"
 
+class_name Player
+
+var pos = self.position
+
 export var Bullet : PackedScene
 
 func _process(delta) -> void:
