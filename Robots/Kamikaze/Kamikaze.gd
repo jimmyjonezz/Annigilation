@@ -33,7 +33,8 @@ func _process(delta) -> void:
 	else:
 		set_process(false)
 
-func hit():
+func hit() -> void:
+	#var global_t = get_global_transform()
 	current_health -= 1
 	
 	if current_health == 0:
