@@ -9,8 +9,11 @@ func _process(delta) -> void:
 	
 	#нажимаем клавиши
 	get_input()
-	velocity = move_and_collide(velocity * delta)
-	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		if collision.collider.has_method("hitbox"):
+			collision.collider.hitbox()
+
 	#стреляем
 	shooting()
 	

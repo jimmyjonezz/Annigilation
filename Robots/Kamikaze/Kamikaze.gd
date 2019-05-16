@@ -30,3 +30,6 @@ func _process(delta) -> void:
 		velocity = move_and_collide(direction * speed * delta)
 	else:
 		set_process(false)
+
+func hit():
+	queue_free()
