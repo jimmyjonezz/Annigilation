@@ -5,9 +5,11 @@ class_name Kamikaze
 var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
+var current_health
 
 func _ready():
 	randomize()
+	current_health = round(rand_range(4, 8))
 	speed = rand_range(50, 65)
 	set_process(false)
 	
@@ -32,4 +34,7 @@ func _process(delta) -> void:
 		set_process(false)
 
 func hit():
-	queue_free()
+	current_health -= 1
+	
+	if current_health == 0:
+		queue_free()
