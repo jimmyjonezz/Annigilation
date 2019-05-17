@@ -2,7 +2,7 @@ extends "Character.gd"
 
 #загружаем префаб пуль
 export var Bullet : PackedScene
-onready var camera = $"../../Position/Player/Camera2D"
+#onready var camera = $"../../Position/Player/Camera2D"
 
 func _process(delta) -> void:
 	direction()
@@ -31,6 +31,7 @@ func shooting() -> void:
 	$Gun/AFPlayer.play("fire")
 	is_shooting = false
 
+#стрельба - спавн пули, позиция и ее поворот
 func shoot() -> void:
 	$Shooting.start()
 	var bullet = Bullet.instance()

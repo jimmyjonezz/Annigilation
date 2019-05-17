@@ -18,5 +18,5 @@ func _physics_process(delta) -> void:
 		if collision.collider.has_method("hit"):
 			collision.collider.hit()
 
-func _on_Tic_timeout():
+func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

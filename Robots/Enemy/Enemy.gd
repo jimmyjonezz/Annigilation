@@ -19,7 +19,7 @@ func danmaku():
 	
 	for i in range(8):
 		var angle = (PI * 2) / 13 * i + offset
-		print(angle)
+		#print(angle)
 		#var y = r * cos(randi() % 180 / PI)#r * cos(i * randi() % 180 / pi)
 		#var x = r * cos(randi() % 180 / PI)#r * sin(i + randi() % 180 / pi)
 		var bullet_spread = r * randf() * (25 / 100.0) * sign(rand_range(-1, 1))

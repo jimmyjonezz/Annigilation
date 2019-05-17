@@ -38,4 +38,5 @@ func hit() -> void:
 	current_health -= 1
 	
 	if current_health == 0:
+		$"../../GUI".take_score()
 		queue_free()

@@ -1,13 +1,30 @@
 extends CanvasLayer
 
+#health
+var maximum = 25
+var current_health = 0
+
+#score
+var score = 0
+
 var time_start
 var time_now = 0
 
 func _ready():
 	time_start = 300 #1140 = 19 минут
+	update_count_text(15)
+	
+#очки
+func take_score():
+	score += 10
+	$GUI/score.text = "%05d" % [score]
+	
+#обновляем показатель жизни
+func update_count_text(value):
+	$GUI/Label.text = str(round(value)) + '/' + str(maximum)
 	
 func _input(event):
-	if Input.is_action_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		var new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
 		$Pause.visible = new_pause_state

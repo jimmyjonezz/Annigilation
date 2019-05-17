@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 class_name Character
 
-signal paused
-
 #переменные: скорость передвижения, вектор направления, перезарядка и стрельба
 export (int) var speed = 80
 var velocity = Vector2()
