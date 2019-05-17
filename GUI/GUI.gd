@@ -5,6 +5,12 @@ var time_now = 0
 
 func _ready():
 	time_start = 300 #1140 = 19 минут
+	
+func _input(event):
+	if Input.is_action_pressed("ui_cancel"):
+		var new_pause_state = not get_tree().paused
+		get_tree().paused = new_pause_state
+		$Pause.visible = new_pause_state
 
 #таймер обратного отсчета
 func timer():

@@ -26,11 +26,6 @@ func direction():
 	$Gun.look_at(get_global_mouse_position())
 
 func get_input():
-	#пауза + сигналим другой ноде (GUI)
-	if Input.is_action_just_pressed("ui_cancel"):
-		emit_signal("paused")
-		get_tree().set_pause(true)
-	
 	#если нажата левая клавиша и остановлен таймер стрельбы то...
 	if Input.is_action_pressed("ui_mouse_left") and $Shooting.is_stopped():
 		if is_reload:
