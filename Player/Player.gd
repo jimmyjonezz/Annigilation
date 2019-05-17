@@ -2,6 +2,7 @@ extends "Character.gd"
 
 #загружаем префаб пуль
 export var Bullet : PackedScene
+var knockback = 0
 #onready var camera = $"../../Position/Player/Camera2D"
 
 func _process(delta) -> void:
@@ -36,6 +37,6 @@ func shoot() -> void:
 	$Shooting.start()
 	var bullet = Bullet.instance()
 	get_parent().add_child(bullet)
-	bullet.start($Gun/Position2D.global_position, $Gun.rotation)
+	bullet.start($Gun/Position2D.global_position, $Gun.rotation, knockback)
 	#выстрел
 	#take_damage(-1)

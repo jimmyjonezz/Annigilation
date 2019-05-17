@@ -4,6 +4,7 @@ export var Bullet : PackedScene
 
 var r = 25
 var offset = 0
+var knockback = 0
 onready var player = $"../Position/Player"
 
 var current_health
@@ -26,12 +27,13 @@ func danmaku():
 		
 		var bullet = Bullet.instance()
 		get_parent().add_child(bullet)
-		bullet.start(Vector2(position.x, position.y + bullet_spread), angle) 
+		bullet.start(Vector2(position.x, position.y + bullet_spread), angle, knockback) 
 
 func _on_Tic_timeout():
 	#вычисляем дистанцию до игрока и стреляем
 	if position.distance_to(player.position) < 250:
-		danmaku()
+		return
+		#danmaku()
 
 func hit() -> void:
 	#var global_t = get_global_transform()

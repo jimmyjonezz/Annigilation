@@ -7,7 +7,9 @@
 radius = 2.00652
 height = 2.01147
 
-[node name="Bullet" type="KinematicBody2D"]
+[node name="Bullet" type="KinematicBody2D" groups=[
+"bullet",
+]]
 collision_layer = 16
 collision_mask = 14
 script = ExtResource( 1 )
@@ -23,5 +25,5 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-scale = Vector2( 0.300211, 0.196591 )
+scale = Vector2( 0.3, 0.2 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

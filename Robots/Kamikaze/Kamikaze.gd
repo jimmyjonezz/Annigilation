@@ -6,6 +6,7 @@ var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
 var current_health
+var knockdir
 
 func _ready():
 	randomize()
@@ -34,9 +35,21 @@ func _process(delta) -> void:
 		set_process(false)
 
 func hit() -> void:
-	#var global_t = get_global_transform()
+	for body in $hitbox.get_overlapping_bodies():
+		pass
+	
 	current_health -= 1
 	
 	if current_health == 0:
 		$"../../GUI".take_score()
 		queue_free()
+
+#я так и не понял, работает через раз
+# в прошлых версиях Годот все было изумительно
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("bullet"):
+		#knockdir = (body.transform.get_origin() - transform.origin) / 5
+		#velocity = move_and_slide(knockdir * position)
+		#print("knock: ", knockdir * position)
+		#print("pos: ", position)
+		pass
