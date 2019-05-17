@@ -25,7 +25,9 @@ func shooting() -> void:
 		return
 		
 	shoot()
-	camera.shake()
+	
+	#сатрясам экран
+	#camera.shake()
 	$Gun/AFPlayer.play("fire")
 	is_shooting = false
 
