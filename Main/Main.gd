@@ -11,7 +11,7 @@ class_name Main
 onready var camera = $Position/Player/Camera2D as Camera2D
 export var Kamikaze : PackedScene
 
-export var spawn_pos = [Vector2(64, 64), Vector2(750, 100),
+export var spawn_pos = [Vector2(100, 100), Vector2(750, 100),
 		Vector2(64, 550), Vector2(750, 550)]
 var pospos = []
 export var distance = 250
