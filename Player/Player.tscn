@@ -1,15 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Image/tileset.png" type="Texture" id=3]
+[ext_resource path="res://Image/hero/hero_shadow.png" type="Texture" id=3]
+[ext_resource path="res://Image/hero/hero.png" type="Texture" id=4]
+[ext_resource path="res://Image/hero/gun_01.png" type="Texture" id=5]
+[ext_resource path="res://Image/hero/hero_fire.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.63219
-height = 2.92169
+radius = 17.0881
+height = 51.6057
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 7.96554
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 20.499
+height = 50.1639
 
 [sub_resource type="Animation" id=3]
 length = 0.3
@@ -20,10 +24,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 9, 10 ]
+"update": 0,
+"values": [ 0, 3 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -35,10 +39,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 3, 0 ]
+"update": 0,
+"values": [ 0, 13 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Gun:position")
@@ -47,17 +51,17 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Shadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -74,17 +78,17 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 4, 5, 6 ]
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 16, 27 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Shadow:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -103,36 +107,35 @@ shape = SubResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+position = Vector2( 0, 4 )
+shape = SubResource( 6 )
 
 [node name="Shadow" type="Sprite" parent="."]
-position = Vector2( 0, 5.5 )
+position = Vector2( 2, 43 )
 texture = ExtResource( 3 )
-vframes = 8
-hframes = 8
-frame = 2
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+position = Vector2( 0.032238, -7.10843 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, 2 )
 vframes = 8
-hframes = 8
+hframes = 4
 frame = 6
 
 [node name="Gun" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-offset = Vector2( 2, 0 )
-vframes = 8
-hframes = 8
-frame = 1
+texture = ExtResource( 5 )
+offset = Vector2( 8, 1 )
+flip_h = true
 
 [node name="Position2D" type="Position2D" parent="Gun"]
-position = Vector2( 11, 1 )
+position = Vector2( 48, 0 )
 
 [node name="Fire" type="Sprite" parent="Gun/Position2D"]
-texture = ExtResource( 3 )
-vframes = 8
-hframes = 8
-frame = 10
+texture = ExtResource( 6 )
+flip_h = true
+vframes = 2
+hframes = 2
+frame = 3
 
 [node name="AFPlayer" type="AnimationPlayer" parent="Gun"]
 anims/fire = SubResource( 3 )

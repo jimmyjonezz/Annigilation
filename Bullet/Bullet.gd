@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Bullet
 
-var speed = 340
+var speed = 740
 var velocity = Vector2()
 
 func start(pos, dir) -> void:

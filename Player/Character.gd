@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Character
 
 #переменные: скорость передвижения, вектор направления, перезарядка и стрельба
-export (int) var speed = 80
+export (int) var speed = 180
 var velocity = Vector2()
 var is_reload = true
 var is_shooting = false
