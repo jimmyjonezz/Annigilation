@@ -65,9 +65,10 @@ func _physics_process(delta):
 		if body.is_in_group("enemy"):
 			knockdir = body.position - self.position
 			var pos = position - (knockdir * 2)
-			$Tween.interpolate_property(self, "position", position, pos, 0.4, $Tween.TRANS_LINEAR, $Tween.EASE_IN)
+			$Tween.interpolate_property(self, "position", 
+					position, pos, 0.3, 
+					$Tween.TRANS_LINEAR, $Tween.EASE_IN)
 			$Tween.start()
 			
 			if health < 1:
 				emit_signal("die")
-				print("die")

@@ -20,5 +20,3 @@ func _spawn_props():
 			var Firstkit_instance = Firstkit.instance()
 			Firstkit_instance.set_position(global_position)
 			$"../../SpawnProps/".add_child(Firstkit_instance)
-	
-	

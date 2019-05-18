@@ -8,11 +8,10 @@
 radius = 3.63219
 height = 2.92169
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=2]
 radius = 7.96554
 
-[sub_resource type="Animation" id=2]
-resource_name = "fire"
+[sub_resource type="Animation" id=3]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Position2D/Fire:frame")
@@ -27,7 +26,7 @@ tracks/0/keys = {
 "values": [ 9, 10 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -66,8 +65,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "walk"
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -105,7 +103,7 @@ shape = SubResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, 5.5 )
@@ -137,11 +135,11 @@ hframes = 8
 frame = 10
 
 [node name="AFPlayer" type="AnimationPlayer" parent="Gun"]
-anims/fire = SubResource( 2 )
+anims/fire = SubResource( 3 )
 
 [node name="APlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 3 )
-anims/walk = SubResource( 4 )
+anims/idle = SubResource( 4 )
+anims/walk = SubResource( 5 )
 
 [node name="Shooting" type="Timer" parent="."]
 wait_time = 0.4

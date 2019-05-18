@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	popup()
+
+func popup():
+	$Tween.interpolate_property(self, "position", 
+			position, position + Vector2(rand_range(-4, 4), rand_range(-4, 4)), 
+			0.3, $Tween.TRANS_LINEAR, $Tween.EASE_IN)
+	$Tween.start()
 
 func hitbox():
 	queue_free()

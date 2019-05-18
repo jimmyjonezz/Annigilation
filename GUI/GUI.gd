@@ -50,14 +50,11 @@ func _on_Tic_timeout():
 	timer()
 
 func _on_Restart_pressed():
+	get_tree().paused = false
 	get_tree().reload_current_scene()
-	get_tree().set_pause(false)
 
 func _on_Exit_pressed():
 	get_tree().quit()
-
-func _on_Player_paused():
-	$Pause.visible = true
 
 func _on_Continue_pressed():
 	get_tree().set_pause(false)
