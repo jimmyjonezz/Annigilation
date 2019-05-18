@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Props/Chest.gd" type="Script" id=1]
-[ext_resource path="res://Props/Ammo/Ammo.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Props/Firstkit/Firstkit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Props/Firstkit/Firstkit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
@@ -12,12 +11,11 @@ radius = 3.0
 collision_layer = 4
 collision_mask = 17
 script = ExtResource( 1 )
-Ammo = ExtResource( 2 )
-Firstkit = ExtResource( 3 )
+Firstkit = ExtResource( 2 )
 
 [node name="Image" type="Sprite" parent="."]
 scale = Vector2( 0.09375, 0.09375 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

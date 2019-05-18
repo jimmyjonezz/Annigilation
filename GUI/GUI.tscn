@@ -22,7 +22,7 @@ margin_bottom = -20.0
 [node name="Label" type="Label" parent="GUI"]
 margin_right = 70.0
 margin_bottom = 20.0
-text = "Test"
+text = "Health"
 
 [node name="time" type="Label" parent="GUI"]
 anchor_left = 0.5
@@ -30,8 +30,7 @@ anchor_right = 0.5
 margin_left = -15.0
 margin_right = 9.0
 margin_bottom = 31.0
-text = "Test
-"
+text = "Time"
 align = 1
 
 [node name="score" type="Label" parent="GUI"]
@@ -39,8 +38,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -145.0
 margin_bottom = 23.0
-text = "00000
-"
+text = "Score"
 align = 2
 autowrap = true
 clip_text = true
@@ -96,7 +94,6 @@ size_flags_vertical = 3
 text = "EXIT"
 
 [node name="Gameover" type="TextureRect" parent="."]
-editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0

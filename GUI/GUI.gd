@@ -25,6 +25,9 @@ func update_count_text(value):
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
+		if $Gameover.visible == true:
+			return
+			
 		var new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
 		$Pause.visible = new_pause_state
@@ -59,3 +62,12 @@ func _on_Player_paused():
 func _on_Continue_pressed():
 	get_tree().set_pause(false)
 	$Pause.visible = false
+
+func _on_Player_health_changed(health):
+	#animate_value(current_health, new_health)
+	update_count_text(health)
+	current_health = health
+
+func _on_Player_die():
+	get_tree().paused = true
+	$Gameover.visible = true

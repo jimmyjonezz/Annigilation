@@ -3,9 +3,8 @@
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Image/tileset.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 2.00652
-height = 2.01147
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.96454
 
 [node name="Bullet" type="KinematicBody2D" groups=[
 "bullet",

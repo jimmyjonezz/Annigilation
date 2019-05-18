@@ -4,19 +4,16 @@ class_name Bullet
 
 var speed = 340
 var velocity = Vector2()
-export (float) var knockback = 1
 
-func start(pos, dir, bullet_knockback) -> void:
+func start(pos, dir) -> void:
 	rotation = dir
 	position = pos
-	knockback = bullet_knockback
 	velocity += Vector2(speed, 0).rotated(rotation)
 
 func _physics_process(delta) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		queue_free()
-	#	velocity = velocity.bounce(collision.normal)
 		if collision.collider.has_method("hit"):
 			collision.collider.hit()
 

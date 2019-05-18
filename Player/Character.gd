@@ -7,6 +7,8 @@ export (int) var speed = 80
 var velocity = Vector2()
 var is_reload = true
 var is_shooting = false
+var health = 15
+export(int) var max_health = 25
 
 func pos():
 	return self.global_position
@@ -47,3 +49,10 @@ func get_input():
 		$APlayer.play("walk")
 	else:
 		$APlayer.play("idle")
+
+#health up or down
+func heal(amount):
+	health += amount
+	health = min(health, max_health)
+	#print("health: %s / amount: %s" % [health, amount])
+	emit_signal("health_changed", health)

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var Ammo : PackedScene
+#export var Ammo : PackedScene
 export var Firstkit : PackedScene
 
 func _ready():
@@ -15,13 +15,10 @@ func _spawn_props():
 	match rnd:
 		0:
 			return
-		1, 2: 
-			#патроны
-			var Ammo_instance = Ammo.instance()
-			Ammo_instance.set_position(global_position)
-			$"../../SpawnProps/".add_child(Ammo_instance)
-		3: 
+		1, 2, 3: 
 			#аптечка
 			var Firstkit_instance = Firstkit.instance()
 			Firstkit_instance.set_position(global_position)
 			$"../../SpawnProps/".add_child(Firstkit_instance)
+	
+	

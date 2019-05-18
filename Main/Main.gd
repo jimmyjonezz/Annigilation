@@ -14,7 +14,7 @@ export var Kamikaze : PackedScene
 export var spawn_pos = [Vector2(64, 64), Vector2(750, 100),
 		Vector2(64, 550), Vector2(750, 550)]
 var pospos = []
-export var distance = 300
+export var distance = 250
 
 func new_game() -> void:
 	randomize()
