@@ -9,7 +9,7 @@ radius = 3.63219
 height = 2.92169
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 11.2464
+radius = 6.94037
 
 [sub_resource type="Animation" id=2]
 resource_name = "fire"

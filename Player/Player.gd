@@ -3,6 +3,8 @@ extends "Character.gd"
 signal health_changed(health)
 signal die()
 
+var knockdir
+
 #загружаем префаб пуль
 export var Bullet : PackedScene
 #onready var camera = $"../../Position/Player/Camera2D"
@@ -10,6 +12,7 @@ export var Bullet : PackedScene
 func _ready():
 	emit_signal("health_changed", health)
 	$Area2D.connect("body_entered", self, "_body_entered")
+	$Area2D.connect("body_exited", self, "_body_exited")
 
 func _process(delta) -> void:
 	direction()
@@ -50,9 +53,13 @@ func _body_entered(body):
 			var kit = round(rand_range(3, 6))
 			heal(kit) #add heall 1 - 4
 			body.hitbox() #call function "hit" on body
-			
 	if body.is_in_group("enemy"):
-		$Damage.start()
+		if health > 1:
+			heal(-1)
+			$Damage.start()
+
+func _body_exited(body):
+	$Damage.stop()
 	
 func _physics_process(delta):
 	var overlapping_bodies = $Area2D.get_overlapping_bodies()
@@ -61,13 +68,12 @@ func _physics_process(delta):
 	
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy"):
-			if health > 1:
-				$Damage.start()
+			knockdir = body.position - self.position
+			position = position - (knockdir * 2)
+			
 			if health < 1:
 				emit_signal("die")
 				print("die")
 
 func _on_Damage_timeout():
-	$Damage.stop()
-	if health < max_health:
-		heal(-1)
+	heal(-1)

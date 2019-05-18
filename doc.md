@@ -1,15 +1,15 @@
-func _process(delta):
-    sweep_box = Rect2(global_position - sweep_box_size/2, sweep_box_size)   
+	func _process(delta):
+	sweep_box = Rect2(global_position - sweep_box_size/2, sweep_box_size)   
 
     for i in get_tree().get_nodes_in_group("bullet"):
-        if sweep_box.has_point(i.global_position):                           # We first create a sweepbox to filter out bullets too far away
+        if sweep_box.has_point(i.global_position):
+		# We first create a sweepbox to filter out bullets too far away
             var distance_squared = global_position.distance_squared_to(i.global_position)
             
-            if distance_squared < pow(radius+i.radius, 2):                   # This tells us if the bullet is closer than the sum of the radii
+            if distance_squared < pow(radius+i.radius, 2):
+			# This tells us if the bullet is closer than the sum of the radii
                 die()   
-				
-	
-			
+						
 	#simple knock		
 	if value.position.x > position.x:
 		position.x -= 10
@@ -20,8 +20,6 @@ func _process(delta):
 	if value.position.x < position.x:
 		position.y += 10
 		
-	
-	
 	#knockback
 	func _physics_process(delta):
 	var overlapping_bodies = $hitbox.get_overlapping_bodies()
@@ -39,7 +37,7 @@ func _process(delta):
 		velocity = move_and_collide(position - knockdir)
 		
 		
-		
+	#rand spawn props	
 	var rnd = randi() % 4
 	match rnd:
 		0:
@@ -59,4 +57,4 @@ func _process(delta):
 			#патроны
 			var Ammo_instance = Ammo.instance()
 			Ammo_instance.set_position(global_position)
-			$"../../SpawnProps/".add_child(Ammo_instance)
+			$"../../SpawnProps/".add_child(Ammo_instance)	
