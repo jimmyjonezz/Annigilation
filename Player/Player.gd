@@ -12,7 +12,6 @@ export var Bullet : PackedScene
 func _ready():
 	emit_signal("health_changed", health)
 	$Area2D.connect("body_entered", self, "_body_entered")
-	$Area2D.connect("body_exited", self, "_body_exited")
 
 func _process(delta) -> void:
 	direction()
@@ -54,12 +53,8 @@ func _body_entered(body):
 			heal(kit) #add heall 1 - 4
 			body.hitbox() #call function "hit" on body
 	if body.is_in_group("enemy"):
-		if health > 1:
+		if health > 0:
 			heal(-1)
-			$Damage.start()
-
-func _body_exited(body):
-	$Damage.stop()
 	
 func _physics_process(delta):
 	var overlapping_bodies = $Area2D.get_overlapping_bodies()
@@ -69,11 +64,10 @@ func _physics_process(delta):
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy"):
 			knockdir = body.position - self.position
-			position = position - (knockdir * 2)
+			var pos = position - (knockdir * 2)
+			$Tween.interpolate_property(self, "position", position, pos, 0.4, $Tween.TRANS_LINEAR, $Tween.EASE_IN)
+			$Tween.start()
 			
 			if health < 1:
 				emit_signal("die")
 				print("die")
-
-func _on_Damage_timeout():
-	heal(-1)

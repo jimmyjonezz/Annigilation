@@ -44,7 +44,7 @@ func timer():
 	
 		if elapsed <= 0:
 			$Gameover.visible = true
-			get_tree().paused = true
+			get_tree().set_pause(true)
 
 func _on_Tic_timeout():
 	timer()
@@ -69,5 +69,5 @@ func _on_Player_health_changed(health):
 	current_health = health
 
 func _on_Player_die():
-	get_tree().paused = true
+	get_tree().set_pause(true)
 	$Gameover.visible = true
