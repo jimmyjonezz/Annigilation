@@ -94,6 +94,4 @@ quality/2d/use_pixel_snap=true
 threads/thread_model=2
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-quality/filters/use_nearest_mipmap_filter=true
-quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"
