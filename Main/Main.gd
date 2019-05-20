@@ -12,7 +12,7 @@ onready var camera = $Position/Player/Camera2D as Camera2D
 export var Kamikaze : PackedScene
 
 export var spawn_pos = [Vector2(100, 100), Vector2(750, 100),
-		Vector2(64, 550), Vector2(750, 550)]
+		Vector2(100, 550), Vector2(750, 550)]
 var pospos = []
 export var distance = 350
 
@@ -49,11 +49,13 @@ func spawn_enemy() -> void:
 		if pospos[i] < distance:
 			Kamikaze_instance.position = spawn_pos[i]
 			
-			
+			get_node("SpawnEnemy").add_child(Kamikaze_instance)
 			var new_path = get_node("World/Navigation").get_simple_path(
 			Kamikaze_instance.position, get_pos)
 			Kamikaze_instance.path = new_path
-			get_node("SpawnEnemy").add_child(Kamikaze_instance)
+	
+		else:
+			return
 		#elif pospos[i] > distance:  #<-переделать!
 		#	return
 

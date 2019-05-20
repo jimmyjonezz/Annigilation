@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
-[ext_resource path="res://Image/fon.png" type="Texture" id=2]
+[ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Image/fon.png" type="Texture" id=3]
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -19,9 +20,14 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 
-[node name="Label" type="Label" parent="GUI"]
+[node name="health" type="Label" parent="GUI"]
 margin_right = 70.0
 margin_bottom = 20.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 2
 text = "Health"
 
 [node name="time" type="Label" parent="GUI"]
@@ -30,6 +36,10 @@ anchor_right = 0.5
 margin_left = -15.0
 margin_right = 9.0
 margin_bottom = 31.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "Time"
 align = 1
 
@@ -38,18 +48,21 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -145.0
 margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "Score"
 align = 2
 autowrap = true
 clip_text = true
 
 [node name="Pause" type="TextureRect" parent="."]
-editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 
 [node name="Panel2" type="Panel" parent="Pause"]
@@ -74,6 +87,7 @@ margin_right = 144.0
 margin_bottom = 45.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
 text = "CONTINUE"
 
 [node name="Restart" type="Button" parent="Pause/Panel2/GridContainer"]
@@ -82,6 +96,7 @@ margin_right = 144.0
 margin_bottom = 94.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
 text = "RESTART"
 
 [node name="Exit" type="Button" parent="Pause/Panel2/GridContainer"]
@@ -90,6 +105,7 @@ margin_right = 144.0
 margin_bottom = 143.0
 size_flags_horizontal = 7
 size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
 
 [node name="Gameover" type="TextureRect" parent="."]
@@ -98,7 +114,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 stretch_mode = 2
 
 [node name="Panel3" type="Panel" parent="Gameover"]

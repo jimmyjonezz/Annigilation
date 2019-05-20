@@ -21,7 +21,7 @@ func take_score():
 	
 #обновляем показатель жизни
 func update_count_text(value):
-	$GUI/Label.text = str(round(value)) + '/' + str(maximum)
+	$GUI/health.text = str(round(value)) + '/' + str(maximum)
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):

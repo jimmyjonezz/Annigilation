@@ -34,3 +34,8 @@ shape = SubResource( 2 )
 [node name="Popup" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 0, -61 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
