@@ -58,6 +58,7 @@ autowrap = true
 clip_text = true
 
 [node name="Pause" type="TextureRect" parent="."]
+editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
@@ -109,7 +110,6 @@ custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
 
 [node name="Gameover" type="TextureRect" parent="."]
-editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
@@ -139,6 +139,7 @@ margin_right = 144.0
 margin_bottom = 45.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
 text = "RESTART"
 
 [node name="Exit" type="Button" parent="Gameover/Panel3/GridContainer"]
@@ -147,6 +148,7 @@ margin_right = 144.0
 margin_bottom = 94.0
 size_flags_horizontal = 7
 size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
 
 [node name="Control" type="Control" parent="Gameover/Panel3/GridContainer"]

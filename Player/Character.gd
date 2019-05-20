@@ -10,9 +10,6 @@ var is_shooting = false
 var health = 15
 export(int) var max_health = 25
 
-func pos():
-	return self.global_position
-
 #спрайт у Игрока зеркалим и ган тоже (вертикально)
 func direction():
 	if position < get_global_mouse_position():
