@@ -22,7 +22,7 @@ func set_path(value: PoolVector2Array) -> void:
 func _process(delta) -> void:
 	var new_path = get_node("../../World/Navigation").get_simple_path(
 			position, get_node("../../Position/Player").position, false)
-	new_path.remove(0)
+	#new_path.remove(0)
 	if new_path.size() > 1:
 		path = new_path
 	

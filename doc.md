@@ -10,7 +10,7 @@
 			# This tells us if the bullet is closer than the sum of the radii
                 die()   
 						
-	#simple knock		
+	#bad simple knock		
 	if value.position.x > position.x:
 		position.x -= 10
 	if value.position.x < position.x:
@@ -53,8 +53,19 @@
 			Firstkit_instance.set_position(global_position)
 			$"../../SpawnProps/".add_child(Firstkit_instance)
 			
-			1: 
-			#патроны
-			var Ammo_instance = Ammo.instance()
-			Ammo_instance.set_position(global_position)
-			$"../../SpawnProps/".add_child(Ammo_instance)	
+			
+БЫЛА в MAIN:
+#находим сам путь
+func new_path_for_enemy() -> void:
+	var get_pos = get_node("Position/Player").position
+	var get_enemy = get_node("SpawnEnemy").get_child_count()
+	#print("get_enemy: %s" % get_enemy)
+	if get_enemy:
+		for x in range(get_enemy):
+			#print("child position: %s" % get_node("SpawnEnemy").get_child(x).position)
+			var new_path = get_node("World/Navigation").get_simple_path(
+					get_node("SpawnEnemy").get_child(x).position, 
+					get_pos, true)
+			new_path.remove(0)
+			if new_path.size() > 1:
+				get_node("SpawnEnemy").get_child(x).path = new_path
