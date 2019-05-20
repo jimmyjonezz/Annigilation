@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.gd" type="Script" id=1]
-[ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.2655
@@ -16,10 +16,9 @@ radius = 37.3363
 collision_layer = 2
 collision_mask = 27
 script = ExtResource( 1 )
-Popup = ExtResource( 2 )
 
 [node name="Image" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -31,3 +30,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource( 2 )
+
+[node name="Popup" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0, -61 )

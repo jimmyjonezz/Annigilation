@@ -62,7 +62,7 @@ editor/display_folded = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
 editor/display_folded = true
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]
 [connection signal="health_changed" from="Position/Player" to="GUI" method="_on_Player_health_changed"]

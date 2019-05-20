@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 class_name Kamikaze
 
-export var Popup : PackedScene
-
 var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
@@ -11,8 +9,8 @@ var current_health
 
 func _ready():
 	randomize()
-	current_health = round(rand_range(4, 6))
-	speed = rand_range(50, 65)
+	current_health = 6
+	speed = rand_range(80, 125)
 	set_process(false)
 	
 func set_path(value: PoolVector2Array) -> void:
@@ -36,8 +34,11 @@ func _process(delta) -> void:
 		set_process(false)
 
 func hit() -> void:
+	$Popup.visible = true
 	current_health -= 1
+	$Popup.heal(-1)
 	
 	if current_health == 0:
 		$"../../GUI".take_score()
 		queue_free()
+

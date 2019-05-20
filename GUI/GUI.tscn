@@ -44,6 +44,7 @@ autowrap = true
 clip_text = true
 
 [node name="Pause" type="TextureRect" parent="."]
+editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0

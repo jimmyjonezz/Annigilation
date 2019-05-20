@@ -14,7 +14,7 @@ export var Kamikaze : PackedScene
 export var spawn_pos = [Vector2(100, 100), Vector2(750, 100),
 		Vector2(64, 550), Vector2(750, 550)]
 var pospos = []
-export var distance = 250
+export var distance = 350
 
 func new_game() -> void:
 	randomize()
@@ -36,7 +36,7 @@ func set_camera_limits() -> void:
 	camera.limit_bottom = map_limits.end.y * map_cellsize.y
 	
 func spawn_enemy() -> void:
-	var get_pos = $Position/Player.pos()
+	var get_pos = get_node("Position/Player").position
 	var Kamikaze_instance = Kamikaze.instance()
 	
 	#нужно переработать!!!!
@@ -48,13 +48,14 @@ func spawn_enemy() -> void:
 	for i in range(pospos.size()):
 		if pospos[i] < distance:
 			Kamikaze_instance.position = spawn_pos[i]
+			
+			
+			var new_path = get_node("World/Navigation").get_simple_path(
+			Kamikaze_instance.position, get_pos)
+			Kamikaze_instance.path = new_path
+			get_node("SpawnEnemy").add_child(Kamikaze_instance)
 		#elif pospos[i] > distance:  #<-переделать!
 		#	return
-	
-	get_node("SpawnEnemy").add_child(Kamikaze_instance)
-	var new_path = get_node("World/Navigation").get_simple_path(
-			Kamikaze_instance.position, get_pos)
-	Kamikaze_instance.path = new_path
 
 #находим сам путь
 func new_path_for_enemy() -> void:
