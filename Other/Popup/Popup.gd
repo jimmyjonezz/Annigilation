@@ -14,7 +14,9 @@ func heal(amount):
 	healthf(health)
 
 func healthf(new_health):
+	#анимируем прогрессбар жизни
 	animate_value(current_health, new_health)
+	#новое значение текщей жизни
 	current_health = new_health
 	
 func animate_value(start, end):

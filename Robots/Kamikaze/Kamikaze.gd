@@ -44,4 +44,5 @@ func hit() -> void:
 		queue_free()
 
 func _on_Timer_timeout():
+	#прячем healthbar
 	$Popup.visible = false
