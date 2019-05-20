@@ -67,7 +67,7 @@ func new_path_for_enemy() -> void:
 			var new_path = get_node("World/Navigation").get_simple_path(
 					get_node("SpawnEnemy").get_child(x).position, 
 					get_pos, false)
-			new_path.remove(0)
+			#new_path.remove(0)
 			if new_path.size() > 1:
 				get_node("SpawnEnemy").get_child(x).path = new_path
 

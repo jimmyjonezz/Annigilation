@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Kamikaze
 
+export var Popup : PackedScene
+
 var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
