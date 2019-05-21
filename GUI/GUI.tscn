@@ -13,6 +13,7 @@ __meta__ = {
 }
 
 [node name="GUI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -110,6 +111,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
 
 [node name="Gameover" type="TextureRect" parent="."]
+editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0

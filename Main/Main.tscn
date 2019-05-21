@@ -14,6 +14,7 @@ script = ExtResource( 1 )
 Kamikaze = ExtResource( 2 )
 
 [node name="World" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 3 )]
 
@@ -21,35 +22,38 @@ Kamikaze = ExtResource( 2 )
 editor/display_folded = true
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 393.714, 1058.62 )
+position = Vector2( 1369.21, 575.075 )
 
 [node name="Chest2" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 860.331, 412.19 )
+position = Vector2( 2306.76, 1038.7 )
 
 [node name="Chest3" parent="SpawnProps" instance=ExtResource( 4 )]
 position = Vector2( 883.835, 806.143 )
 
 [node name="Chest4" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 314.411, 391.436 )
+position = Vector2( 692.838, 1589.79 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 5 )]
 position = Vector2( 572.491, 153.153 )
 
 [node name="Position" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Player" parent="Position" instance=ExtResource( 6 )]
-position = Vector2( 292.106, 137.369 )
 collision_mask = 15
-speed = 220
+speed = 300
 
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
-zoom = Vector2( 1.25, 1.25 )
-limit_left = -100
-limit_top = -100
+zoom = Vector2( 5, 5 )
+limit_left = 0
+limit_top = 0
 limit_right = 10000
 limit_bottom = 10000
 editor_draw_limits = true
