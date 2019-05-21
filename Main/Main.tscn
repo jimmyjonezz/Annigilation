@@ -25,13 +25,13 @@ position = Vector2( 572.491, 153.153 )
 [node name="SpawnProps" type="Node2D" parent="."]
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 404.211, 182.105 )
+position = Vector2( 393.714, 1058.62 )
 
 [node name="Chest2" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 603.15, 301.969 )
+position = Vector2( 860.331, 412.19 )
 
 [node name="Chest3" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 107.042, 226.173 )
+position = Vector2( 883.835, 806.143 )
 
 [node name="Chest4" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 314.411, 391.436 )

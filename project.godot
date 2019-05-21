@@ -42,6 +42,10 @@ config/name="Annihilation"
 run/main_scene="res://Main/Main.tscn"
 config/icon="res://Image/icon.png"
 
+[display]
+
+mouse_cursor/custom_image="res://Image/mouse.png"
+
 [input]
 
 ui_left={

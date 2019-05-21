@@ -11,7 +11,7 @@ class_name Main
 onready var camera = $Position/Player/Camera2D as Camera2D
 export var Kamikaze : PackedScene
 
-export var spawn_pos = [Vector2(100, 100), Vector2(750, 100),
+export var spawn_pos = [Vector2(150, 100), Vector2(750, 100),
 		Vector2(100, 550), Vector2(750, 550)]
 var pospos = []
 export var distance = 350
@@ -36,6 +36,7 @@ func set_camera_limits() -> void:
 	camera.limit_bottom = map_limits.end.y * map_cellsize.y
 	
 func spawn_enemy() -> void:
+	var new_path
 	var get_pos = get_node("Position/Player").position
 	var Kamikaze_instance = Kamikaze.instance()
 	
@@ -49,19 +50,13 @@ func spawn_enemy() -> void:
 		if pospos[i] < distance:
 			Kamikaze_instance.position = spawn_pos[i]
 			
-			get_node("SpawnEnemy").add_child(Kamikaze_instance)
-			var new_path = get_node("World/Navigation").get_simple_path(
+			new_path = get_node("World/Navigation").get_simple_path(
 			Kamikaze_instance.position, get_pos)
-			Kamikaze_instance.path = new_path
+	
+	get_node("SpawnEnemy").add_child(Kamikaze_instance)
+	Kamikaze_instance.path = new_path
 		#elif pospos[i] > distance:  #<-переделать!
 		#	return
-
-# warning-ignore:unused_argument
-#задаем путь для врагов до игрока
-#слишком часто - надо переделать!
-func _process(delta) -> void:
-	pass
-	#new_path_for_enemy()
 
 #спавним наших друзей
 func _on_SpawnTimer_timeout():
