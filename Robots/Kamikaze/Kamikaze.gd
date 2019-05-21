@@ -6,7 +6,6 @@ var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
 var current_health
-var knockdir
 
 func _ready():
 	randomize()
@@ -23,7 +22,7 @@ func set_path(value: PoolVector2Array) -> void:
 func _process(delta) -> void:
 	
 	var new_path = get_node("../../World/Navigation").get_simple_path(
-			position, get_node("../../Position/Player").position, true)
+			position, get_node("../../Position/Player").position, false)
 	#new_path.remove(0)
 	if new_path.size() > 1:
 		path = new_path
