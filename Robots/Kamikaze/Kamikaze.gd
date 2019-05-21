@@ -10,8 +10,8 @@ var current_health
 func _ready():
 	randomize()
 	current_health = 6
-	speed = rand_range(80, 125)
-	set_process(false)
+	speed = rand_range(185, 195)
+	#set_process(false)
 	
 func set_path(value: PoolVector2Array) -> void:
 	path = value
@@ -21,8 +21,8 @@ func set_path(value: PoolVector2Array) -> void:
 	
 func _process(delta) -> void:
 	var new_path = get_node("../../World/Navigation").get_simple_path(
-			position, get_node("../../Position/Player").position, false)
-	#new_path.remove(0)
+			position, get_node("../../Position/Player").position, true)
+	new_path.remove(0)
 	if new_path.size() > 1:
 		path = new_path
 	

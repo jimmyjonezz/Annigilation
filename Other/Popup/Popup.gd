@@ -1,6 +1,5 @@
 extends Node2D
 
-var new_health
 var current_health = 0
 var max_health = 6
 var health = 6

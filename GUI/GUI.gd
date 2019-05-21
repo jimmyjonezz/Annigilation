@@ -50,7 +50,7 @@ func _on_Tic_timeout():
 	timer()
 
 func _on_Restart_pressed():
-	get_tree().paused = false
+	#get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_Exit_pressed():
