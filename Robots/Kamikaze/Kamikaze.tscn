@@ -5,7 +5,7 @@
 [ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 30.2655
+radius = 23.0868
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 37.3363
@@ -38,4 +38,6 @@ position = Vector2( 0, -61 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

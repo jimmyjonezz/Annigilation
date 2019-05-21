@@ -20,7 +20,8 @@ func new_game() -> void:
 	randomize()
 	$GUI/GUI/time.text = "05 : 00"
 	$GUI/GUI/score.text = "00000"
-	set_process(true)
+	get_tree().paused = false
+	print("start")
 
 func _ready() -> void:
 	set_camera_limits()
