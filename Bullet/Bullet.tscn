@@ -4,13 +4,13 @@
 [ext_resource path="res://Image/hero/her_bullet.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 6.17335
+radius = 5.05299
 
 [node name="Bullet" type="KinematicBody2D" groups=[
 "bullet",
 ]]
 collision_layer = 16
-collision_mask = 14
+collision_mask = 15
 script = ExtResource( 1 )
 
 [node name="Image" type="Sprite" parent="."]

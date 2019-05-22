@@ -12,8 +12,8 @@ radius = 17.0881
 height = 51.6057
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 20.499
-height = 50.1639
+radius = 24.2733
+height = 57.3942
 
 [sub_resource type="Animation" id=3]
 length = 0.3
@@ -109,6 +109,7 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 31
 script = ExtResource( 1 )
 Bullet = ExtResource( 2 )
 
@@ -117,7 +118,7 @@ position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
+collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 4 )
@@ -136,7 +137,6 @@ hframes = 4
 frame = 6
 
 [node name="Gun" type="Sprite" parent="."]
-editor/display_folded = true
 texture = ExtResource( 5 )
 offset = Vector2( 8, 1 )
 flip_h = true

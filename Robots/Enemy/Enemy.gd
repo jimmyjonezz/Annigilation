@@ -2,36 +2,26 @@ extends KinematicBody2D
 
 export var Bullet : PackedScene
 
-var r = 25
-var offset = 0
-onready var player = $"../../Position/Player"
+onready var player = get_node("../../Position/Player")
 
 var current_health
 
 func _ready():
 	randomize()
-	current_health = round(rand_range(4, 10))
+	current_health = round(rand_range(15, 20))
 	
 #это херота, ее надо переделать. 
 #закос под босса отстреливающего в разные стороны
 func danmaku():
 	#var global_t = get_global_transform()
 	
-	for i in range(8):
-		var angle = (PI * 2) / 13 * i + offset
-		#print(angle)
-		#var y = r * cos(randi() % 180 / PI)#r * cos(i * randi() % 180 / pi)
-		#var x = r * cos(randi() % 180 / PI)#r * sin(i + randi() % 180 / pi)
-		var bullet_spread = r * randf() * (25 / 100.0) * sign(rand_range(-1, 1))
+	for i in range(6):
+		#угол между игроком и enemy
+		var angle_dir = get_angle_to(player.global_transform.origin)
 		
 		var bullet = Bullet.instance()
 		get_parent().add_child(bullet)
-		bullet.start(Vector2(position.x, position.y + bullet_spread), angle) 
-
-func _on_Tic_timeout():
-	#вычисляем дистанцию до игрока и стреляем
-	if player.position.distance_to(player.position) < 250:
-		danmaku()
+		bullet.start(Vector2(position.x, position.y), angle_dir + sin(i) / PI)
 
 func hit() -> void:
 	#var global_t = get_global_transform()
@@ -39,3 +29,9 @@ func hit() -> void:
 	
 	if current_health == 0:
 		queue_free()
+
+func _process(delta):
+	pass
+
+func _on_Tic_timeout():
+	danmaku()

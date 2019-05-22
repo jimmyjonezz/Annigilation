@@ -10,18 +10,22 @@ radius = 30.0167
 [node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
-collision_layer = 2
-collision_mask = 25
+collision_layer = 32
+collision_mask = 8
 script = ExtResource( 1 )
 Bullet = ExtResource( 2 )
 
 [node name="Image" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
-[node name="Tic" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Tic" type="Timer" parent="."]
+wait_time = 1.6
+autostart = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -1.3113e-006, -1.3113e-006 )
+scale = Vector2( 4, 4 )
 [connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]

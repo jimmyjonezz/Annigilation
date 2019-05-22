@@ -47,7 +47,7 @@ speed = 300
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
 limit_top = 0
 limit_right = 14300
