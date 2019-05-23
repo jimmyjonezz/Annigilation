@@ -128,3 +128,27 @@ var angle_dir = get_angle_to(player.global_transform.origin)
 		
 		var target_dir = (player.global_position - global_position).normalized()
 		var rotation_dir = target_dir.linear_interpolate(target_dir, 0.5).angle()
+		
+		
+if get_parent().name == "Player":
+					bullet.collision_layer = 2
+				else:
+					bullet.collision_layer = 4
+					
+					var traveled = (position - origin).length()
+	$MeshInstance2D.self_modulate = bullet_colors.interpolate(traveled / max_range) # interpolate bullet color based on traveled distance
+	if traveled > max_range: # if travel distance > max travel distance delete the bullet
+		queue_free()
+		
+		
+			position = start_pos # start_pos is defined as the player's position - the bullet will spawn at player
+	origin = position # safe the origin
+	bullet_colors = bullet_gradient # store color gradient
+	$MeshInstance2D.self_modulate = bullet_gradient.get_color(0) # set bullet color to first color in the gradient
+	scale = Vector2(bullet_size,bullet_size) # set bullet scale factor
+	max_range = bullet_range # safe maximum travel distance
+	damage = bullet_damage # safe damage  
+	knockback = bullet_knockback # safe knockback
+	bullet_speed = bullet_speed * rand_range(1-ran_speed,1+ran_speed) # randomize bullet speed by +/- (ran_speed*100)%
+	direction = dir*bullet_speed # multiply the direction // calculated via (Player.position - get_global_mouse_position()).normalized() // with the bullet speed
+	direction = direction.rotated(rand_range(bullet_spread*-1,bullet_spread)) #

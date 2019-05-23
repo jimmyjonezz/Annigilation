@@ -19,12 +19,14 @@ func _ready():
 func danmaku():
 	if shooting:
 		var angle_dir = get_angle_to(player.global_transform.origin)
-	
+			
 		for i in range(5):
 			var x = radius * cos(angle_dir) + position.x
 			var y = radius * sin(angle_dir) + position.y
 			
 			var bullet = Bullet.instance()
+			if get_parent().name == "SpawnEnemy":
+				bullet.set_collision_mask_bit(2, false)
 			get_parent().add_child(bullet)
 			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.6)
 
