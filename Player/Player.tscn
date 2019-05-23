@@ -160,7 +160,7 @@ anims/idle = SubResource( 4 )
 anims/walk = SubResource( 5 )
 
 [node name="Shooting" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]

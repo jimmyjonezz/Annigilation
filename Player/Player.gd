@@ -55,9 +55,6 @@ func _body_entered(body):
 	if body.is_in_group("enemy"):
 		if health > 0:
 			heal(-1)
-	if body.is_in_group("bullet"):
-		if health > 0:
-			heal(-1)
 	
 func _physics_process(delta):
 	var overlapping_bodies = $Area2D.get_overlapping_bodies()
@@ -75,3 +72,9 @@ func _physics_process(delta):
 			
 			if health < 1:
 				emit_signal("die")
+
+func hit():
+	if health > 0:
+		heal(-1)
+	if health < 1:
+		emit_signal("die")

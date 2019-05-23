@@ -1,10 +1,18 @@
 extends Node2D
 
 var current_health = 0
-var max_health = 6
-var health = 6
+var max_health
+var health
 
 func _ready():
+	if get_parent().name == "Enemy":
+		max_health = 66
+		health = 66
+	else:
+		max_health = 6
+		health = 6
+		
+	$Progress.max_value = max_health
 	$Progress.value = health
 	
 func heal(amount):

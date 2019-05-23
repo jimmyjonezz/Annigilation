@@ -117,3 +117,14 @@ func move_along_path(distance):
 	# the character reached the end of the path
 	$Character.position = last_point
 	set_process(false)
+
+
+#для босса
+var angle_dir = get_angle_to(player.global_transform.origin)
+
+		#var y = r * cos(randi() % 180 / PI)#r * cos(i * randi() % 180 / pi)
+		#var x = r * cos(randi() % 180 / PI)#r * sin(i + randi() % 180 / pi)
+		var bullet_spread = r * randf() * (25 / 100.0) * sign(rand_range(-1, 1))
+		
+		var target_dir = (player.global_position - global_position).normalized()
+		var rotation_dir = target_dir.linear_interpolate(target_dir, 0.5).angle()
