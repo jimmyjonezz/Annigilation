@@ -67,7 +67,7 @@ func _physics_process(delta):
 			knockdir = body.position - self.position
 			#print(knockdir.angle(), knockdir)
 			var pos = position + knockdir
-			print("position: %s, pos: %s, knock: %s" % [position, pos, knockdir])
+			#print("position: %s, pos: %s, knock: %s" % [position, pos, knockdir])
 			move_and_slide(pos)
 			
 			if health < 1:

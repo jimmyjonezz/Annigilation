@@ -127,7 +127,7 @@ expand = true
 
 [node name="Noise" type="TextureRect" parent="VFX"]
 modulate = Color( 1, 1, 1, 0.392157 )
-self_modulate = Color( 1, 1, 1, 0.745098 )
+self_modulate = Color( 1, 1, 1, 0.392157 )
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 6 )

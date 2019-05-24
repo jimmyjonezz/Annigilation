@@ -20,21 +20,21 @@ Kamikaze = ExtResource( 2 )
 [node name="SpawnProps" type="Node2D" parent="."]
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 1733.71, 175.138 )
+position = Vector2( 2969.22, 621.707 )
 
 [node name="Chest2" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 2701.64, 1793.01 )
+position = Vector2( 1265.18, 2928.04 )
 
 [node name="Chest3" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 261.148, 1125.08 )
+position = Vector2( 369.069, 1192.07 )
 
 [node name="Chest4" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 637.151, 1792.29 )
+position = Vector2( 3160.26, 3965.59 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 5 )]
-position = Vector2( 1798.41, 569.159 )
+position = Vector2( 4202.44, 557.995 )
 
 [node name="Kamikaze" parent="SpawnEnemy" instance=ExtResource( 2 )]
 position = Vector2( 976.173, 1413.27 )
