@@ -35,10 +35,10 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="Start" type="Button" parent="CanvasLayer/Control"]
-margin_left = -199.736
-margin_top = 485.041
-margin_right = -29.736
-margin_bottom = 530.041
+margin_left = 4.94489
+margin_top = 469.174
+margin_right = 174.945
+margin_bottom = 514.174
 size_flags_horizontal = 7
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 4 )
