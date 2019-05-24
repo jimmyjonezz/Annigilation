@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Other/Popup/Popup.gd" type="Script" id=1]
-[ext_resource path="res://Image/Progress/rect819.png" type="Texture" id=2]
-[ext_resource path="res://Image/Progress/rect818.png" type="Texture" id=3]
+[ext_resource path="res://Image/UI/enemy_health_02.png" type="Texture" id=2]
+[ext_resource path="res://Image/UI/enemy_health_01.png" type="Texture" id=3]
 
 [node name="Popup" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,10 +12,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -14.0
-margin_right = 60.0
-margin_bottom = 14.0
+margin_left = -25.0
+margin_top = -8.0
+margin_right = 25.0
 max_value = 6.0
 value = 6.0
 texture_under = ExtResource( 2 )
