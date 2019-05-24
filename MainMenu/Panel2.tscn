@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=1]
+
+[node name="Panel2" type="Panel"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -282.0
+margin_right = 282.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -61.0
+margin_right = 82.0
+margin_bottom = 83.0
+
+[node name="Continue" type="Button" parent="GridContainer"]
+margin_right = 144.0
+margin_bottom = 45.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 1 )
+text = "CONTINUE"
+
+[node name="Restart" type="Button" parent="GridContainer"]
+margin_top = 49.0
+margin_right = 144.0
+margin_bottom = 94.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 1 )
+text = "RESTART"
+
+[node name="Exit" type="Button" parent="GridContainer"]
+margin_top = 98.0
+margin_right = 144.0
+margin_bottom = 143.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "EXIT"

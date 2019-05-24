@@ -38,8 +38,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Annihilation"
-run/main_scene="res://Main/Main.tscn"
+config/name="Back to Red Planet"
+run/main_scene="res://MainMenu/MainMenu.tscn"
 config/icon="res://Image/icon.png"
 
 [display]
