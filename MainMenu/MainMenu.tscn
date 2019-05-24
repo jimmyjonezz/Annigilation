@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=2]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -40.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -85.0
+margin_top = -72.0
+margin_right = 85.0
+margin_bottom = 72.0
+
+[node name="Start" type="Button" parent="CanvasLayer/Control/GridContainer"]
+margin_right = 170.0
+margin_bottom = 45.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+text = "START GAME"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Control/GridContainer"]
+margin_top = 49.0
+margin_right = 170.0
+margin_bottom = 94.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "EXIT"
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/GridContainer"]
+margin_top = 98.0
+margin_right = 170.0
+margin_bottom = 143.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+[connection signal="pressed" from="CanvasLayer/Control/GridContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GridContainer/Exit" to="." method="_on_Exit_pressed"]
