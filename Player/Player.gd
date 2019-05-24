@@ -7,7 +7,6 @@ var knockdir
 
 #загружаем префаб пуль
 export var Bullet : PackedScene
-#onready var camera = $"../../Position/Player/Camera2D"
 
 func _ready():
 	emit_signal("health_changed", health)
@@ -18,7 +17,6 @@ func _process(delta) -> void:
 	
 	#нажимаем клавиши
 	get_input()
-	move_and_collide(velocity * delta)
 
 	#стреляем
 	shooting()
@@ -41,10 +39,11 @@ func shooting() -> void:
 func shoot() -> void:
 	$Shooting.start()
 	var bullet = Bullet.instance()
+	if get_parent().name == "Position":
+		#отключаем слои для попадания пули в ящик и других врагов
+		bullet.set_collision_mask_bit(1, true)
 	get_parent().add_child(bullet)
 	bullet.start($Gun/Position2D.global_position, $Gun.rotation)
-	#выстрел
-	#take_damage(-1)
 	
 func _body_entered(body):
 	if body.is_in_group("props"):
@@ -57,6 +56,8 @@ func _body_entered(body):
 			heal(-1)
 	
 func _physics_process(delta):
+	move_and_collide(velocity * delta)
+	
 	var overlapping_bodies = $Area2D.get_overlapping_bodies()
 	if not overlapping_bodies:
 		return
@@ -64,17 +65,14 @@ func _physics_process(delta):
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy"):
 			knockdir = body.position - self.position
-			var pos = position - (knockdir * 2)
-			$Tween.interpolate_property(self, "position", 
-					position, pos, 0.3, 
-					$Tween.TRANS_LINEAR, $Tween.EASE_IN)
-			$Tween.start()
+			#print(knockdir.angle(), knockdir)
+			var pos = position + knockdir
+			print("position: %s, pos: %s, knock: %s" % [position, pos, knockdir])
+			move_and_slide(pos)
 			
 			if health < 1:
 				emit_signal("die")
 
 func hit():
-	if health > 0:
+	if health > 1:
 		heal(-1)
-	if health < 1:
-		emit_signal("die")

@@ -26,6 +26,7 @@ func danmaku():
 			
 			var bullet = Bullet.instance()
 			if get_parent().name == "SpawnEnemy":
+				#отключаем слои для попадания пули в ящик и других врагов
 				bullet.set_collision_mask_bit(2, false)
 			get_parent().add_child(bullet)
 			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.6)
@@ -39,6 +40,7 @@ func hit() -> void:
 	
 	#если число жизни равно ZERO - удаляем объект
 	if current_health == 0:
+		$"../../GUI".take_score()
 		queue_free()
 
 func _physics_process(delta):

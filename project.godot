@@ -90,6 +90,7 @@ ui_mouse_left={
 2d_physics/layer_3="props"
 2d_physics/layer_4="walls"
 2d_physics/layer_5="bullet"
+2d_physics/layer_6="kamikaze"
 
 [rendering]
 

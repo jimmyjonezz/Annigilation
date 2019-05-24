@@ -18,29 +18,31 @@ Kamikaze = ExtResource( 2 )
 [node name="Navigation" parent="World" instance=ExtResource( 3 )]
 
 [node name="SpawnProps" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 1369.21, 575.075 )
+position = Vector2( 1733.71, 175.138 )
 
 [node name="Chest2" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 2306.76, 1038.7 )
+position = Vector2( 2701.64, 1793.01 )
 
 [node name="Chest3" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 883.835, 806.143 )
+position = Vector2( 261.148, 1125.08 )
 
 [node name="Chest4" parent="SpawnProps" instance=ExtResource( 4 )]
-position = Vector2( 692.838, 1589.79 )
+position = Vector2( 637.151, 1792.29 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 5 )]
-position = Vector2( 1712.35, 746.347 )
+position = Vector2( 1798.41, 569.159 )
+
+[node name="Kamikaze" parent="SpawnEnemy" instance=ExtResource( 2 )]
+position = Vector2( 976.173, 1413.27 )
 
 [node name="Position" type="Node2D" parent="."]
 
 [node name="Player" parent="Position" instance=ExtResource( 6 )]
-position = Vector2( 1169.25, 801.944 )
+position = Vector2( 1159.13, 629.819 )
 collision_mask = 15
 speed = 300
 
@@ -52,6 +54,10 @@ limit_left = 0
 limit_top = 0
 limit_right = 14300
 limit_bottom = 14300
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
 editor_draw_limits = true
 script = ExtResource( 7 )
 

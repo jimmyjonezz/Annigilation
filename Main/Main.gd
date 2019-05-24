@@ -24,7 +24,7 @@ func new_game() -> void:
 	print("start")
 
 func _ready() -> void:
-	#set_camera_limits()
+	set_camera_limits()
 	new_game()
 	
 #устанавливаем ограничения камеры - тайлмапа

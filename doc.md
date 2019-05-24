@@ -129,6 +129,11 @@ var angle_dir = get_angle_to(player.global_transform.origin)
 		var target_dir = (player.global_position - global_position).normalized()
 		var rotation_dir = target_dir.linear_interpolate(target_dir, 0.5).angle()
 		
+					var target_dir = (body.global_position - global_position).normalized()
+			var rotation_dir = target_dir.linear_interpolate(target_dir, 0.5).angle()
+			print(target_dir, rotation_dir)
+			move_and_slide(position + target_dir * 6)
+		
 		
 if get_parent().name == "Player":
 					bullet.collision_layer = 2
@@ -152,3 +157,9 @@ if get_parent().name == "Player":
 	bullet_speed = bullet_speed * rand_range(1-ran_speed,1+ran_speed) # randomize bullet speed by +/- (ran_speed*100)%
 	direction = dir*bullet_speed # multiply the direction // calculated via (Player.position - get_global_mouse_position()).normalized() // with the bullet speed
 	direction = direction.rotated(rand_range(bullet_spread*-1,bullet_spread)) #
+	
+	#как knockdir работает ахуенно, но проваливается в колизионы
+	$Tween.interpolate_property(self, "position", 
+					position, pos, 0.3, 
+					$Tween.TRANS_LINEAR, $Tween.EASE_IN)
+			$Tween.start()
