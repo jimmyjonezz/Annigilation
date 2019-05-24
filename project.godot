@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Back to Red Planet"
+config/name="Back to the Red Planet"
 run/main_scene="res://MainMenu/MainMenu.tscn"
 config/icon="res://Image/icon.png"
 
