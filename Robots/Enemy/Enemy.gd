@@ -49,12 +49,16 @@ func _physics_process(delta):
 	#дистанцию до игрока
 	var target_dis = position.distance_to(player.global_position)
 	if target_dis > 300 and target_dis < 700:
-		#двигаем игрока
+		#двигаем enemy
+		$APlayer.play("walk")
 		velocity = target_dir * speed * delta
 		move_and_collide(velocity)
+	else:
+		$APlayer.play("idle")
 
 func _on_Tic_timeout():
 	danmaku()
+	$APlayer.play("shoot")
 
 func _on_VisibilityNotifier2D_screen_exited():
 	shooting = false
