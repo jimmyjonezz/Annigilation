@@ -1,10 +1,41 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Image/Progress/rect819.png" type="Texture" id=2]
 [ext_resource path="res://Image/Progress/rect818.png" type="Texture" id=3]
 [ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Image/fon.png" type="Texture" id=5]
+[ext_resource path="res://Image/Screen_FX.png" type="Texture" id=6]
+[ext_resource path="res://Image/Screen_noise.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ScreenFX"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Border:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.4, 3.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.52549 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.631373 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Noise:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.6, 3.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.760784 ), Color( 1, 1, 1, 0.180392 ), Color( 1, 1, 1, 0.392157 ) ]
+}
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -187,6 +218,20 @@ size_flags_vertical = 7
 
 [node name="Tic" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ScreenFX"
+anims/ScreenFX = SubResource( 1 )
+
+[node name="Border" type="Sprite" parent="AnimationPlayer"]
+modulate = Color( 0.8, 0.8, 0.8, 1 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Noise" type="Sprite" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0.392157 )
+texture = ExtResource( 7 )
+centered = false
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Exit" to="." method="_on_Exit_pressed"]
