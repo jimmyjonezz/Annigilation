@@ -104,9 +104,8 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 17.9685
-height = 29.3222
+[sub_resource type="CircleShape2D" id=5]
+radius = 17.5719
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 31
@@ -162,5 +161,5 @@ one_shot = true
 [node name="Tween" type="Tween" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 10 )
+position = Vector2( 0, 25 )
 shape = SubResource( 5 )
