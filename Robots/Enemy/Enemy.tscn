@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Robots/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
@@ -24,6 +24,38 @@ tracks/0/keys = {
 "values": [ 0, 13 ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "shoot"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 24, 35 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 14, 23 ]
+}
+
 [node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
@@ -36,9 +68,10 @@ Bullet = ExtResource( 2 )
 texture = ExtResource( 3 )
 vframes = 8
 hframes = 8
-frame = 3
+frame = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Tic" type="Timer" parent="."]
@@ -46,8 +79,8 @@ wait_time = 1.6
 autostart = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0.5, -9.53674e-007 )
-scale = Vector2( 1.95, 2 )
+position = Vector2( 0.5, -14.3474 )
+scale = Vector2( 1.95, 3.43474 )
 
 [node name="Popup" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -59,6 +92,8 @@ one_shot = true
 
 [node name="APlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
+anims/shoot = SubResource( 4 )
+anims/walk = SubResource( 3 )
 [connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

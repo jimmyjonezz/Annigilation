@@ -163,3 +163,12 @@ if get_parent().name == "Player":
 					position, pos, 0.3, 
 					$Tween.TRANS_LINEAR, $Tween.EASE_IN)
 			$Tween.start()
+			
+	self:destroy()
+    self.stage.score=self.stage.score+self.bonus
+    table.insert(self.stage.objects,fx(self.x-15,self.y-15,self.stage, "explosion"))
+    local pi=math.pi
+    for i=0.25*3,2*pi, 0.25*pi do
+      local ax, ay = lume.vector(i, 1)
+      table.insert(self.stage.objects,projectile(self.x,self.y,self.stage,{ax=ax,ay=ay,type="gamma",owner=self}))      
+    end
