@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	get_tree().set_pause(false)
+	$APlayer.play("space")
 	
 func _input(event):
 	if event.is_action_pressed("ui_f"):

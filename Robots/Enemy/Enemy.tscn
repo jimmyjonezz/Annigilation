@@ -70,6 +70,7 @@ hframes = 8
 frame = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.86948, -17.6951 )
 shape = SubResource( 1 )
 
 [node name="Tic" type="Timer" parent="."]
@@ -77,8 +78,8 @@ wait_time = 1.6
 autostart = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0.5, -14.3474 )
-scale = Vector2( 1.95, 3.43474 )
+position = Vector2( 2.65211, -16.2604 )
+scale = Vector2( 2.16521, 2.76519 )
 
 [node name="Popup" parent="." instance=ExtResource( 4 )]
 visible = false

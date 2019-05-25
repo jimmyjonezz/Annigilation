@@ -40,6 +40,7 @@ func spawn_enemy() -> void:
 	var new_path : = PoolVector2Array()
 	var get_pos = get_node("Position/Player").position
 	var Kamikaze_instance = Kamikaze.instance()
+	
 	var node_count = get_node("Point").get_child_count()
 	var child_node = get_node("Point").get_children()
 	
