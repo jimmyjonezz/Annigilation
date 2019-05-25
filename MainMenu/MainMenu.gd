@@ -4,7 +4,7 @@ func _ready():
 	get_tree().set_pause(false)
 	
 func _input(event):
-	if Input.is_action_just_pressed("ui_f"):
+	if event.is_action_pressed("ui_f"):
 		 OS.window_fullscreen = !OS.window_fullscreen
 	
 func _on_Start_pressed():

@@ -19,11 +19,10 @@ func set_path(value: PoolVector2Array) -> void:
 		return
 	set_process(true)
 	
-func _process(delta) -> void:
-	
+func _physics_process(delta) -> void:
 	var new_path = get_node("../../World/Navigation").get_simple_path(
 			position, get_node("../../Position/Player").position, false)
-	#new_path.remove(0)
+	new_path.remove(0)
 	if new_path.size() > 1:
 		path = new_path
 	
@@ -36,9 +35,14 @@ func _process(delta) -> void:
 		else:
 			$Image.flip_h = false
 		
-		velocity = move_and_collide(direction * speed * delta)
+		if $APlayer.is_playing() and $APlayer.current_animation == "atack":
+			yield($APlayer, "animation_finished")
+		else:
+			velocity = move_and_collide(direction * speed * delta)
+			$APlayer.play("walk")
 	else:
-		set_process(false)
+		$APlayer.play("idle")
+		
 
 func hit() -> void:
 	$Popup.visible = true
@@ -53,3 +57,8 @@ func hit() -> void:
 func _on_Timer_timeout():
 	#прячем healthbar
 	$Popup.visible = false
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("player"):
+		$APlayer.play("atack")
+		#yield($APlayer, "animation_finished")

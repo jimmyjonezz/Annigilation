@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.gd" type="Script" id=1]
-[ext_resource path="res://Image/enemy_01/enemy_01_idle.png" type="Texture" id=2]
+[ext_resource path="res://Image/enemy_01/enemy_01_all.png" type="Texture" id=2]
 [ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -11,7 +11,8 @@ radius = 23.0868
 radius = 37.3363
 
 [sub_resource type="Animation" id=3]
-resource_name = "idle"
+resource_name = "atack"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Image:frame")
 tracks/0/interp = 1
@@ -19,14 +20,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 13 ]
+"update": 0,
+"values": [ 23, 35 ]
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "walk"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Image:frame")
 tracks/0/interp = 1
@@ -36,21 +36,37 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 0 ]
+"update": 0,
+"values": [ 0, 13 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 14, 22 ]
 }
 
 [node name="Kamikaze" type="KinematicBody2D" groups=[
 "enemy",
 ]]
-collision_layer = 2
-collision_mask = 27
+collision_layer = 32
+collision_mask = 41
 script = ExtResource( 1 )
 
 [node name="Image" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 4
-hframes = 4
+vframes = 8
+hframes = 8
+frame = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -71,9 +87,9 @@ position = Vector2( 0, -61 )
 wait_time = 2.0
 one_shot = true
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="APlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 3 )
-anims/walk = SubResource( 4 )
+anims/atack = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/walk = SubResource( 5 )
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

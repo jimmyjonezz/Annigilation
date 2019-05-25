@@ -3,7 +3,8 @@ extends "Character.gd"
 signal health_changed(health)
 signal die()
 
-var knockdir
+const KNOCKBACK_FORCE = 4.0
+var inbody = false
 
 #загружаем префаб пуль
 export var Bullet : PackedScene
@@ -11,6 +12,7 @@ export var Bullet : PackedScene
 func _ready():
 	emit_signal("health_changed", health)
 	$Area2D.connect("body_entered", self, "_body_entered")
+	$Area2D.connect("body_exited", self, "_body_exited")
 
 func _process(delta) -> void:
 	direction()
@@ -54,6 +56,10 @@ func _body_entered(body):
 	if body.is_in_group("enemy"):
 		if health > 0:
 			heal(-1)
+
+func _body_exited(body):
+	if body.is_in_group("enemy"):
+		inbody = false
 	
 func _physics_process(delta):
 	move_and_collide(velocity * delta)
@@ -64,16 +70,22 @@ func _physics_process(delta):
 	
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy"):
-			var target_dir = (body.position - global_position).normalized()
-			knockdir = body.position - self.position
-			#print(knockdir.angle(), knockdir)
-			var pos = position * target_dir
-			#print("position: %s, pos: %s, knock: %s" % [position, pos, knockdir])
-			move_and_slide(pos)
+			inbody = true
+			#реализован метод knockback - отталкивание перса
+			var target_dir = (position - body.position).normalized()
+			var pos = position * target_dir * delta * KNOCKBACK_FORCE
+			#print("position: %s, target: %s, pos: %s" % [position, target_dir, pos])
+			move_and_collide(pos)
 			
 			if health < 1:
 				emit_signal("die")
 
 func hit():
-	if health > 1:
+	if health >= 1:
 		heal(-1)
+	if health < 1:
+		emit_signal("die")
+
+func _on_Damage_timeout():
+	if inbody == true:
+		hit()

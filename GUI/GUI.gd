@@ -24,7 +24,7 @@ func update_count_text(value):
 	$GUI/health.text = str(round(value)) + '/' + str(maximum)
 	
 func _input(event):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		if $Gameover.visible == true:
 			return
 			

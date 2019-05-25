@@ -25,9 +25,6 @@ func danmaku():
 			var y = radius * sin(angle_dir) + position.y
 			
 			var bullet = Bullet.instance()
-			if get_parent().name == "SpawnEnemy":
-				#отключаем слои для попадания пули в ящик и других врагов
-				bullet.set_collision_mask_bit(2, false)
 			get_parent().add_child(bullet)
 			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.6)
 
@@ -48,7 +45,7 @@ func _physics_process(delta):
 	var target_dir = (player.global_position - global_position).normalized()
 	#дистанцию до игрока
 	var target_dis = position.distance_to(player.global_position)
-	if target_dis > 300 and target_dis < 700:
+	if target_dis > 300 and target_dis < 400:
 		#двигаем enemy
 		$APlayer.play("walk")
 		velocity = target_dir * speed * delta

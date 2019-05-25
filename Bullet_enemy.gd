@@ -5,13 +5,6 @@ class_name Bullet
 var speed = 940
 var velocity = Vector2()
 
-var sp = Sprite.new()
-
-func _ready(): 
-	if get_parent().name == "SpawnEnemy":
-		$Image.texture = load("res://Image/enemy_02/bullet_red.png")
-		_layer_off()
-
 func start(pos, dir) -> void:
 	rotation = dir
 	position = pos
@@ -25,8 +18,8 @@ func _physics_process(delta) -> void:
 			collision.collider.hit()
 			
 func _layer_off():
-	set_collision_mask_bit(3, false)
-	set_collision_mask_bit(6, false)
+	set_collision_mask_bit(2, false)
+	set_collision_mask_bit(1, false)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
