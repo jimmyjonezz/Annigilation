@@ -64,9 +64,10 @@ func _physics_process(delta):
 	
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy"):
+			var target_dir = (body.position - global_position).normalized()
 			knockdir = body.position - self.position
 			#print(knockdir.angle(), knockdir)
-			var pos = position + knockdir
+			var pos = position * target_dir
 			#print("position: %s, pos: %s, knock: %s" % [position, pos, knockdir])
 			move_and_slide(pos)
 			

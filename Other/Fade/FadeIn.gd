@@ -4,4 +4,5 @@ func fade_in():
 	$AnimationPlayer.play("Fade")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	get_tree().change_scene("res://Main/Main.tscn")
+	if anim_name == "Fade":
+		get_tree().change_scene("res://Main/Main.tscn")
