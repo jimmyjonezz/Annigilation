@@ -1,12 +1,15 @@
 extends Node2D
 
 func _ready():
-	pass # Replace with function body.
-
+	get_tree().set_pause(false)
+	
+func _input(event):
+	if Input.is_action_just_pressed("ui_f"):
+		 OS.window_fullscreen = !OS.window_fullscreen
+	
 func _on_Start_pressed():
-	var good = get_tree().change_scene("res://Main/Main.tscn")
-	if good:
-		print("start to game")
+	$CanvasLayer/FadeIn.show()
+	$CanvasLayer/FadeIn.fade_in()
 
 func _on_Exit_pressed():
-	queue_free()
+	get_tree().quit()

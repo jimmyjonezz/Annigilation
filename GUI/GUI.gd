@@ -68,3 +68,7 @@ func _on_Player_health_changed(health):
 func _on_Player_die():
 	get_tree().set_pause(true)
 	$Gameover.visible = true
+
+func _on_Main_pressed():
+	get_tree().set_pause(false)
+	get_tree().change_scene("res://MainMenu/MainMenu.tscn")

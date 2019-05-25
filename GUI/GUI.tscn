@@ -17,11 +17,11 @@ tracks/0/path = NodePath("Border:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2.3, 3.55023, 4.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.509804 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
@@ -33,7 +33,7 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1.5, 3.4, 4.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.745098 ), Color( 1, 1, 1, 0.156863 ), Color( 1, 1, 1, 0.392157 ) ]
 }
 
@@ -115,6 +115,7 @@ autowrap = true
 clip_text = true
 
 [node name="VFX" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -162,6 +163,14 @@ margin_left = -62.0
 margin_top = -61.0
 margin_right = 82.0
 margin_bottom = 83.0
+
+[node name="Main" type="Button" parent="Pause/Panel2/GridContainer"]
+margin_right = 148.0
+margin_bottom = 45.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 4 )
+text = "MAIN MENU"
 
 [node name="Continue" type="Button" parent="Pause/Panel2/GridContainer"]
 margin_right = 144.0
@@ -215,6 +224,14 @@ margin_top = -61.0
 margin_right = 82.0
 margin_bottom = 83.0
 
+[node name="Main" type="Button" parent="Gameover/Panel3/GridContainer"]
+margin_right = 144.0
+margin_bottom = 45.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 4 )
+text = "MAIN MENU"
+
 [node name="Restart" type="Button" parent="Gameover/Panel3/GridContainer"]
 margin_right = 144.0
 margin_bottom = 45.0
@@ -241,9 +258,11 @@ size_flags_vertical = 7
 
 [node name="Tic" type="Timer" parent="."]
 autostart = true
+[connection signal="pressed" from="Pause/Panel2/GridContainer/Main" to="." method="_on_Main_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Gameover/Panel3/GridContainer/Main" to="." method="_on_Main_pressed"]
 [connection signal="pressed" from="Gameover/Panel3/GridContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Gameover/Panel3/GridContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]
