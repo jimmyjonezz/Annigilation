@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-#export var Ammo : PackedScene
 export var Firstkit : PackedScene
 
 func _ready():

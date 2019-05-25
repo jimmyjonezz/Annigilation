@@ -5,8 +5,6 @@ class_name Bullet
 var speed = 940
 var velocity = Vector2()
 
-var sp = Sprite.new()
-
 func _ready(): 
 	if get_parent().name == "SpawnEnemy":
 		$Image.texture = load("res://Image/enemy_02/bullet_red.png")

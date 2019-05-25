@@ -26,7 +26,7 @@ func danmaku():
 			
 			var bullet = Bullet.instance()
 			get_parent().add_child(bullet)
-			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.6)
+			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.65)
 
 #если пуля попала, вызывается этот метод
 func hit() -> void:
@@ -45,7 +45,7 @@ func _physics_process(delta):
 	var target_dir = (player.global_position - global_position).normalized()
 	#дистанцию до игрока
 	var target_dis = position.distance_to(player.global_position)
-	if target_dis > 300 and target_dis < 400:
+	if target_dis > 300 and target_dis < 600:
 		#двигаем enemy
 		$APlayer.play("walk")
 		velocity = target_dir * speed * delta

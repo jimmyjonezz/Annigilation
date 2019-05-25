@@ -11,10 +11,8 @@ class_name Main
 onready var camera = $Position/Player/Camera2D as Camera2D
 export var Kamikaze : PackedScene
 
-export var spawn_pos = [Vector2(150, 100), Vector2(750, 100),
-		Vector2(100, 550), Vector2(750, 550)]
 var pospos = []
-export var distance = 350
+export var distance = 550
 
 func new_game() -> void:
 	randomize()
@@ -42,17 +40,19 @@ func spawn_enemy() -> void:
 	var new_path : = PoolVector2Array()
 	var get_pos = get_node("Position/Player").position
 	var Kamikaze_instance = Kamikaze.instance()
+	var node_count = get_node("Point").get_child_count()
+	var child_node = get_node("Point").get_children()
 	
 	#нужно переработать!!!!
 	#подобрать дистанцию для спавна enemy с ближайшей точки
 	pospos.clear()
-	for x in range(spawn_pos.size()):
-		pospos.append(get_pos.distance_to(spawn_pos[x]))
+	for x in range(node_count):
+		pospos.append(get_pos.distance_to(child_node[x].position))
 	
 	#проверяем дистанцию игрока до всех точек в массиве pospos
 	for i in range(pospos.size()):
 		if pospos[i] < distance:
-			Kamikaze_instance.position = spawn_pos[i]
+			Kamikaze_instance.position = child_node[i].position
 			
 			#массив из точек по плиткам
 			new_path = get_node("World/Navigation").get_simple_path(

@@ -41,9 +41,6 @@ func shooting() -> void:
 func shoot() -> void:
 	$Shooting.start()
 	var bullet = Bullet.instance()
-	if get_parent().name == "Position":
-		#отключаем слои для попадания пули в ящик и других врагов
-		bullet.set_collision_mask_bit(1, true)
 	get_parent().add_child(bullet)
 	bullet.start($Gun/Position2D.global_position, $Gun.rotation)
 	
