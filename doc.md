@@ -172,3 +172,13 @@ if get_parent().name == "Player":
       local ax, ay = lume.vector(i, 1)
       table.insert(self.stage.objects,projectile(self.x,self.y,self.stage,{ax=ax,ay=ay,type="gamma",owner=self}))      
     end
+	
+	or i=0.25*pi,2*pi, 0.25*pi 
+	
+	
+	set_process(false)
+	
+	
+	#пули отлетают...
+	velocity = velocity.bounce(collision.normal)
+	move_and_collide(velocity * delta)

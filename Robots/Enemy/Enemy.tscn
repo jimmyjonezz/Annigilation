@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 13 ]
+"values": [ 0, 14 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 24, 35 ]
+"values": [ 24, 36 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -67,7 +67,7 @@ Bullet = ExtResource( 2 )
 texture = ExtResource( 3 )
 vframes = 8
 hframes = 8
-frame = 24
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.86948, -17.6951 )

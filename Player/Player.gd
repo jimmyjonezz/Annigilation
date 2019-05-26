@@ -82,6 +82,12 @@ func hit():
 		heal(-1)
 	if health < 1:
 		emit_signal("die")
+		
+func hit_player():
+	if health >= 1:
+		heal(-1)
+	if health < 1:
+		emit_signal("die")
 
 func _on_Damage_timeout():
 	if inbody == true:
