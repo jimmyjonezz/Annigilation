@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Main/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=10]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -92,10 +93,14 @@ script = ExtResource( 8 )
 [node name="GUI" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
 
+[node name="Back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "Back"
+
 [node name="SpawnTimer" type="Timer" parent="."]
-editor/display_folded = true
-wait_time = 1.5
+wait_time = 0.8
 autostart = true
+[connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]
 [connection signal="health_changed" from="Position/Player" to="GUI" method="_on_Player_health_changed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

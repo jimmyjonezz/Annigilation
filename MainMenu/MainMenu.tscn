@@ -18,10 +18,10 @@ script = ExtResource( 1 )
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -78.0
-margin_top = -46.0
-margin_right = 78.0
-margin_bottom = 46.0
+margin_left = -171.0
+margin_top = -101.0
+margin_right = 171.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 598.063, 352.866 )
 texture = ExtResource( 2 )
 expand = true

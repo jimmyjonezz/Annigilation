@@ -84,6 +84,7 @@ scale = Vector2( 2.16521, 2.76519 )
 [node name="Popup" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 0, -61 )
+max_health = 66
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -9,6 +9,7 @@ var is_reload = true
 var is_shooting = false
 var health = 15
 export(int) var max_health = 25
+var count = 40
 
 #спрайт у Игрока зеркалим и ган тоже (вертикально)
 func direction():
@@ -53,3 +54,9 @@ func heal(amount):
 	health = min(health, max_health)
 	#print("health: %s / amount: %s" % [health, amount])
 	emit_signal("health_changed", health)
+	
+func damage(amount):
+	count += amount
+	count = min(count, 40)
+	#print("health: %s / amount: %s" % [health, amount])
+	emit_signal("damage", count)

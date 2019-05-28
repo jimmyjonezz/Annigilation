@@ -4,7 +4,7 @@ export var Bullet : PackedScene
 
 onready var player = get_node("../../Position/Player")
 
-var current_health
+onready var current_health
 var speed = 40
 var velocity = Vector2()
 var shooting = false
@@ -12,7 +12,10 @@ var radius = 55
 
 func _ready():
 	randomize()
-	current_health = 66 #round(rand_range(60, 66))
+	$Popup.scale.x = 2.2
+	$Popup.max_health = round(rand_range(60, 66))
+	$Popup.health = $Popup.max_health
+	current_health = $Popup.max_health
 	
 #это херота, ее надо переделать. 
 #закос под босса отстреливающего в разные стороны

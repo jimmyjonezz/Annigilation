@@ -168,4 +168,9 @@ shape = SubResource( 5 )
 
 [node name="Damage" type="Timer" parent="."]
 autostart = true
+
+[node name="Reload" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
 [connection signal="timeout" from="Damage" to="." method="_on_Damage_timeout"]
+[connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]

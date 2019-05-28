@@ -19,6 +19,7 @@ func new_game() -> void:
 	$GUI/GUI/time.text = "05 : 00"
 	$GUI/GUI/score.text = "00000"
 	get_tree().paused = false
+	$Back.play()
 	#print("start")
 
 func _ready() -> void:

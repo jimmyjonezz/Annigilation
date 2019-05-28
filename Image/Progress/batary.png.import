@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rect818.png-12a454df148c6cc62afe2ea6055f170a.stex"
+path="res://.import/batary.png-a7bfa733ebb2ac23035cf8bfa2276e0b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Image/Progress/rect818.png"
-dest_files=[ "res://.import/rect818.png-12a454df148c6cc62afe2ea6055f170a.stex" ]
+source_file="res://Image/Progress/batary.png"
+dest_files=[ "res://.import/batary.png-a7bfa733ebb2ac23035cf8bfa2276e0b.stex" ]
 
 [params]
 

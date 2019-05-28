@@ -5,13 +5,11 @@ class_name Kamikaze
 var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
-var current_health
+var current_health = 9
 
 func _ready():
 	randomize()
-	current_health = 6
 	speed = rand_range(165, 175)
-	#set_process(false)
 	
 func set_path(value: PoolVector2Array) -> void:
 	path = value
@@ -43,7 +41,6 @@ func _physics_process(delta) -> void:
 	else:
 		$APlayer.play("idle")
 		
-
 func hit() -> void:
 	$Popup.visible = true
 	current_health -= 1

@@ -2,6 +2,7 @@ extends "Character.gd"
 
 signal health_changed(health)
 signal die()
+signal damage(count)
 
 const KNOCKBACK_FORCE = 4.0
 var inbody = false
@@ -22,6 +23,7 @@ func _process(delta) -> void:
 
 	#стреляем
 	shooting()
+		
 	
 func shooting() -> void:
 	if !is_reload:
@@ -29,12 +31,14 @@ func shooting() -> void:
 		
 	if !is_shooting:
 		return
-		
-	shoot()
 	
-	#сатрясам экран
-	#camera.shake()
-	$Gun/AFPlayer.play("fire")
+	if count > 1:
+		shoot()
+		damage(-1)
+	
+		#сатрясам экран
+		#camera.shake()
+		$Gun/AFPlayer.play("fire")
 	is_shooting = false
 
 #стрельба - спавн пули, позиция и ее поворот
@@ -78,17 +82,18 @@ func _physics_process(delta):
 				emit_signal("die")
 
 func hit():
-	if health >= 1:
+	if health > 0:
 		heal(-1)
 	if health < 1:
 		emit_signal("die")
 		
 func hit_player():
-	if health >= 1:
-		heal(-1)
-	if health < 1:
-		emit_signal("die")
+	hit()
 
 func _on_Damage_timeout():
 	if inbody == true:
 		hit()
+
+func _on_Reload_timeout():
+	if count < 40:
+		damage(1)

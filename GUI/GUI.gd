@@ -3,6 +3,7 @@ extends CanvasLayer
 #health
 var maximum = 25
 var current_health = 0
+var current_count = 0
 
 #score
 var score = 0
@@ -72,3 +73,11 @@ func _on_Player_die():
 func _on_Main_pressed():
 	get_tree().set_pause(false)
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
+
+func _on_Player_damage(count):
+	current_count = count
+	animate_value(count, current_count)
+	
+func animate_value(start, end):
+	$Tween.interpolate_property($GUI/Count, "value", start, end, 0.2, $Tween.EASE_IN, $Tween.EASE_OUT)
+	$Tween.start()

@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
-[ext_resource path="res://Image/Progress/rect819.png" type="Texture" id=2]
-[ext_resource path="res://Image/Progress/rect818.png" type="Texture" id=3]
+[ext_resource path="res://Image/Progress/enemy_health_02.png" type="Texture" id=2]
+[ext_resource path="res://Image/Progress/enemy_health_01.png" type="Texture" id=3]
 [ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Image/Screen_FX.png" type="Texture" id=5]
-[ext_resource path="res://Image/Screen_noise.png" type="Texture" id=6]
-[ext_resource path="res://Image/fon.png" type="Texture" id=7]
+[ext_resource path="res://Image/Progress/batary.png" type="Texture" id=5]
+[ext_resource path="res://Image/Progress/energy.png" type="Texture" id=6]
+[ext_resource path="res://Image/Progress/energy_full.png" type="Texture" id=7]
+[ext_resource path="res://Image/Progress/heart.png" type="Texture" id=8]
+[ext_resource path="res://Image/Screen_FX.png" type="Texture" id=9]
+[ext_resource path="res://Image/Screen_noise.png" type="Texture" id=10]
+[ext_resource path="res://Image/fon.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ScreenFX"
@@ -60,16 +64,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -60.0
-margin_top = -40.0
-margin_right = 60.0
+margin_left = -105.0
+margin_top = -8.0
+margin_right = 105.0
 max_value = 65.0
 value = 15.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 
 [node name="GUI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -78,8 +81,9 @@ margin_right = -20.0
 margin_bottom = -20.0
 
 [node name="health" type="Label" parent="GUI"]
-margin_right = 70.0
-margin_bottom = 20.0
+margin_left = 41.0
+margin_right = 123.0
+margin_bottom = 28.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -114,8 +118,29 @@ align = 2
 autowrap = true
 clip_text = true
 
+[node name="Batrey" type="Sprite" parent="GUI"]
+position = Vector2( 14.8452, 46.1756 )
+scale = Vector2( 1.13668, 1.95675 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="TextureProgress" parent="GUI"]
+margin_left = 42.0
+margin_top = 30.0
+margin_right = 164.0
+margin_bottom = 63.0
+max_value = 40.0
+value = 40.0
+rounded = true
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+
+[node name="Heart" type="Sprite" parent="GUI"]
+position = Vector2( 16, 12 )
+scale = Vector2( 0.515413, 0.515413 )
+texture = ExtResource( 8 )
+
 [node name="VFX" type="Control" parent="."]
-editor/display_folded = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -123,15 +148,15 @@ anchor_bottom = 1.0
 self_modulate = Color( 1, 1, 1, 0.509804 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 5 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="Noise" type="TextureRect" parent="VFX"]
 modulate = Color( 1, 1, 1, 0.392157 )
 self_modulate = Color( 1, 1, 1, 0.392157 )
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
 expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VFX"]
@@ -144,7 +169,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 7 )
+texture = ExtResource( 11 )
 expand = true
 
 [node name="Panel2" type="Panel" parent="Pause"]
@@ -204,7 +229,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 7 )
+texture = ExtResource( 11 )
 stretch_mode = 2
 
 [node name="Panel3" type="Panel" parent="Gameover"]
@@ -258,6 +283,8 @@ size_flags_vertical = 7
 
 [node name="Tic" type="Timer" parent="."]
 autostart = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Main" to="." method="_on_Main_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Pause/Panel2/GridContainer/Restart" to="." method="_on_Restart_pressed"]
