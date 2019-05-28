@@ -1,7 +1,7 @@
 extends Node2D
 
-export var max_health = 9
-var health = 9
+export var max_health = 0
+var health = 0
 
 func _ready():
 	if get_parent().name == "Enemy":
