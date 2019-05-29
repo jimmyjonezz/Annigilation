@@ -38,23 +38,24 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -118.346
-margin_top = -48.3456
-margin_right = -20.3456
-margin_bottom = -20.3456
+margin_left = -118.0
+margin_top = -48.0
+margin_right = -20.0
+margin_bottom = -20.0
 custom_fonts/font = ExtResource( 3 )
 text = "Press F"
 valign = 1
 
-[node name="Fullscreen2" type="Label" parent="CanvasLayer/Labels"]
+[node name="Gaminator" type="Label" parent="CanvasLayer/Labels"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -103.0
-margin_top = 20.0
+margin_top = 10.0
 margin_right = 103.0
-margin_bottom = 28.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 3 )
 text = "GAMINATOR #19"
+align = 1
 valign = 1
 
 [node name="Control" type="Control" parent="CanvasLayer"]

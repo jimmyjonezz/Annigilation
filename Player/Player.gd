@@ -23,7 +23,6 @@ func _process(delta) -> void:
 
 	#стреляем
 	shooting()
-		
 	
 func shooting() -> void:
 	if !is_reload:

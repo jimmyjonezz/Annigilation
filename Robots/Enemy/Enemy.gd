@@ -41,7 +41,7 @@ func hit() -> void:
 	
 	#если число жизни равно ZERO - удаляем объект
 	if current_health == 0:
-		$"../../GUI".take_score()
+		$"../../GUI".take_score(30)
 		queue_free()
 
 func _physics_process(delta):

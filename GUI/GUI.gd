@@ -16,9 +16,11 @@ func _ready():
 	update_count_text(15)
 	
 #очки
-func take_score():
-	score += 10
+func take_score(count):
+	score += count
 	$GUI/score.text = "%05d" % [score]
+	$Victory/Panel3/Score.text = "You score: %05d" % [score]
+	$Gameover/Panel3/Score.text = "You score: %05d" % [score]
 	
 #обновляем показатель жизни
 func update_count_text(value):

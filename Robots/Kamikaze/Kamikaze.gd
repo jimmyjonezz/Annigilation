@@ -48,7 +48,7 @@ func hit() -> void:
 	$Timer.start()
 	
 	if current_health == 0:
-		$"../../GUI".take_score()
+		$"../../GUI".take_score(10)
 		queue_free()
 
 func _on_Timer_timeout():
