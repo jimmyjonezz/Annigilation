@@ -43,6 +43,7 @@ func hit() -> void:
 	if current_health == 0:
 		$"../../GUI".take_score(30)
 		queue_free()
+		$"../../".for_boss()
 
 func _physics_process(delta):
 	#вычисляем нормаль - направление в сторону игрока

@@ -12,7 +12,7 @@ var time_start
 var time_now = 0
 
 func _ready():
-	time_start = 300 #1140 = 19 минут
+	time_start = 1140 #1140 = 19 минут
 	update_count_text(15)
 	
 #очки
@@ -52,30 +52,31 @@ func timer():
 func _on_Tic_timeout():
 	timer()
 
+#кнопка рестарт
 func _on_Restart_pressed():
 	#get_tree().paused = false
 	get_tree().reload_current_scene()
-
+#выход
 func _on_Exit_pressed():
 	get_tree().quit()
-
+#продолжить
 func _on_Continue_pressed():
 	get_tree().set_pause(false)
 	$Pause.visible = false
-
+#для показателя жизни
 func _on_Player_health_changed(health):
 	#animate_value(current_health, new_health)
 	update_count_text(health)
 	current_health = health
-
+#если игрок умер
 func _on_Player_die():
 	get_tree().set_pause(true)
 	$Gameover.visible = true
-
+#в главное меню
 func _on_Main_pressed():
 	get_tree().set_pause(false)
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
-
+#заряд оружия
 func _on_Player_damage(count):
 	current_count = count
 	animate_value(count, current_count)

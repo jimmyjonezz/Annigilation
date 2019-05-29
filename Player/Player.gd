@@ -4,7 +4,7 @@ signal health_changed(health)
 signal die()
 signal damage(count)
 
-const KNOCKBACK_FORCE = 4.0
+const KNOCKBACK_FORCE = 1.0
 var inbody = false
 
 #загружаем префаб пуль
@@ -73,7 +73,7 @@ func _physics_process(delta):
 			inbody = true
 			#реализован метод knockback - отталкивание перса
 			var target_dir = (position - body.position).normalized()
-			var pos = position * target_dir * delta * KNOCKBACK_FORCE
+			var pos = position + target_dir * delta * KNOCKBACK_FORCE
 			#print("position: %s, target: %s, pos: %s" % [position, target_dir, pos])
 			move_and_collide(pos)
 			

@@ -1,76 +1,83 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Props/Chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Point/Point.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Robots/Enemy/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Main/Camera2D.gd" type="Script" id=8]
-[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Robots/Boss/Boss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Map/Navigation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Props/Chest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Point/Point.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Robots/Enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Main/Camera2D.gd" type="Script" id=9]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=11]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 Kamikaze = ExtResource( 2 )
+Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Navigation" parent="World" instance=ExtResource( 3 )]
+[node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
 [node name="SpawnProps" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Chest" parent="SpawnProps" instance=ExtResource( 4 )]
+[node name="Chest" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 4823.85, 292.593 )
 
-[node name="Chest2" parent="SpawnProps" instance=ExtResource( 4 )]
+[node name="Chest2" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 569.278, 2648.93 )
 
-[node name="Chest3" parent="SpawnProps" instance=ExtResource( 4 )]
+[node name="Chest3" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 383.145, 1163.92 )
 
-[node name="Chest4" parent="SpawnProps" instance=ExtResource( 4 )]
+[node name="Chest4" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 3160.26, 3965.59 )
 
-[node name="Chest5" parent="SpawnProps" instance=ExtResource( 4 )]
+[node name="Chest5" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 3704.37, 2703.47 )
 
 [node name="Point" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Point" parent="Point" instance=ExtResource( 5 )]
+[node name="Point" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 1213.99, 2115.85 )
 
-[node name="Point6" parent="Point" instance=ExtResource( 5 )]
+[node name="Point6" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 378.917, 522.036 )
 
-[node name="Point5" parent="Point" instance=ExtResource( 5 )]
+[node name="Point5" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 2497.08, 587.856 )
 
-[node name="Point2" parent="Point" instance=ExtResource( 5 )]
+[node name="Point2" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 3393.36, 2371.71 )
 
-[node name="Point3" parent="Point" instance=ExtResource( 5 )]
+[node name="Point3" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 2120.64, 4031.45 )
 
-[node name="Point4" parent="Point" instance=ExtResource( 5 )]
+[node name="Point4" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 319.481, 3398.82 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
-[node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 6 )]
+[node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 7 )]
 position = Vector2( 4202.44, 557.995 )
 
-[node name="Enemy2" parent="SpawnEnemy" instance=ExtResource( 6 )]
-position = Vector2( 3717.64, 3976.48 )
+[node name="Enemy2" parent="SpawnEnemy" instance=ExtResource( 7 )]
+position = Vector2( 4562.61, 831.328 )
 
-[node name="Enemy3" parent="SpawnEnemy" instance=ExtResource( 6 )]
-position = Vector2( 5128.54, 4504.79 )
+[node name="Enemy3" parent="SpawnEnemy" instance=ExtResource( 7 )]
+position = Vector2( 4956.42, 811.975 )
+
+[node name="Boss" type="Position2D" parent="."]
+position = Vector2( 7767.04, 4589.61 )
 
 [node name="Position" type="Node2D" parent="."]
 
-[node name="Player" parent="Position" instance=ExtResource( 7 )]
+[node name="Player" parent="Position" instance=ExtResource( 8 )]
 position = Vector2( 3661.9, 731.282 )
 collision_mask = 15
 speed = 300
@@ -88,13 +95,13 @@ drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 editor_draw_limits = true
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
-[node name="GUI" parent="." instance=ExtResource( 9 )]
+[node name="GUI" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 
 [node name="Back" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 bus = "Back"
 
 [node name="SpawnTimer" type="Timer" parent="."]
