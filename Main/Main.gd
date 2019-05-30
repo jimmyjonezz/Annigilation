@@ -14,28 +14,27 @@ export var Boss : PackedScene
 
 var pospos = []
 var is_boss_spawning
-var count_enemy = 0
+var count_enemy = 1
 export var distance = 550
 
 func for_boss():
-	var count_enemy = get_node("SpawnEnemy").get_child_count()
-	print(count_enemy)
+	count_enemy -= 1
 	if count_enemy == 0:
 		is_boss_spawning = true
+		count_enemy = 4
 		
 func spawn_boss():
 	var Boss_instance = Boss.instance()
 	Boss_instance.position = get_node("Boss").position
-	get_node("Boss").add_child(Boss_instance)
+	get_node("SpawnEnemy").add_child(Boss_instance)
+	is_boss_spawning = false
 
 func new_game() -> void:
 	randomize()
-	for_boss()
 	$GUI/GUI/time.text = "19 : 00"
 	$GUI/GUI/score.text = "00000"
 	get_tree().paused = false
 	$Back.play()
-	#print("start")
 
 func _ready() -> void:
 	set_camera_limits()
@@ -85,5 +84,4 @@ func _on_SpawnTimer_timeout():
 	spawn_enemy()
 	
 	if is_boss_spawning:
-		print("true")
 		spawn_boss()

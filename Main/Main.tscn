@@ -62,6 +62,7 @@ position = Vector2( 2120.64, 4031.45 )
 position = Vector2( 319.481, 3398.82 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 7 )]
 position = Vector2( 4202.44, 557.995 )
@@ -73,7 +74,7 @@ position = Vector2( 4562.61, 831.328 )
 position = Vector2( 4956.42, 811.975 )
 
 [node name="Boss" type="Position2D" parent="."]
-position = Vector2( 7767.04, 4589.61 )
+position = Vector2( 3977, 900 )
 
 [node name="Position" type="Node2D" parent="."]
 
