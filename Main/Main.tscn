@@ -149,6 +149,7 @@ position = Vector2( 7927.32, 1040.28 )
 position = Vector2( 7375, 4280 )
 
 [node name="Position" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Player" parent="Position" instance=ExtResource( 9 )]
 position = Vector2( 1921, 1288 )
