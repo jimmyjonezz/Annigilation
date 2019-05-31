@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Bullet
 
+export var Boom : PackedScene
+
 var speed = 940
 var velocity = Vector2()
 var switch = false
@@ -16,13 +18,17 @@ func start(pos, dir) -> void:
 	rotation = dir
 	position = pos
 	velocity += Vector2(speed, 0).rotated(rotation)
+	
+func spawn_boom():
+	var Boom_instance = Boom.instance()
+	Boom_instance.set_position(global_position)
+	$"../../Other/".add_child(Boom_instance)
 
 func _physics_process(delta) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		explode()
-		#yield(get_tree().create_timer(0.4),"timeout")
-		#queue_free()
+		spawn_boom()
+		queue_free()
 		if switch:
 			if collision.collider.has_method("hit_player"):
 				collision.collider.hit_player()
@@ -36,8 +42,3 @@ func _layer_off():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-	
-func explode():
-	$Image.hide()
-	$Boom.show()
-	$Boom/AnimationPlayer.play("Boom")

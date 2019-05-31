@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Image/hero/her_bullet.png" type="Texture" id=2]
-[ext_resource path="res://Other/Explosion/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Other/Explosion/Explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Image/hero/her_bullet.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.05299
@@ -13,9 +13,10 @@ radius = 5.05299
 collision_layer = 16
 collision_mask = 39
 script = ExtResource( 1 )
+Boom = ExtResource( 2 )
 
 [node name="Image" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,7 +25,4 @@ shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 0.96148, 0.652648 )
-
-[node name="Boom" parent="." instance=ExtResource( 3 )]
-visible = false
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
