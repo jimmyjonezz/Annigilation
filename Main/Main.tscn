@@ -19,6 +19,7 @@ Kamikaze = ExtResource( 2 )
 Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
@@ -89,6 +90,7 @@ position = Vector2( 8510, 1108 )
 position = Vector2( 1923, 1677 )
 
 [node name="Point" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Point" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 1213, 3018 )
@@ -179,6 +181,8 @@ bus = "Back"
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.3
 autostart = true
+
+[node name="Other" type="Node2D" parent="."]
 [connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]
 [connection signal="health_changed" from="Position/Player" to="GUI" method="_on_Player_health_changed"]
