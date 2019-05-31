@@ -22,6 +22,7 @@ Boss = ExtResource( 3 )
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
 [node name="SpawnProps" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 6464, 2650 )
@@ -90,7 +91,7 @@ editor/display_folded = true
 position = Vector2( 1213, 3018 )
 
 [node name="Point6" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 1222, 566 )
+position = Vector2( 820, 578 )
 
 [node name="Point9" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 571, 1601 )
@@ -117,7 +118,7 @@ position = Vector2( 3909, 722 )
 position = Vector2( 5053, 846 )
 
 [node name="Point7" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 3519, 2498 )
+position = Vector2( 3779, 2505 )
 
 [node name="Point14" parent="Point" instance=ExtResource( 6 )]
 position = Vector2( 2863, 3261 )
@@ -140,7 +141,7 @@ position = Vector2( 3265, 4926 )
 position = Vector2( 4020, 3656 )
 
 [node name="Enemy3" parent="SpawnEnemy" instance=ExtResource( 7 )]
-position = Vector2( 2947, 2176 )
+position = Vector2( 3129, 2362 )
 
 [node name="Enemy4" parent="SpawnEnemy" instance=ExtResource( 7 )]
 position = Vector2( 7927.32, 1040.28 )
@@ -158,7 +159,7 @@ speed = 300
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
-zoom = Vector2( 1.3, 1.3 )
+zoom = Vector2( 1.4, 1.4 )
 limit_left = 0
 limit_top = 0
 limit_right = 14300
@@ -178,7 +179,7 @@ stream = ExtResource( 11 )
 bus = "Back"
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 1.6
+wait_time = 2.3
 autostart = true
 [connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]

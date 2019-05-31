@@ -9,7 +9,7 @@
 [ext_resource path="res://Image/UI/Exit_2.png" type="Texture" id=7]
 [ext_resource path="res://Image/UI/Exit_1.png" type="Texture" id=8]
 [ext_resource path="res://Other/Fade/FadeIn.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sound/woetersepnina.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=10]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,7 +29,6 @@ expand = true
 stretch_mode = 5
 
 [node name="Labels" type="Control" parent="CanvasLayer"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 7
@@ -60,8 +59,47 @@ text = "GAMINATOR #19"
 align = 1
 valign = 1
 
+[node name="Authors" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -403.0
+
+[node name="cod" type="Label" parent="CanvasLayer/Authors"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -148.5
+margin_top = 464.393
+margin_right = 187.5
+margin_bottom = 509.393
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.67451, 0.454902, 0.0784314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "coding: antonka"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="design" type="Label" parent="CanvasLayer/Authors"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -148.5
+margin_top = 496.393
+margin_right = 187.5
+margin_bottom = 541.393
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0.67451, 0.454902, 0.0784314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "graphics/design: anim86"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
 [node name="Control" type="Control" parent="CanvasLayer"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -439.0

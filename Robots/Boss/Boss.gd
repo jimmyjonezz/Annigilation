@@ -29,6 +29,7 @@ func danmaku():
 			var bullet = Bullet.instance()
 			get_parent().add_child(bullet)
 			bullet.start(Vector2(bx, by), angle_dir + (PI / 20 * i) - 0.38)
+			$Boom.play()
 			yield(get_tree().create_timer(0.1), "timeout")
 
 func _on_Timer_timeout():
