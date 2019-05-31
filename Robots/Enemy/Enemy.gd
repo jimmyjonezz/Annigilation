@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export var Bullet : PackedScene
+export var Boom : PackedScene
 
 onready var player = get_node("../../Position/Player")
 
@@ -43,8 +44,9 @@ func hit() -> void:
 	#если число жизни равно ZERO - удаляем объект
 	if current_health == 0:
 		$"../../GUI".take_score(30)
-		queue_free()
 		$"../../".for_boss()
+		spawn_boom()
+		queue_free()
 
 func _physics_process(delta):
 	#вычисляем нормаль - направление в сторону игрока
@@ -73,3 +75,8 @@ func _on_VisibilityNotifier2D_screen_entered():
 
 func _on_Timer_timeout():
 	$Popup.visible = false
+	
+func spawn_boom():
+	var Boom_instance = Boom.instance()
+	Boom_instance.set_position(global_position)
+	$"../../Other/".add_child(Boom_instance)

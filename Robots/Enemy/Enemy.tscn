@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Robots/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Image/enemy_02/enemy_02_all.png" type="Texture" id=3]
-[ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=5]
+[ext_resource path="res://Other/Kaboom/Kaboom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Image/enemy_02/enemy_02_all.png" type="Texture" id=4]
+[ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0167
@@ -63,9 +64,10 @@ collision_layer = 2
 collision_mask = 27
 script = ExtResource( 1 )
 Bullet = ExtResource( 2 )
+Boom = ExtResource( 3 )
 
 [node name="Image" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 10
@@ -82,7 +84,7 @@ autostart = true
 position = Vector2( 2.65211, -16.2604 )
 scale = Vector2( 2.16521, 2.76519 )
 
-[node name="Popup" parent="." instance=ExtResource( 4 )]
+[node name="Popup" parent="." instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 0, -61 )
 max_health = 66
@@ -97,7 +99,7 @@ anims/shoot = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="Boom" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 bus = "Blaster"
 [connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
