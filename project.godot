@@ -40,6 +40,9 @@ _global_script_class_icons={
 
 config/name="Back to the Red Planet"
 run/main_scene="res://MainMenu/MainMenu.tscn"
+boot_splash/image="res://Image/4_black.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Image/icon.png"
 
 [display]

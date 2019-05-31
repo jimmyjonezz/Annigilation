@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Image/UI/main_bg.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Image/UI/Exit_2.png" type="Texture" id=7]
 [ext_resource path="res://Image/UI/Exit_1.png" type="Texture" id=8]
 [ext_resource path="res://Other/Fade/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sound/woetersepnina.ogg" type="AudioStream" id=10]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -94,5 +95,10 @@ texture_hover = ExtResource( 8 )
 
 [node name="FadeIn" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
+
+[node name="Back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
+bus = "Back"
 [connection signal="pressed" from="CanvasLayer/Control/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Exit" to="." method="_on_Exit_pressed"]

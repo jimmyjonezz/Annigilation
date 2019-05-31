@@ -14,14 +14,14 @@ export var Boss : PackedScene
 
 var pospos = []
 var is_boss_spawning
-var count_enemy = 1
+var count_enemy = 5
 export var distance = 550
 
 func for_boss():
 	count_enemy -= 1
 	if count_enemy == 0:
 		is_boss_spawning = true
-		count_enemy = 4
+		count_enemy = 5
 		
 func spawn_boss():
 	var Boss_instance = Boss.instance()

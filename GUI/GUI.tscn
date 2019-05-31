@@ -68,8 +68,8 @@ anchor_bottom = 1.0
 margin_left = -105.0
 margin_top = -8.0
 margin_right = 105.0
-max_value = 65.0
-value = 15.0
+max_value = 220.0
+value = 220.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 

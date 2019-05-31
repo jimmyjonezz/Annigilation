@@ -4,6 +4,7 @@ extends CanvasLayer
 var maximum = 25
 var current_health = 0
 var current_count = 0
+var value_boss = 220
 
 #score
 var score = 0
@@ -52,6 +53,11 @@ func timer():
 func _on_Tic_timeout():
 	timer()
 
+func victory():
+	$HealthBar.visible = false
+	get_tree().set_pause(true)
+	$Victory.visible = true
+
 #кнопка рестарт
 func _on_Restart_pressed():
 	#get_tree().paused = false
@@ -78,9 +84,17 @@ func _on_Main_pressed():
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 #заряд оружия
 func _on_Player_damage(count):
-	current_count = count
 	animate_value(count, current_count)
+	current_count = count
+	
+func _in_Boss(count):
+	likeaboss(value_boss, count)
+	value_boss = count
 	
 func animate_value(start, end):
 	$Tween.interpolate_property($GUI/Count, "value", start, end, 0.2, $Tween.EASE_IN, $Tween.EASE_OUT)
+	$Tween.start()
+	
+func likeaboss(start, end):
+	$Tween.interpolate_property($HealthBar/Progress, "value", start, end, 0.2, $Tween.EASE_IN, $Tween.EASE_OUT)
 	$Tween.start()
