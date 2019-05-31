@@ -6,7 +6,7 @@
 [ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 46.074
+radius = 96.8886
 
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 Bullet = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -10.45, -27.55 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
