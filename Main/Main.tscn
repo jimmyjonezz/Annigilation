@@ -144,13 +144,8 @@ position = Vector2( 3467, 2548 )
 [node name="Enemy4" parent="SpawnEnemy" instance=ExtResource( 8 )]
 position = Vector2( 7927.32, 1040.28 )
 
-[node name="Boss" parent="SpawnEnemy" instance=ExtResource( 3 )]
-position = Vector2( 1903, 1001 )
-
 [node name="Boss" type="Position2D" parent="."]
 position = Vector2( 7228, 4174 )
-
-[node name="Other" type="Node2D" parent="."]
 
 [node name="Position" type="Node2D" parent="."]
 
@@ -162,7 +157,11 @@ speed = 300
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
+<<<<<<< HEAD
 zoom = Vector2( 1.8, 1.8 )
+=======
+zoom = Vector2( 1.6, 1.6 )
+>>>>>>> 00d72ac11b7e6b30b4a15221a657b6a2c776c6e6
 limit_left = 0
 limit_top = 0
 limit_right = 14300
