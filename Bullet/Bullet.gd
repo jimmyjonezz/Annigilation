@@ -20,7 +20,9 @@ func start(pos, dir) -> void:
 func _physics_process(delta) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		queue_free()
+		explode()
+		#yield(get_tree().create_timer(0.4),"timeout")
+		#queue_free()
 		if switch:
 			if collision.collider.has_method("hit_player"):
 				collision.collider.hit_player()
@@ -28,10 +30,14 @@ func _physics_process(delta) -> void:
 			if collision.collider.has_method("hit"):
 				collision.collider.hit()
 			
-			
 func _layer_off():
 	set_collision_mask_bit(3, false)
 	set_collision_mask_bit(6, false)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+	
+func explode():
+	$Image.hide()
+	$Boom.show()
+	$Boom/AnimationPlayer.play("Boom")
