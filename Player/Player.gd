@@ -4,7 +4,6 @@ signal health_changed(health)
 signal die()
 signal damage(count)
 
-var pos = Vector2.ZERO
 var inbody = false
 
 #загружаем префаб пуль
