@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Robots/Boss/Boss.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Image/Boss/bigboss.png" type="Texture" id=3]
+[ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.074
@@ -25,6 +26,10 @@ autostart = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2.80595, 2.80595 )
+
+[node name="Boom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Blaster"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

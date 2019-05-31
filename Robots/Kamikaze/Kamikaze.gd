@@ -38,6 +38,7 @@ func _physics_process(delta) -> void:
 		else:
 			velocity = move_and_collide(direction * speed * delta)
 			$APlayer.play("walk")
+			
 	else:
 		$APlayer.play("idle")
 		
@@ -47,7 +48,7 @@ func hit() -> void:
 	$Popup.heal(-1)
 	$Timer.start()
 	
-	if current_health == 0:
+	if current_health <= 0:
 		$"../../GUI".take_score(10)
 		queue_free()
 

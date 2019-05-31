@@ -30,6 +30,7 @@ func danmaku():
 			
 			var bullet = Bullet.instance()
 			get_parent().add_child(bullet)
+			$Boom.play()
 			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.65)
 
 #если пуля попала, вызывается этот метод
