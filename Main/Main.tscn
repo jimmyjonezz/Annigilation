@@ -89,6 +89,7 @@ position = Vector2( 8510, 1108 )
 position = Vector2( 1923, 1677 )
 
 [node name="Point" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Point" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 1213, 3018 )
@@ -156,7 +157,7 @@ speed = 300
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1.9, 1.9 )
 limit_left = 0
 limit_top = 0
 limit_right = 14300
