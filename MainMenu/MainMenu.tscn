@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Image/UI/main_bg.png" type="Texture" id=2]
-[ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Image/UI/logo.png" type="Texture" id=4]
-[ext_resource path="res://Image/UI/Start_2.png" type="Texture" id=5]
-[ext_resource path="res://Image/UI/Start_1.png" type="Texture" id=6]
-[ext_resource path="res://Image/UI/Exit_2.png" type="Texture" id=7]
-[ext_resource path="res://Image/UI/Exit_1.png" type="Texture" id=8]
-[ext_resource path="res://Other/Fade/FadeIn.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Image/UI/F.png" type="Texture" id=3]
+[ext_resource path="res://Image/UI/a86.png" type="Texture" id=4]
+[ext_resource path="res://Image/UI/antonka.png" type="Texture" id=5]
+[ext_resource path="res://Image/UI/g19.png" type="Texture" id=6]
+[ext_resource path="res://Image/UI/logo.png" type="Texture" id=7]
+[ext_resource path="res://Image/UI/Start_2.png" type="Texture" id=8]
+[ext_resource path="res://Image/UI/Start_1.png" type="Texture" id=9]
+[ext_resource path="res://Image/UI/Exit_2.png" type="Texture" id=10]
+[ext_resource path="res://Image/UI/Exit_1.png" type="Texture" id=11]
+[ext_resource path="res://Other/Fade/FadeIn.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=13]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -34,70 +37,37 @@ anchor_bottom = 1.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
-[node name="Fullscreen" type="Label" parent="CanvasLayer/Labels"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -118.0
-margin_top = -48.0
-margin_right = -20.0
-margin_bottom = -20.0
-custom_fonts/font = ExtResource( 3 )
-text = "Press F"
-valign = 1
+[node name="F" type="TextureRect" parent="CanvasLayer/Labels"]
+margin_left = 1201.35
+margin_top = 18.0881
+margin_right = 1325.35
+margin_bottom = 148.088
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
 
-[node name="Gaminator" type="Label" parent="CanvasLayer/Labels"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -103.0
-margin_top = 10.0
-margin_right = 103.0
-margin_bottom = 38.0
-custom_fonts/font = ExtResource( 3 )
-text = "GAMINATOR #19"
-align = 1
-valign = 1
+[node name="a86" type="TextureRect" parent="CanvasLayer/Labels"]
+margin_left = 1119.95
+margin_top = 666.244
+margin_right = 1392.95
+margin_bottom = 796.244
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
 
-[node name="Authors" type="Control" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -403.0
+[node name="antonka" type="TextureRect" parent="CanvasLayer/Labels"]
+margin_left = 1103.37
+margin_top = 613.487
+margin_right = 1423.37
+margin_bottom = 743.487
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
 
-[node name="cod" type="Label" parent="CanvasLayer/Authors"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -148.5
-margin_top = 464.393
-margin_right = 187.5
-margin_bottom = 509.393
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color_shadow = Color( 0.67451, 0.454902, 0.0784314, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "coding: antonka"
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="design" type="Label" parent="CanvasLayer/Authors"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -148.5
-margin_top = 496.393
-margin_right = 187.5
-margin_bottom = 541.393
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color_shadow = Color( 0.67451, 0.454902, 0.0784314, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-text = "graphics/design: anim86"
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
+[node name="gaminator" type="TextureRect" parent="CanvasLayer/Labels"]
+margin_left = 550.179
+margin_top = 12.0588
+margin_right = 895.179
+margin_bottom = 142.059
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -109,7 +79,7 @@ margin_left = 35.5997
 margin_top = 66.2993
 margin_right = 561.6
 margin_bottom = 382.299
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 4
 
@@ -118,24 +88,24 @@ margin_left = 232.392
 margin_top = 395.038
 margin_right = 390.392
 margin_bottom = 460.038
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 
 [node name="Exit" type="TextureButton" parent="CanvasLayer/Control"]
 margin_left = 254.631
 margin_top = 470.929
 margin_right = 412.631
 margin_bottom = 530.929
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 8 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
 
-[node name="FadeIn" parent="CanvasLayer" instance=ExtResource( 9 )]
+[node name="FadeIn" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
 
 [node name="Back" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 13 )
 autoplay = true
 bus = "Back"
 [connection signal="pressed" from="CanvasLayer/Control/Start" to="." method="_on_Start_pressed"]
