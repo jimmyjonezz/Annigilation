@@ -4,7 +4,7 @@ signal health_changed(health)
 signal die()
 signal damage(count)
 
-const KNOCKBACK_FORCE = 1.0
+const KNOCKBACK_FORCE = 0.25
 var inbody = false
 
 #загружаем префаб пуль
@@ -16,6 +16,7 @@ func _ready():
 	$Area2D.connect("body_exited", self, "_body_exited")
 
 func _process(delta) -> void:
+	_knockback()
 	direction()
 	
 	#нажимаем клавиши
@@ -70,10 +71,8 @@ func _body_entered(body):
 func _body_exited(body):
 	if body.is_in_group("enemy"):
 		inbody = false
-	
-func _physics_process(delta):
-	move_and_collide(velocity * delta)
-	
+		
+func _knockback():
 	var overlapping_bodies = $Area2D.get_overlapping_bodies()
 	if not overlapping_bodies:
 		return
@@ -83,12 +82,14 @@ func _physics_process(delta):
 			inbody = true
 			#реализован метод knockback - отталкивание перса
 			var target_dir = (position - body.position).normalized()
-			var pos = position + target_dir * delta * KNOCKBACK_FORCE
-			#print("position: %s, target: %s, pos: %s" % [position, target_dir, pos])
-			move_and_collide(pos)
-			
+			move_and_collide(position * target_dir * 0.045)
+			print("position: %s, target: %s, pos: %s" % [position, target_dir, position * target_dir * 0.045])
+			print(velocity)
 			if health < 1:
 				emit_signal("die")
+	
+func _physics_process(delta):
+	move_and_collide(velocity * delta)
 
 func hit():
 	if health > 0:
