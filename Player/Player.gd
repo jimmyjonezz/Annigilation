@@ -39,6 +39,7 @@ func shooting() -> void:
 		#camera.shake()
 		$Gun/AFPlayer.play("fire")
 		$Reload.stop()
+	
 	is_shooting = false
 	$Reload.start()
 
