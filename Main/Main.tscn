@@ -19,7 +19,6 @@ Kamikaze = ExtResource( 2 )
 Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
@@ -90,7 +89,6 @@ position = Vector2( 8510, 1108 )
 position = Vector2( 1923, 1677 )
 
 [node name="Point" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Point" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 1213, 3018 )
@@ -150,7 +148,6 @@ position = Vector2( 7927.32, 1040.28 )
 position = Vector2( 7228, 4174 )
 
 [node name="Position" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Player" parent="Position" instance=ExtResource( 9 )]
 position = Vector2( 1921, 1288 )
@@ -160,7 +157,7 @@ speed = 300
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
-zoom = Vector2( 1.9, 1.9 )
+zoom = Vector2( 1.6, 1.6 )
 limit_left = 0
 limit_top = 0
 limit_right = 14300
