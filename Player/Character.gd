@@ -4,7 +4,7 @@ class_name Character
 
 #переменные: скорость передвижения, вектор направления, перезарядка и стрельба
 export (int) var speed = 1800
-var velocity = Vector2.ZERO
+var velocity = Vector2()
 var is_reload = true
 var is_shooting = false
 var health = 15

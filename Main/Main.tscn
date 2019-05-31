@@ -144,7 +144,7 @@ position = Vector2( 3467, 2548 )
 position = Vector2( 7927.32, 1040.28 )
 
 [node name="Boss" type="Position2D" parent="."]
-position = Vector2( 7375, 4280 )
+position = Vector2( 7228, 4174 )
 
 [node name="Position" type="Node2D" parent="."]
 
@@ -156,7 +156,7 @@ speed = 300
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
 editor/display_folded = true
 current = true
-zoom = Vector2( 1.9, 1.9 )
+zoom = Vector2( 2, 2 )
 limit_left = 0
 limit_top = 0
 limit_right = 14300
