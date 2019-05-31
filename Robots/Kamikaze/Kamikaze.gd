@@ -40,7 +40,6 @@ func _physics_process(delta) -> void:
 		else:
 			velocity = move_and_collide(direction * speed * delta)
 			$APlayer.play("walk")
-			
 	else:
 		$APlayer.play("idle")
 		
@@ -65,7 +64,7 @@ func _on_hitbox_body_entered(body):
 		#yield($APlayer, "animation_finished")
 
 func _spawn_props():
-	var rnd = randi() % 2
+	var rnd = randi() % 3
 	match rnd:
 		0:
 			return

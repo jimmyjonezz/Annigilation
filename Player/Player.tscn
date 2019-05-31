@@ -159,19 +159,19 @@ frame = 3
 [node name="AFPlayer" type="AnimationPlayer" parent="Gun"]
 anims/fire = SubResource( 4 )
 
-[node name="Shooting" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.623779, 18.2476 )
 shape = SubResource( 5 )
+
+[node name="Shooting" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [node name="Damage" type="Timer" parent="."]
 autostart = true
 
 [node name="Reload" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.25
 autostart = true
 
 [node name="Blaster" type="AudioStreamPlayer" parent="."]
