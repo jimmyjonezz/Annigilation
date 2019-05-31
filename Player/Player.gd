@@ -61,6 +61,7 @@ func _body_entered(body):
 		var value = round(rand_range(3, 6))
 		if count < 40:
 			damage(value)
+			body.hitbox()
 			
 	if body.is_in_group("enemy"):
 		if health > 0:
