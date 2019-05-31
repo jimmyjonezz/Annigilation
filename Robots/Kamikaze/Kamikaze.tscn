@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.gd" type="Script" id=1]
-[ext_resource path="res://Image/enemy_01/enemy_01_all.png" type="Texture" id=2]
-[ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sound/robot_die.wav" type="AudioStream" id=4]
+[ext_resource path="res://Props/Ammo/Ammo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Image/enemy_01/enemy_01_all.png" type="Texture" id=3]
+[ext_resource path="res://Other/Popup/Popup.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.0868
@@ -62,9 +62,10 @@ tracks/0/keys = {
 collision_layer = 32
 collision_mask = 57
 script = ExtResource( 1 )
+Ammo = ExtResource( 2 )
 
 [node name="Image" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 vframes = 8
 hframes = 8
 frame = 35
@@ -79,7 +80,7 @@ collision_layer = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource( 2 )
 
-[node name="Popup" parent="." instance=ExtResource( 3 )]
+[node name="Popup" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 0, -61 )
 
@@ -96,9 +97,5 @@ anims/walk = SubResource( 5 )
 scale = Vector2( 2.30889, 2.30889 )
 process_parent = true
 physics_process_parent = true
-
-[node name="Die" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-bus = "Blaster"
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

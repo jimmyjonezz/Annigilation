@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Kamikaze
 
+export var Ammo : PackedScene
+
 var speed
 var path : = PoolVector2Array() setget set_path
 var velocity = Vector2()
@@ -50,6 +52,7 @@ func hit() -> void:
 	
 	if current_health <= 0:
 		$"../../GUI".take_score(10)
+		_spawn_props()
 		queue_free()
 
 func _on_Timer_timeout():
@@ -60,3 +63,14 @@ func _on_hitbox_body_entered(body):
 	if body.is_in_group("player"):
 		$APlayer.play("atack")
 		#yield($APlayer, "animation_finished")
+
+func _spawn_props():
+	var rnd = randi() % 2
+	match rnd:
+		0:
+			return
+		1, 2: 
+			#аптечка
+			var Ammo_instance = Ammo.instance()
+			Ammo_instance.set_position(global_position)
+			$"../../SpawnProps/".add_child(Ammo_instance)

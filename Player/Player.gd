@@ -57,6 +57,11 @@ func _body_entered(body):
 			var kit = round(rand_range(3, 6))
 			heal(kit) #add heall 1 - 4
 			body.hitbox() #call function "hit" on body
+	if body.is_in_group("ammo"):
+		var value = round(rand_range(3, 6))
+		if count < 40:
+			damage(value)
+			
 	if body.is_in_group("enemy"):
 		if health > 0:
 			heal(-1)
