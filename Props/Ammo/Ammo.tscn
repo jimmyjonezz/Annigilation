@@ -1,10 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Props/Ammo/Ammo.gd" type="Script" id=1]
-[ext_resource path="res://Image/Props/ammo.png" type="Texture" id=2]
+[ext_resource path="res://Image/energy.png" type="Texture" id=2]
+[ext_resource path="res://Image/light.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 5.94301
+radius = 14.4882
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("light:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 1, 1 ), Vector2( 0.7, 0.7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("light:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ) ]
+}
 
 [node name="Ammo" type="KinematicBody2D" groups=[
 "ammo",
@@ -16,7 +46,16 @@ script = ExtResource( 1 )
 scale = Vector2( 0.761064, 0.769737 )
 texture = ExtResource( 2 )
 
+[node name="light" type="Sprite" parent="."]
+position = Vector2( 0, 2.11013 )
+texture = ExtResource( 3 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
