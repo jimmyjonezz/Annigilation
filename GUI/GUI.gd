@@ -84,15 +84,15 @@ func _on_Main_pressed():
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 #заряд оружия
 func _on_Player_damage(count):
-	animate_value(count, current_count)
 	current_count = count
+	animate_value(count, current_count)
 	
 func _in_Boss(count):
-	likeaboss(value_boss, count)
 	value_boss = count
+	likeaboss(value_boss, count)
 	
 func animate_value(start, end):
-	$Tween.interpolate_property($GUI/Count, "value", start, end, 0.2, $Tween.EASE_IN, $Tween.EASE_OUT)
+	$Tween.interpolate_property($GUI/Count, "value", start, end, 0.3, $Tween.EASE_IN, $Tween.EASE_OUT)
 	$Tween.start()
 	
 func likeaboss(start, end):

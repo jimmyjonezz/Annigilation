@@ -74,7 +74,6 @@ texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 
 [node name="GUI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0

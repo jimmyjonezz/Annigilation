@@ -38,7 +38,9 @@ func shooting() -> void:
 		#сатрясам экран
 		#camera.shake()
 		$Gun/AFPlayer.play("fire")
+		$Reload.stop()
 	is_shooting = false
+	$Reload.start()
 
 #стрельба - спавн пули, позиция и ее поворот
 func shoot() -> void:

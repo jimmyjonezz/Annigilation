@@ -18,73 +18,143 @@ Kamikaze = ExtResource( 2 )
 Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
 [node name="SpawnProps" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 4823.85, 292.593 )
+position = Vector2( 6464, 2650 )
+
+[node name="Chest13" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 6333, 3402 )
+
+[node name="Chest14" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 6600, 3408 )
+
+[node name="Chest15" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 8266, 4937 )
+
+[node name="Chest16" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 6078, 4682 )
+
+[node name="Chest17" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 6209, 4931 )
 
 [node name="Chest2" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 569.278, 2648.93 )
+position = Vector2( 272, 3338 )
 
 [node name="Chest3" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 383.145, 1163.92 )
+position = Vector2( 1665, 1927 )
+
+[node name="Chest8" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 1985, 2519 )
+
+[node name="Chest7" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 2619, 718 )
+
+[node name="Chest6" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 2619, 2642 )
+
+[node name="Chest9" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 3652, 4689 )
+
+[node name="Chest20" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 578, 4941 )
+
+[node name="Chest19" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 2749, 4044 )
 
 [node name="Chest4" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 3160.26, 3965.59 )
+position = Vector2( 4533, 4946 )
+
+[node name="Chest11" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 4930, 4814 )
+
+[node name="Chest12" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 5177, 4956 )
+
+[node name="Chest10" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 4794, 5070 )
 
 [node name="Chest5" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 3704.37, 2703.47 )
+position = Vector2( 8522.5, 2593.97 )
+
+[node name="Chest18" parent="SpawnProps" instance=ExtResource( 5 )]
+position = Vector2( 8510, 1108 )
 
 [node name="Point" type="Node2D" parent="."]
 editor/display_folded = true
 
 [node name="Point" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 1213.99, 2115.85 )
+position = Vector2( 1213, 3018 )
 
 [node name="Point6" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 378.917, 522.036 )
+position = Vector2( 1222, 566 )
+
+[node name="Point9" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 571, 1601 )
 
 [node name="Point5" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 2497.08, 587.856 )
+position = Vector2( 6216.64, 1172.02 )
+
+[node name="Point11" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 4924, 2396 )
+
+[node name="Point12" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 6590, 2253 )
+
+[node name="Point10" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 7870, 2782 )
 
 [node name="Point2" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 3393.36, 2371.71 )
+position = Vector2( 3328, 1662 )
+
+[node name="Point8" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 3909, 722 )
+
+[node name="Point13" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 5053, 846 )
+
+[node name="Point7" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 3519, 2498 )
+
+[node name="Point14" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 2863, 3261 )
 
 [node name="Point3" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 2120.64, 4031.45 )
+position = Vector2( 2234, 5196 )
+
+[node name="Point15" parent="Point" instance=ExtResource( 6 )]
+position = Vector2( 2127, 4540 )
 
 [node name="Point4" parent="Point" instance=ExtResource( 6 )]
-position = Vector2( 319.481, 3398.82 )
+position = Vector2( 579, 4292 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 7 )]
-position = Vector2( 5839.5, 3220.69 )
+position = Vector2( 3265, 4926 )
 
 [node name="Enemy2" parent="SpawnEnemy" instance=ExtResource( 7 )]
-position = Vector2( 4907.77, 2113.37 )
+position = Vector2( 4020, 3656 )
 
 [node name="Enemy3" parent="SpawnEnemy" instance=ExtResource( 7 )]
-position = Vector2( 6346.94, 1916.5 )
+position = Vector2( 2947, 2176 )
 
 [node name="Enemy4" parent="SpawnEnemy" instance=ExtResource( 7 )]
-position = Vector2( 7233.8, 1168.03 )
+position = Vector2( 7927.32, 1040.28 )
 
 [node name="Boss" parent="SpawnEnemy" instance=ExtResource( 3 )]
-position = Vector2( 4678.73, 985.527 )
+position = Vector2( 6887.04, 4398.37 )
 
 [node name="Boss" type="Position2D" parent="."]
-position = Vector2( 3977, 900 )
+position = Vector2( 7228, 4174 )
 
 [node name="Position" type="Node2D" parent="."]
 
 [node name="Player" parent="Position" instance=ExtResource( 8 )]
-position = Vector2( 3661.9, 731.282 )
+position = Vector2( 1897, 1604 )
 collision_mask = 15
 speed = 300
 
