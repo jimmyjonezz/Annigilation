@@ -107,6 +107,12 @@ position = Vector2( 4926.11, 2365.47 )
 [node name="Point10" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 7870, 2622.85 )
 
+[node name="Point12" parent="Point" instance=ExtResource( 7 )]
+position = Vector2( 8005, 4687 )
+
+[node name="Point16" parent="Point" instance=ExtResource( 7 )]
+position = Vector2( 6464, 3655 )
+
 [node name="Point8" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 3393, 574 )
 
@@ -145,10 +151,15 @@ position = Vector2( 7995.5, 1077.29 )
 [node name="Boss" type="Position2D" parent="."]
 position = Vector2( 7292.77, 4227.67 )
 
+[node name="Other" type="Node2D" parent="."]
+
+[node name="Boss" parent="Other" instance=ExtResource( 3 )]
+position = Vector2( 7222, 4181 )
+
 [node name="Position" type="Node2D" parent="."]
 
 [node name="Player" parent="Position" instance=ExtResource( 9 )]
-position = Vector2( 1921, 1288 )
+position = Vector2( 6635, 4809 )
 collision_mask = 15
 speed = 300
 
@@ -177,8 +188,6 @@ bus = "Back"
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.3
 autostart = true
-
-[node name="Other" type="Node2D" parent="."]
 [connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]
 [connection signal="health_changed" from="Position/Player" to="GUI" method="_on_Player_health_changed"]

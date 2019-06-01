@@ -975,6 +975,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 15/z_index = 0
+<<<<<<< HEAD
 16/name = "tilemap2.png 16"
 16/texture = ExtResource( 2 )
 16/tex_offset = Vector2( 0, 0 )
@@ -987,10 +988,19 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 16/autotile/occluder_map = [  ]
 16/autotile/navpoly_map = [  ]
 16/autotile/z_index_map = [  ]
+=======
+16/name = "without_nav"
+16/texture = ExtResource( 1 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 1024, 640, 128, 128 )
+16/tile_mode = 0
+>>>>>>> 525fb6c5399aa0c31f51778828da3b2a761e2b48
 16/occluder_offset = Vector2( 0, 0 )
 16/navigation_offset = Vector2( 0, 0 )
 16/shapes = [  ]
 16/z_index = 0
+<<<<<<< HEAD
 17/name = "tilemap2.png 17"
 17/texture = ExtResource( 2 )
 17/tex_offset = Vector2( 0, 0 )
@@ -1017,3 +1027,5 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 18/navigation_offset = Vector2( 0, 0 )
 18/shapes = [  ]
 18/z_index = 0
+=======
+>>>>>>> 525fb6c5399aa0c31f51778828da3b2a761e2b48

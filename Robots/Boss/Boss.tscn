@@ -5,8 +5,9 @@
 [ext_resource path="res://Image/Boss/bigboss.png" type="Texture" id=3]
 [ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 96.8886
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 46.502
+height = 97.4818
 
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
