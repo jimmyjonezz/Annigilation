@@ -34,9 +34,7 @@ func danmaku():
 
 func _on_Timer_timeout():
 	danmaku()
-	var rotation = $CollisionShape2D.get_transform().get_rotation()
-	for x in 180:
-		$CollisionShape2D.transform.rotated(deg2rad(90))
+	$CollisionShape2D.rotate(deg2rad(45))
 
 func _on_VisibilityNotifier2D_screen_entered():
 	shooting = true
