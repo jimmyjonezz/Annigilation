@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Main/Camera2D.gd" type="Script" id=10]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sound/back.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sound/spawn.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sound/spawn_enemy.wav" type="AudioStream" id=14]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -19,7 +21,6 @@ Kamikaze = ExtResource( 2 )
 Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
@@ -189,6 +190,14 @@ editor/display_folded = true
 [node name="Back" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 bus = "Back"
+
+[node name="SpawnBoss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "Blaster"
+
+[node name="SpawnKamikaze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+bus = "Blaster"
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.3

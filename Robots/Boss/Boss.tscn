@@ -254,9 +254,11 @@ scale = Vector2( 2.80595, 2.80595 )
 
 [node name="Boom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -5.0
 bus = "Blaster"
 
 [node name="Node2D" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="b_shadow" type="Sprite" parent="Node2D"]
 position = Vector2( -10.6273, 53.9485 )
