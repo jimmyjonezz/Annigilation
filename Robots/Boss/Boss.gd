@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var total_health = 220
 var shooting = false
-var radius = 100
+var radius = 130
 
 export var Bullet : PackedScene
 onready var player = get_node("../../Position/Player")
@@ -35,7 +35,8 @@ func danmaku():
 func _on_Timer_timeout():
 	danmaku()
 	var rotation = $CollisionShape2D.get_transform().get_rotation()
-	print(rotation)
+	for x in 180:
+		$CollisionShape2D.transform.rotated(deg2rad(90))
 
 func _on_VisibilityNotifier2D_screen_entered():
 	shooting = true
