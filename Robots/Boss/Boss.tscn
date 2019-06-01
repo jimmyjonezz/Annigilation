@@ -1,13 +1,238 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Robots/Boss/Boss.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Image/Boss/bigboss.png" type="Texture" id=3]
-[ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=3]
+[ext_resource path="res://Image/Boss/b_shadow.png" type="Texture" id=4]
+[ext_resource path="res://Image/Boss/b_d_01.png" type="Texture" id=5]
+[ext_resource path="res://Image/Boss/b_d_02.png" type="Texture" id=6]
+[ext_resource path="res://Image/Boss/b_t_01.png" type="Texture" id=7]
+[ext_resource path="res://Image/Boss/b_d_03.png" type="Texture" id=8]
+[ext_resource path="res://Image/Boss/b_d_05.png" type="Texture" id=9]
+[ext_resource path="res://Image/Boss/b_d_04.png" type="Texture" id=10]
+[ext_resource path="res://Image/Boss/b_d_06.png" type="Texture" id=11]
+[ext_resource path="res://Image/Boss/b_d_07.png" type="Texture" id=12]
+[ext_resource path="res://Image/Boss/b_d_08.png" type="Texture" id=13]
+[ext_resource path="res://Image/Boss/b_t_02.png" type="Texture" id=14]
+[ext_resource path="res://Image/Boss/b_t_03.png" type="Texture" id=15]
+[ext_resource path="res://Image/Boss/b_u_04.png" type="Texture" id=16]
+[ext_resource path="res://Image/Boss/b_u_02.png" type="Texture" id=17]
+[ext_resource path="res://Image/Boss/b_t_04.png" type="Texture" id=18]
+[ext_resource path="res://Image/Boss/b_u_03.png" type="Texture" id=19]
+[ext_resource path="res://Image/Boss/b_u_01.png" type="Texture" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 16.7388
-height = 139.812
+radius = 46.502
+height = 97.4818
+
+[sub_resource type="Animation" id=2]
+resource_name = "IdleBoss"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("b_t_02:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.7738, -4.5806 ), Vector2( -1.7738, -13.4041 ), Vector2( -1.7738, -4.5806 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("b_t_01:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.6662, 10.1627 ), Vector2( -2.6662, 5.05429 ), Vector2( -2.6662, 10.1627 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("b_t_02/b_t_03:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -4.80529, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("b_t_02/b_t_04:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.1067, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("b_t_02/b_u_03:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.10931, 1.013 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("b_t_02/b_u_01:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.08301, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("b_t_02/b_u_02:scale")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.11164, 1.01912 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("b_t_02/b_u_04:scale")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.754969, 1.20691 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("b_d_04:scale")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.04871, 1.0391 ), Vector2( 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("b_d_06:scale")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.20682, 1.27276 ), Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("b_d_08:scale")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.0611, 0.975809 ), Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("b_d_07:scale")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.08202, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("b_d_05:scale")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.0887, 1.08981 ), Vector2( 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("b_d_01:scale")
+tracks/13/interp = 2
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.08316, 0.950105 ), Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("b_d_03:scale")
+tracks/14/interp = 2
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.06248, 1.09111 ), Vector2( 1, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("b_d_02:scale")
+tracks/15/interp = 2
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.3, 2, 2.001 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.07072, 1.20445 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("b_d_02:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 31.544, 7.03633 ), Vector2( 27.9516, 4.64138 ), Vector2( 31.544, 7.03633 ) ]
+}
 
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
@@ -15,11 +240,8 @@ collision_mask = 59
 script = ExtResource( 1 )
 Bullet = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -10.45, -27.55 )
-texture = ExtResource( 3 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -27,11 +249,117 @@ wait_time = 3.2
 autostart = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 scale = Vector2( 2.80595, 2.80595 )
 
 [node name="Boom" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 3 )
 bus = "Blaster"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="b_shadow" type="Sprite" parent="Node2D"]
+position = Vector2( -10.6273, 53.9485 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="b_d_01" type="Sprite" parent="Node2D"]
+position = Vector2( -33.8957, -3.30798 )
+scale = Vector2( 1.01329, 0.992025 )
+texture = ExtResource( 5 )
+offset = Vector2( -21.0936, -5.12617 )
+
+[node name="b_d_02" type="Sprite" parent="Node2D"]
+position = Vector2( 30.9052, 6.61043 )
+scale = Vector2( 1.01016, 1.02939 )
+texture = ExtResource( 6 )
+offset = Vector2( 52.6126, 4.0954 )
+
+[node name="b_t_01" type="Sprite" parent="Node2D"]
+position = Vector2( -2.6662, 9.12086 )
+texture = ExtResource( 7 )
+
+[node name="b_d_03" type="Sprite" parent="Node2D"]
+position = Vector2( 31.3416, 18.4257 )
+scale = Vector2( 1.0172, 1.02508 )
+texture = ExtResource( 8 )
+offset = Vector2( 41.9315, 7.41251 )
+
+[node name="b_d_05" type="Sprite" parent="Node2D"]
+position = Vector2( -76.6225, 24.8879 )
+scale = Vector2( 1.03582, 1.03626 )
+texture = ExtResource( 9 )
+offset = Vector2( -27.9931, 1.70706 )
+
+[node name="b_d_04" type="Sprite" parent="Node2D"]
+position = Vector2( -56.4635, 19.0377 )
+scale = Vector2( 1.01341, 1.01076 )
+texture = ExtResource( 10 )
+offset = Vector2( -34.163, 23.2351 )
+
+[node name="b_d_06" type="Sprite" parent="Node2D"]
+position = Vector2( -21.3119, 39.6232 )
+scale = Vector2( 1.03712, 1.04896 )
+texture = ExtResource( 11 )
+
+[node name="b_d_07" type="Sprite" parent="Node2D"]
+position = Vector2( 8.17405, 40.7975 )
+scale = Vector2( 1.01311, 1 )
+texture = ExtResource( 12 )
+offset = Vector2( 22.7917, 9.83397 )
+
+[node name="b_d_08" type="Sprite" parent="Node2D"]
+position = Vector2( 2.82011, 42.2446 )
+scale = Vector2( 1.01436, 0.994316 )
+texture = ExtResource( 13 )
+offset = Vector2( 7.33405, 31.163 )
+
+[node name="b_t_02" type="Sprite" parent="Node2D"]
+position = Vector2( -1.7738, -6.38015 )
+texture = ExtResource( 14 )
+offset = Vector2( -1.55582, -33.6864 )
+
+[node name="b_t_03" type="Sprite" parent="Node2D/b_t_02"]
+position = Vector2( -4.11642, -93.6241 )
+rotation = -0.0134048
+texture = ExtResource( 15 )
+offset = Vector2( -10.4125, -38.629 )
+
+[node name="b_u_04" type="Sprite" parent="Node2D/b_t_02"]
+position = Vector2( 13.6923, -0.234199 )
+scale = Vector2( 0.964782, 1.02974 )
+texture = ExtResource( 16 )
+offset = Vector2( -0.165863, 10.7806 )
+
+[node name="b_u_02" type="Sprite" parent="Node2D/b_t_02"]
+position = Vector2( 3.61743, -47.3928 )
+scale = Vector2( 1.02277, 1.0039 )
+texture = ExtResource( 17 )
+offset = Vector2( 11.9448, -11.6609 )
+
+[node name="b_t_04" type="Sprite" parent="Node2D/b_t_02"]
+position = Vector2( 12.8616, -98.6339 )
+rotation = 0.0414488
+texture = ExtResource( 18 )
+offset = Vector2( 2.46344, -17.0336 )
+
+[node name="b_u_03" type="Sprite" parent="Node2D/b_t_02"]
+position = Vector2( -9.74464, -48.0711 )
+scale = Vector2( 1.04413, 1.00525 )
+texture = ExtResource( 19 )
+offset = Vector2( -16.0184, 15.5062 )
+
+[node name="b_u_01" type="Sprite" parent="Node2D/b_t_02"]
+position = Vector2( 41.527, -42.815 )
+scale = Vector2( 1.0149, 1 )
+z_index = -1
+texture = ExtResource( 20 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+autoplay = "IdleBoss"
+anims/IdleBoss = SubResource( 2 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
