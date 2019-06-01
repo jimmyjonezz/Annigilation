@@ -23,7 +23,7 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 3.2
 autostart = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
@@ -31,7 +31,7 @@ scale = Vector2( 2.80595, 2.80595 )
 
 [node name="Boom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-bus = "Blaster2"
+bus = "Blaster"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
