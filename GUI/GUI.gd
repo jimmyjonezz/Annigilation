@@ -20,8 +20,8 @@ func _ready():
 func take_score(count):
 	score += count
 	$GUI/score.text = "%05d" % [score]
-	$Victory/Panel3/Score.text = "You score: %05d" % [score]
-	$Gameover/Panel3/Score.text = "You score: %05d" % [score]
+	$Victory/Score.text = "You score: %05d" % [score]
+	$Gameover/Score.text = "You score: %05d" % [score]
 	
 #обновляем показатель жизни
 func update_count_text(value):
