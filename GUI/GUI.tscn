@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Image/UI/boss_health_02.png" type="Texture" id=2]
@@ -15,7 +15,18 @@
 [ext_resource path="res://Image/Screen_FX.png" type="Texture" id=13]
 [ext_resource path="res://Image/Screen_noise.png" type="Texture" id=14]
 [ext_resource path="res://Image/fon.png" type="Texture" id=15]
-[ext_resource path="res://Font/48pt.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Image/UI/Win/bg.png" type="Texture" id=16]
+[ext_resource path="res://Image/UI/Win/Pause.png" type="Texture" id=17]
+[ext_resource path="res://Image/UI/Win/menu_2.png" type="Texture" id=18]
+[ext_resource path="res://Image/UI/Win/menu_1.png" type="Texture" id=19]
+[ext_resource path="res://Image/UI/Win/continue_2.png" type="Texture" id=20]
+[ext_resource path="res://Image/UI/Win/continue_1.png" type="Texture" id=21]
+[ext_resource path="res://Image/UI/Win/restart_2.png" type="Texture" id=22]
+[ext_resource path="res://Image/UI/Win/restart_1.png" type="Texture" id=23]
+[ext_resource path="res://Image/UI/Win/exit_2.png" type="Texture" id=24]
+[ext_resource path="res://Image/UI/Win/exit_1.png" type="Texture" id=25]
+[ext_resource path="res://Image/UI/Win/Dead.png" type="Texture" id=26]
+[ext_resource path="res://Image/UI/Win/Victory.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ScreenFX"
@@ -92,6 +103,7 @@ margin_bottom = 325.01
 texture = ExtResource( 4 )
 
 [node name="GUI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -217,71 +229,65 @@ anchor_bottom = 1.0
 texture = ExtResource( 15 )
 expand = true
 
-[node name="Panel2" type="Panel" parent="Pause"]
+[node name="BG2" type="TextureRect" parent="Pause"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -282.0
-margin_right = 282.0
+anchor_bottom = 0.5
+margin_left = -321.764
+margin_top = -376.411
+margin_right = 576.236
+margin_bottom = 703.589
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
 
-[node name="Title" type="Label" parent="Pause/Panel2"]
-anchor_top = 0.407
-anchor_right = 1.0
-anchor_bottom = 0.633
-margin_left = 1.0
-margin_top = -65.2
-margin_right = 1.0
-margin_bottom = -135.8
-custom_fonts/font = ExtResource( 16 )
-text = "PAUSE MODE"
-align = 1
-valign = 1
-uppercase = true
-
-[node name="GridContainer" type="GridContainer" parent="Pause/Panel2"]
+[node name="Pause_text" type="TextureRect" parent="Pause"]
 anchor_left = 0.5
-anchor_top = 0.87
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.87
-margin_left = -122.0
-margin_top = -142.0
-margin_right = 128.0
-margin_bottom = 13.9999
+anchor_bottom = 0.5
+margin_left = -69.3751
+margin_top = -199.537
+margin_right = 113.625
+margin_bottom = -81.5367
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 17 )
 
-[node name="Main" type="Button" parent="Pause/Panel2/GridContainer"]
-margin_right = 250.0
-margin_bottom = 35.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "MAIN MENU"
+[node name="BTN_Menu" type="TextureButton" parent="Pause"]
+margin_left = 591.073
+margin_top = 446.559
+margin_right = 723.073
+margin_bottom = 509.559
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 
-[node name="Continue" type="Button" parent="Pause/Panel2/GridContainer"]
-margin_top = 39.0
-margin_right = 250.0
-margin_bottom = 74.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "CONTINUE"
+[node name="BTN_Continue" type="TextureButton" parent="Pause"]
+margin_left = 557.911
+margin_top = 307.899
+margin_right = 795.911
+margin_bottom = 398.899
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
 
-[node name="Restart" type="Button" parent="Pause/Panel2/GridContainer"]
-margin_top = 78.0
-margin_right = 250.0
-margin_bottom = 113.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "RESTART"
+[node name="BTN_Restart" type="TextureButton" parent="Pause"]
+margin_left = 572.895
+margin_top = 372.86
+margin_right = 764.895
+margin_bottom = 463.86
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
 
-[node name="Exit" type="Button" parent="Pause/Panel2/GridContainer"]
-margin_top = 117.0
-margin_right = 250.0
-margin_bottom = 152.0
-size_flags_horizontal = 7
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 6 )
-text = "EXIT"
+[node name="BTN_Exit" type="TextureButton" parent="Pause"]
+margin_left = 606.947
+margin_top = 499.684
+margin_right = 700.947
+margin_bottom = 578.684
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
 
 [node name="Gameover" type="TextureRect" parent="."]
 editor/display_folded = true
@@ -292,83 +298,67 @@ anchor_bottom = 1.0
 texture = ExtResource( 15 )
 stretch_mode = 2
 
-[node name="Panel3" type="Panel" parent="Gameover"]
+[node name="BG2" type="TextureRect" parent="Gameover"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -282.0
-margin_right = 282.0
+anchor_bottom = 0.5
+margin_left = -321.764
+margin_top = -376.411
+margin_right = 576.236
+margin_bottom = 703.589
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
 
-[node name="Title" type="Label" parent="Gameover/Panel3"]
-anchor_top = 0.407
+[node name="Score2" type="Label" parent="Gameover"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.633
-margin_left = 1.0
-margin_top = -65.2
-margin_right = 1.0
-margin_bottom = -135.8
-custom_fonts/font = ExtResource( 16 )
-text = "GAMEOVER"
-align = 1
-valign = 1
-uppercase = true
-
-[node name="Score" type="Label" parent="Gameover/Panel3"]
-anchor_top = 0.407
-anchor_right = 1.0
-anchor_bottom = 0.633
-margin_left = 1.0
-margin_top = 4.8
-margin_right = 1.0
-margin_bottom = -88.8
+anchor_bottom = 0.5
+margin_top = -80.3158
+margin_bottom = -52.3158
 custom_fonts/font = ExtResource( 6 )
 text = "You score: 00000"
 align = 1
 valign = 1
 
-[node name="GridContainer" type="GridContainer" parent="Gameover/Panel3"]
-editor/display_folded = true
+[node name="Victory_text2" type="TextureRect" parent="Gameover"]
 anchor_left = 0.5
-anchor_top = 0.87
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.87
-margin_left = -122.0
-margin_top = -142.0
-margin_right = 128.0
-margin_bottom = 13.9999
+anchor_bottom = 0.5
+margin_left = -59.5428
+margin_top = -190.892
+margin_right = 116.457
+margin_bottom = -54.892
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 26 )
 
-[node name="Main" type="Button" parent="Gameover/Panel3/GridContainer"]
-margin_right = 250.0
-margin_bottom = 35.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "MAIN MENU"
+[node name="BTN_Menu2" type="TextureButton" parent="Gameover"]
+margin_left = 591.073
+margin_top = 465.47
+margin_right = 723.073
+margin_bottom = 528.47
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 
-[node name="Restart" type="Button" parent="Gameover/Panel3/GridContainer"]
-margin_top = 39.0
-margin_right = 250.0
-margin_bottom = 74.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "RESTART"
+[node name="BTN_Restart2" type="TextureButton" parent="Gameover"]
+margin_left = 572.895
+margin_top = 394.817
+margin_right = 764.895
+margin_bottom = 485.817
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
 
-[node name="Exit" type="Button" parent="Gameover/Panel3/GridContainer"]
-margin_top = 78.0
-margin_right = 250.0
-margin_bottom = 113.0
-size_flags_horizontal = 7
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 6 )
-text = "EXIT"
-
-[node name="Control" type="Control" parent="Gameover/Panel3/GridContainer"]
-margin_top = 117.0
-margin_right = 250.0
-margin_bottom = 152.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
+[node name="BTN_Exit2" type="TextureButton" parent="Gameover"]
+margin_left = 606.947
+margin_top = 516.591
+margin_right = 700.947
+margin_bottom = 595.591
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
 
 [node name="Victory" type="TextureRect" parent="."]
 editor/display_folded = true
@@ -379,96 +369,80 @@ anchor_bottom = 1.0
 texture = ExtResource( 15 )
 stretch_mode = 2
 
-[node name="Panel3" type="Panel" parent="Victory"]
-editor/display_folded = true
+[node name="BG" type="TextureRect" parent="Victory"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -282.0
-margin_right = 282.0
+anchor_bottom = 0.5
+margin_left = -321.764
+margin_top = -376.411
+margin_right = 576.236
+margin_bottom = 703.589
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 16 )
 
-[node name="Title" type="Label" parent="Victory/Panel3"]
-anchor_top = 0.407
+[node name="Score" type="Label" parent="Victory"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.633
-margin_left = 1.0
-margin_top = -65.2
-margin_right = 1.0
-margin_bottom = -135.8
-custom_fonts/font = ExtResource( 16 )
-text = "VICTORY"
-align = 1
-valign = 1
-uppercase = true
-
-[node name="Score" type="Label" parent="Victory/Panel3"]
-anchor_top = 0.407
-anchor_right = 1.0
-anchor_bottom = 0.633
-margin_left = 1.0
-margin_top = 4.8
-margin_right = 1.0
-margin_bottom = -88.8
+anchor_bottom = 0.5
+margin_top = -80.3158
+margin_bottom = -52.3158
 custom_fonts/font = ExtResource( 6 )
 text = "You score: 00000"
 align = 1
 valign = 1
 
-[node name="GridContainer" type="GridContainer" parent="Victory/Panel3"]
+[node name="Victory_text" type="TextureRect" parent="Victory"]
 anchor_left = 0.5
-anchor_top = 0.87
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.87
-margin_left = -122.0
-margin_top = -142.0
-margin_right = 128.0
-margin_bottom = 13.9999
+anchor_bottom = 0.5
+margin_left = -94.5441
+margin_top = -192.198
+margin_right = 169.456
+margin_bottom = -55.1981
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 27 )
 
-[node name="Main" type="Button" parent="Victory/Panel3/GridContainer"]
-margin_right = 250.0
-margin_bottom = 35.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "MAIN MENU"
+[node name="BTN_Menu" type="TextureButton" parent="Victory"]
+margin_left = 591.073
+margin_top = 465.47
+margin_right = 723.073
+margin_bottom = 528.47
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 
-[node name="Restart" type="Button" parent="Victory/Panel3/GridContainer"]
-margin_top = 39.0
-margin_right = 250.0
-margin_bottom = 74.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 6 )
-text = "RESTART"
+[node name="BTN_Restart" type="TextureButton" parent="Victory"]
+margin_left = 572.895
+margin_top = 394.817
+margin_right = 764.895
+margin_bottom = 485.817
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 23 )
 
-[node name="Exit" type="Button" parent="Victory/Panel3/GridContainer"]
-margin_top = 78.0
-margin_right = 250.0
-margin_bottom = 113.0
-size_flags_horizontal = 7
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 6 )
-text = "EXIT"
-
-[node name="Control" type="Control" parent="Victory/Panel3/GridContainer"]
-margin_top = 117.0
-margin_right = 250.0
-margin_bottom = 152.0
-size_flags_horizontal = 7
-size_flags_vertical = 7
+[node name="BTN_Exit" type="TextureButton" parent="Victory"]
+margin_left = 606.947
+margin_top = 516.591
+margin_right = 700.947
+margin_bottom = 595.591
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
 
 [node name="Tic" type="Timer" parent="."]
 autostart = true
 
 [node name="Tween" type="Tween" parent="."]
-[connection signal="pressed" from="Pause/Panel2/GridContainer/Main" to="." method="_on_Main_pressed"]
-[connection signal="pressed" from="Pause/Panel2/GridContainer/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="Pause/Panel2/GridContainer/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="Pause/Panel2/GridContainer/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Gameover/Panel3/GridContainer/Main" to="." method="_on_Main_pressed"]
-[connection signal="pressed" from="Gameover/Panel3/GridContainer/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="Gameover/Panel3/GridContainer/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Victory/Panel3/GridContainer/Main" to="." method="_on_Main_pressed"]
-[connection signal="pressed" from="Victory/Panel3/GridContainer/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="Victory/Panel3/GridContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="button_down" from="Pause/BTN_Menu" to="." method="_on_Main_pressed"]
+[connection signal="button_down" from="Pause/BTN_Continue" to="." method="_on_Continue_pressed"]
+[connection signal="button_down" from="Pause/BTN_Restart" to="." method="_on_Restart_pressed"]
+[connection signal="button_down" from="Pause/BTN_Exit" to="." method="_on_Exit_pressed"]
+[connection signal="button_down" from="Gameover/BTN_Menu2" to="." method="_on_Main_pressed"]
+[connection signal="button_down" from="Gameover/BTN_Restart2" to="." method="_on_Restart_pressed"]
+[connection signal="button_down" from="Gameover/BTN_Exit2" to="." method="_on_Exit_pressed"]
+[connection signal="button_down" from="Victory/BTN_Menu" to="." method="_on_Main_pressed"]
+[connection signal="button_down" from="Victory/BTN_Restart" to="." method="_on_Restart_pressed"]
+[connection signal="button_down" from="Victory/BTN_Exit" to="." method="_on_Exit_pressed"]
 [connection signal="timeout" from="Tic" to="." method="_on_Tic_timeout"]
