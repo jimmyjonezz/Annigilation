@@ -16,7 +16,7 @@ func _ready() -> void:
 	$Area2D.connect("body_exited", self, "_body_exited")
 
 func _process(delta) -> void:
-	_knockback()
+	_knockback(delta)
 	direction()
 	
 	#нажимаем клавиши
@@ -72,7 +72,7 @@ func _body_exited(body):
 	if body.is_in_group("enemy"):
 		inbody = false
 		
-func _knockback():
+func _knockback(delta):
 	var overlapping_bodies = $Area2D.get_overlapping_bodies()
 	if not overlapping_bodies:
 		return
@@ -83,7 +83,7 @@ func _knockback():
 			#реализован метод knockback - отталкивание перса
 			var target_dir = (position - body.position).normalized()
 			#print("position: %s, target: %s, pos: %s" % [position, target_dir, position * target_dir])
-			move_and_collide(position * target_dir * 0.065)
+			move_and_collide(position * target_dir * delta * 1.0)
 			
 			if health < 1:
 				emit_signal("die")
