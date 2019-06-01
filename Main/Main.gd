@@ -73,7 +73,7 @@ func spawn_enemy() -> void:
 			
 			#массив из точек по плиткам
 			new_path = get_node("World/Navigation").get_simple_path(
-			Kamikaze_instance.position, get_pos)
+			Kamikaze_instance.position, get_pos, true)
 
 	#если массив больше 1 значит есть путь - создаем врага
 	if new_path.size() > 1:
