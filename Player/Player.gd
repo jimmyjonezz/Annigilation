@@ -11,6 +11,7 @@ export var Bullet : PackedScene
 
 func _ready() -> void:
 	emit_signal("health_changed", health)
+	emit_signal("damage", count)
 	$Area2D.connect("body_entered", self, "_body_entered")
 	$Area2D.connect("body_exited", self, "_body_exited")
 

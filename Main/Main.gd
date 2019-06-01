@@ -24,6 +24,7 @@ func for_boss():
 		count_enemy = 4
 		
 func spawn_boss():
+	$SpawnBoss.play()
 	var Boss_instance = Boss.instance()
 	Boss_instance.position = get_node("Boss").position
 	get_node("SpawnEnemy").add_child(Boss_instance)
@@ -76,6 +77,7 @@ func spawn_enemy() -> void:
 
 	#если массив больше 1 значит есть путь - создаем врага
 	if new_path.size() > 1:
+		$SpawnKamikaze.play()
 		get_node("SpawnEnemy").add_child(Kamikaze_instance)
 		Kamikaze_instance.path = new_path
 
