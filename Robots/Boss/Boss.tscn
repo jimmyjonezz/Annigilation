@@ -6,8 +6,8 @@
 [ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 46.502
-height = 97.4818
+radius = 16.7388
+height = 139.812
 
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
@@ -31,7 +31,7 @@ scale = Vector2( 2.80595, 2.80595 )
 
 [node name="Boom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-bus = "Blaster"
+bus = "Blaster2"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
