@@ -19,10 +19,12 @@ Kamikaze = ExtResource( 2 )
 Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
 [node name="SpawnProps" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Chest" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 6464, 2624.68 )
@@ -88,6 +90,7 @@ position = Vector2( 8511.67, 1091.3 )
 position = Vector2( 1923, 1677 )
 
 [node name="Point" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Point" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 1215.94, 3004.77 )
@@ -135,6 +138,7 @@ position = Vector2( 2111.66, 4542.71 )
 position = Vector2( 579, 4286.01 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 8 )]
 position = Vector2( 3394.47, 4902.84 )
@@ -157,6 +161,7 @@ position = Vector2( 7295.3, 4192.62 )
 [node name="Other" type="Node2D" parent="."]
 
 [node name="Position" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Player" parent="Position" instance=ExtResource( 9 )]
 position = Vector2( 6635, 4809 )
