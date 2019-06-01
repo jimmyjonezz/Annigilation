@@ -22,7 +22,7 @@ func danmaku():
 	if shooting:
 		var angle_dir = get_angle_to(player.global_transform.origin)
 			
-		for i in range(6):
+		for i in range(8):
 			var bx = radius * cos(angle_dir + rand_range(0.5, 1)) + position.x
 			var by = radius * sin(angle_dir + rand_range(0.5, 1)) + position.y
 			
@@ -34,6 +34,8 @@ func danmaku():
 
 func _on_Timer_timeout():
 	danmaku()
+	var rotation = $CollisionShape2D.get_transform().get_rotation()
+	print(rotation)
 
 func _on_VisibilityNotifier2D_screen_entered():
 	shooting = true
