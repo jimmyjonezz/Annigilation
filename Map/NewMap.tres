@@ -1,9 +1,8 @@
-[gd_resource type="TileSet" load_steps=128 format=2]
+[gd_resource type="TileSet" load_steps=127 format=2]
 
 [ext_resource path="res://Image/tilemap.png" type="Texture" id=1]
-[ext_resource path="res://Image/tilemap2.png" type="Texture" id=2]
-[ext_resource path="res://Image/cristalls_01.png" type="Texture" id=3]
-[ext_resource path="res://Image/rocks_01.png" type="Texture" id=4]
+[ext_resource path="res://Image/cristalls_01.png" type="Texture" id=2]
+[ext_resource path="res://Image/rocks_01.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -433,7 +432,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [resource]
 6/name = "cristalls"
-6/texture = ExtResource( 3 )
+6/texture = ExtResource( 2 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 256, 256 )
@@ -470,7 +469,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 } ]
 6/z_index = 0
 7/name = "rocks"
-7/texture = ExtResource( 4 )
+7/texture = ExtResource( 3 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 512, 256 )
@@ -975,57 +974,13 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 15/z_index = 0
-<<<<<<< HEAD
-16/name = "tilemap2.png 16"
-16/texture = ExtResource( 2 )
-16/tex_offset = Vector2( 0, 0 )
-16/modulate = Color( 1, 1, 1, 1 )
-16/region = Rect2( 0, 0, 1024, 256 )
-16/tile_mode = 2
-16/autotile/icon_coordinate = Vector2( 0, 0 )
-16/autotile/tile_size = Vector2( 128, 128 )
-16/autotile/spacing = 0
-16/autotile/occluder_map = [  ]
-16/autotile/navpoly_map = [  ]
-16/autotile/z_index_map = [  ]
-=======
 16/name = "without_nav"
 16/texture = ExtResource( 1 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 1024, 640, 128, 128 )
 16/tile_mode = 0
->>>>>>> 525fb6c5399aa0c31f51778828da3b2a761e2b48
 16/occluder_offset = Vector2( 0, 0 )
 16/navigation_offset = Vector2( 0, 0 )
 16/shapes = [  ]
 16/z_index = 0
-<<<<<<< HEAD
-17/name = "tilemap2.png 17"
-17/texture = ExtResource( 2 )
-17/tex_offset = Vector2( 0, 0 )
-17/modulate = Color( 1, 1, 1, 1 )
-17/region = Rect2( 512, 256, 512, 256 )
-17/tile_mode = 2
-17/autotile/icon_coordinate = Vector2( 0, 0 )
-17/autotile/tile_size = Vector2( 128, 128 )
-17/autotile/spacing = 0
-17/autotile/occluder_map = [  ]
-17/autotile/navpoly_map = [  ]
-17/autotile/z_index_map = [  ]
-17/occluder_offset = Vector2( 0, 0 )
-17/navigation_offset = Vector2( 0, 0 )
-17/shapes = [  ]
-17/z_index = 0
-18/name = "tilemap2.png 18"
-18/texture = ExtResource( 2 )
-18/tex_offset = Vector2( 0, 0 )
-18/modulate = Color( 1, 1, 1, 1 )
-18/region = Rect2( 0, 256, 512, 512 )
-18/tile_mode = 0
-18/occluder_offset = Vector2( 0, 0 )
-18/navigation_offset = Vector2( 0, 0 )
-18/shapes = [  ]
-18/z_index = 0
-=======
->>>>>>> 525fb6c5399aa0c31f51778828da3b2a761e2b48
