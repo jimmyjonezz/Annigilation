@@ -1,19 +1,21 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Image/UI/boss_health_02.png" type="Texture" id=2]
 [ext_resource path="res://Image/UI/boss_health_01.png" type="Texture" id=3]
 [ext_resource path="res://Image/UI/boss_text.png" type="Texture" id=4]
-[ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Image/UI/bg_energy.png" type="Texture" id=6]
-[ext_resource path="res://Image/UI/line_energy.png" type="Texture" id=7]
-[ext_resource path="res://Image/UI/icon_energy.png" type="Texture" id=8]
-[ext_resource path="res://Image/UI/bg_health.png" type="Texture" id=9]
-[ext_resource path="res://Image/UI/icon_health.png" type="Texture" id=10]
-[ext_resource path="res://Image/Screen_FX.png" type="Texture" id=11]
-[ext_resource path="res://Image/Screen_noise.png" type="Texture" id=12]
-[ext_resource path="res://Image/fon.png" type="Texture" id=13]
-[ext_resource path="res://Font/48pt.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Image/UI/bg_time.png" type="Texture" id=5]
+[ext_resource path="res://Font/32pt.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Image/UI/bg_score.png" type="Texture" id=7]
+[ext_resource path="res://Image/UI/bg_energy.png" type="Texture" id=8]
+[ext_resource path="res://Image/UI/line_energy.png" type="Texture" id=9]
+[ext_resource path="res://Image/UI/icon_energy.png" type="Texture" id=10]
+[ext_resource path="res://Image/UI/bg_health.png" type="Texture" id=11]
+[ext_resource path="res://Image/UI/icon_health.png" type="Texture" id=12]
+[ext_resource path="res://Image/Screen_FX.png" type="Texture" id=13]
+[ext_resource path="res://Image/Screen_noise.png" type="Texture" id=14]
+[ext_resource path="res://Image/fon.png" type="Texture" id=15]
+[ext_resource path="res://Font/48pt.tres" type="DynamicFont" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ScreenFX"
@@ -53,6 +55,7 @@ __meta__ = {
 }
 
 [node name="HealthBar" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -89,37 +92,45 @@ margin_bottom = 325.01
 texture = ExtResource( 4 )
 
 [node name="GUI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+
+[node name="TimeBG" type="Sprite" parent="GUI"]
+position = Vector2( 619.957, 11.6227 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
 
 [node name="time" type="Label" parent="GUI"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -15.0
-margin_right = 9.0
-margin_bottom = 31.0
-custom_fonts/font = ExtResource( 5 )
+margin_left = -39.8772
+margin_top = -2.50344
+margin_right = 26.1228
+margin_bottom = 28.4966
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Time"
 align = 1
 
+[node name="TimeBG2" type="Sprite" parent="GUI"]
+position = Vector2( 1192.66, 12 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
 [node name="score" type="Label" parent="GUI"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -145.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 5 )
+margin_left = -135.643
+margin_top = -2.37827
+margin_right = 9.35669
+margin_bottom = 20.6217
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -137,30 +148,30 @@ rect_scale = Vector2( 0.5, 0.5 )
 max_value = 40.0
 value = 40.0
 rounded = true
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 9 )
 
 [node name="Batrey" type="Sprite" parent="GUI"]
 position = Vector2( 30.8705, 40.6755 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="HeartBG" type="Sprite" parent="GUI"]
 position = Vector2( 72.3362, 12 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Heart" type="Sprite" parent="GUI"]
 position = Vector2( 16, 12 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="health" type="Label" parent="GUI"]
 margin_left = 37.9191
 margin_top = -2.64076
 margin_right = 119.919
 margin_bottom = 25.3592
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/line_spacing = 0
@@ -180,7 +191,7 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0.803595 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 expand = true
 
 [node name="Noise" type="TextureRect" parent="VFX"]
@@ -190,7 +201,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.43201
 margin_right = 1.43201
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VFX"]
@@ -203,7 +214,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 expand = true
 
 [node name="Panel2" type="Panel" parent="Pause"]
@@ -221,7 +232,7 @@ margin_left = 1.0
 margin_top = -65.2
 margin_right = 1.0
 margin_bottom = -135.8
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "PAUSE MODE"
 align = 1
 valign = 1
@@ -242,7 +253,7 @@ margin_right = 250.0
 margin_bottom = 35.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "MAIN MENU"
 
 [node name="Continue" type="Button" parent="Pause/Panel2/GridContainer"]
@@ -251,7 +262,7 @@ margin_right = 250.0
 margin_bottom = 74.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "CONTINUE"
 
 [node name="Restart" type="Button" parent="Pause/Panel2/GridContainer"]
@@ -260,7 +271,7 @@ margin_right = 250.0
 margin_bottom = 113.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "RESTART"
 
 [node name="Exit" type="Button" parent="Pause/Panel2/GridContainer"]
@@ -269,7 +280,7 @@ margin_right = 250.0
 margin_bottom = 152.0
 size_flags_horizontal = 7
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "EXIT"
 
 [node name="Gameover" type="TextureRect" parent="."]
@@ -278,7 +289,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 stretch_mode = 2
 
 [node name="Panel3" type="Panel" parent="Gameover"]
@@ -296,7 +307,7 @@ margin_left = 1.0
 margin_top = -65.2
 margin_right = 1.0
 margin_bottom = -135.8
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "GAMEOVER"
 align = 1
 valign = 1
@@ -310,7 +321,7 @@ margin_left = 1.0
 margin_top = 4.8
 margin_right = 1.0
 margin_bottom = -88.8
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "You score: 00000"
 align = 1
 valign = 1
@@ -328,34 +339,34 @@ margin_bottom = 13.9999
 
 [node name="Main" type="Button" parent="Gameover/Panel3/GridContainer"]
 margin_right = 250.0
-margin_bottom = 36.0
+margin_bottom = 35.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "MAIN MENU"
 
 [node name="Restart" type="Button" parent="Gameover/Panel3/GridContainer"]
-margin_top = 40.0
+margin_top = 39.0
 margin_right = 250.0
-margin_bottom = 76.0
+margin_bottom = 74.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "RESTART"
 
 [node name="Exit" type="Button" parent="Gameover/Panel3/GridContainer"]
-margin_top = 80.0
+margin_top = 78.0
 margin_right = 250.0
-margin_bottom = 116.0
+margin_bottom = 113.0
 size_flags_horizontal = 7
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "EXIT"
 
 [node name="Control" type="Control" parent="Gameover/Panel3/GridContainer"]
-margin_top = 120.0
+margin_top = 117.0
 margin_right = 250.0
-margin_bottom = 156.0
+margin_bottom = 152.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
@@ -365,7 +376,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 stretch_mode = 2
 
 [node name="Panel3" type="Panel" parent="Victory"]
@@ -384,7 +395,7 @@ margin_left = 1.0
 margin_top = -65.2
 margin_right = 1.0
 margin_bottom = -135.8
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 text = "VICTORY"
 align = 1
 valign = 1
@@ -398,7 +409,7 @@ margin_left = 1.0
 margin_top = 4.8
 margin_right = 1.0
 margin_bottom = -88.8
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "You score: 00000"
 align = 1
 valign = 1
@@ -415,34 +426,34 @@ margin_bottom = 13.9999
 
 [node name="Main" type="Button" parent="Victory/Panel3/GridContainer"]
 margin_right = 250.0
-margin_bottom = 36.0
+margin_bottom = 35.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "MAIN MENU"
 
 [node name="Restart" type="Button" parent="Victory/Panel3/GridContainer"]
-margin_top = 40.0
+margin_top = 39.0
 margin_right = 250.0
-margin_bottom = 76.0
+margin_bottom = 74.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "RESTART"
 
 [node name="Exit" type="Button" parent="Victory/Panel3/GridContainer"]
-margin_top = 80.0
+margin_top = 78.0
 margin_right = 250.0
-margin_bottom = 116.0
+margin_bottom = 113.0
 size_flags_horizontal = 7
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "EXIT"
 
 [node name="Control" type="Control" parent="Victory/Panel3/GridContainer"]
-margin_top = 120.0
+margin_top = 117.0
 margin_right = 250.0
-margin_bottom = 156.0
+margin_bottom = 152.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
