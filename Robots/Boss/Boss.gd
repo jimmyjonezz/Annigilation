@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var total_health = 220
+var total_health = 320
 var shooting = false
 var radius = 130
 

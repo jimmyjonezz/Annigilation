@@ -83,7 +83,7 @@ func _knockback(delta):
 			#реализован метод knockback - отталкивание перса
 			var target_dir = (position - body.position).normalized()
 			#print("position: %s, target: %s, pos: %s" % [position, target_dir, position * target_dir])
-			move_and_collide(position * target_dir * delta * 1.0)
+			move_and_collide(position * target_dir * delta * 2.8)
 			
 			if health < 1:
 				emit_signal("die")
