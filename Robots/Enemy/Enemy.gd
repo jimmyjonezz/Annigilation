@@ -31,7 +31,6 @@ func danmaku():
 			
 			var bullet = Bullet.instance()
 			get_parent().add_child(bullet)
-			$Boom.play()
 			bullet.start(Vector2(x, y), angle_dir + (i / PI) - 0.65)
 
 #если пуля попала, вызывается этот метод
@@ -50,9 +49,9 @@ func hit() -> void:
 
 func _physics_process(delta):
 	#вычисляем нормаль - направление в сторону игрока
-	var target_dir = (player.global_position - global_position).normalized()
+	var target_dir = (player.position - global_position).normalized()
 	#дистанцию до игрока
-	var target_dis = position.distance_to(player.global_position)
+	var target_dis = position.distance_to(player.position)
 	if target_dis > 300 and target_dis < 700:
 		#двигаем enemy
 		$APlayer.play("walk")
@@ -62,7 +61,7 @@ func _physics_process(delta):
 		$APlayer.play("idle")
 
 func _on_Tic_timeout():
-	var target_dis = position.distance_to(player.global_position)
+	var target_dis = position.distance_to(player.position)
 	if target_dis < 1600:
 		danmaku()
 		$APlayer.play("shoot")

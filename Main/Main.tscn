@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.tscn" type="PackedScene" id=2]
@@ -9,11 +9,7 @@
 [ext_resource path="res://Point/Point.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Robots/Enemy/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Main/Camera2D.gd" type="Script" id=10]
-[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sound/back.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Sound/spawn.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sound/spawn_enemy.wav" type="AudioStream" id=14]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -21,6 +17,7 @@ Kamikaze = ExtResource( 2 )
 Boss = ExtResource( 3 )
 
 [node name="World" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Navigation" parent="World" instance=ExtResource( 4 )]
 
@@ -52,7 +49,7 @@ position = Vector2( 2619, 718 )
 position = Vector2( 1984, 2492 )
 
 [node name="Chest9" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 3652, 4689 )
+position = Vector2( 3772, 4809 )
 
 [node name="Chest11" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 4927.54, 4799.27 )
@@ -148,6 +145,7 @@ position = Vector2( 7733, 576 )
 position = Vector2( 5311, 3787 )
 
 [node name="SpawnEnemy" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Enemy" parent="SpawnEnemy" instance=ExtResource( 8 )]
 position = Vector2( 3394.47, 4902.84 )
@@ -169,42 +167,17 @@ position = Vector2( 7297, 4224 )
 [node name="Position" type="Node2D" parent="."]
 
 [node name="Player" parent="Position" instance=ExtResource( 9 )]
-position = Vector2( 1901, 1423 )
-collision_mask = 15
-speed = 300
+position = Vector2( 1899, 1392 )
 
 [node name="Camera2D" type="Camera2D" parent="Position/Player"]
-editor/display_folded = true
 current = true
 zoom = Vector2( 1.6, 1.6 )
-limit_left = 0
-limit_top = 0
-limit_right = 14300
-limit_bottom = 14300
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
-editor_draw_limits = true
-script = ExtResource( 10 )
 
-[node name="GUI" parent="." instance=ExtResource( 11 )]
+[node name="GUI" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 
-[node name="Back" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-bus = "Back"
-
-[node name="SpawnBoss" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-bus = "Blaster"
-
-[node name="SpawnKamikaze" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-bus = "Blaster"
-
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 2.3
+wait_time = 1.8
 autostart = true
 [connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]

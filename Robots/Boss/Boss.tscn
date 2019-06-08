@@ -1,25 +1,24 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Robots/Boss/Boss.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sound/enemy_blaster.wav" type="AudioStream" id=3]
-[ext_resource path="res://Image/Boss/b_shadow.png" type="Texture" id=4]
-[ext_resource path="res://Image/Boss/b_d_01.png" type="Texture" id=5]
-[ext_resource path="res://Image/Boss/b_d_02.png" type="Texture" id=6]
-[ext_resource path="res://Image/Boss/b_t_01.png" type="Texture" id=7]
-[ext_resource path="res://Image/Boss/b_d_03.png" type="Texture" id=8]
-[ext_resource path="res://Image/Boss/b_d_05.png" type="Texture" id=9]
-[ext_resource path="res://Image/Boss/b_d_04.png" type="Texture" id=10]
-[ext_resource path="res://Image/Boss/b_d_06.png" type="Texture" id=11]
-[ext_resource path="res://Image/Boss/b_d_07.png" type="Texture" id=12]
-[ext_resource path="res://Image/Boss/b_d_08.png" type="Texture" id=13]
-[ext_resource path="res://Image/Boss/b_t_02.png" type="Texture" id=14]
-[ext_resource path="res://Image/Boss/b_t_03.png" type="Texture" id=15]
-[ext_resource path="res://Image/Boss/b_u_04.png" type="Texture" id=16]
-[ext_resource path="res://Image/Boss/b_u_02.png" type="Texture" id=17]
-[ext_resource path="res://Image/Boss/b_t_04.png" type="Texture" id=18]
-[ext_resource path="res://Image/Boss/b_u_03.png" type="Texture" id=19]
-[ext_resource path="res://Image/Boss/b_u_01.png" type="Texture" id=20]
+[ext_resource path="res://Image/Boss/b_shadow.png" type="Texture" id=3]
+[ext_resource path="res://Image/Boss/b_d_01.png" type="Texture" id=4]
+[ext_resource path="res://Image/Boss/b_d_02.png" type="Texture" id=5]
+[ext_resource path="res://Image/Boss/b_t_01.png" type="Texture" id=6]
+[ext_resource path="res://Image/Boss/b_d_03.png" type="Texture" id=7]
+[ext_resource path="res://Image/Boss/b_d_05.png" type="Texture" id=8]
+[ext_resource path="res://Image/Boss/b_d_04.png" type="Texture" id=9]
+[ext_resource path="res://Image/Boss/b_d_06.png" type="Texture" id=10]
+[ext_resource path="res://Image/Boss/b_d_07.png" type="Texture" id=11]
+[ext_resource path="res://Image/Boss/b_d_08.png" type="Texture" id=12]
+[ext_resource path="res://Image/Boss/b_t_02.png" type="Texture" id=13]
+[ext_resource path="res://Image/Boss/b_t_03.png" type="Texture" id=14]
+[ext_resource path="res://Image/Boss/b_u_04.png" type="Texture" id=15]
+[ext_resource path="res://Image/Boss/b_u_02.png" type="Texture" id=16]
+[ext_resource path="res://Image/Boss/b_t_04.png" type="Texture" id=17]
+[ext_resource path="res://Image/Boss/b_u_03.png" type="Texture" id=18]
+[ext_resource path="res://Image/Boss/b_u_01.png" type="Texture" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.5162
@@ -250,17 +249,12 @@ autostart = true
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 2.80595, 2.80595 )
 
-[node name="Boom" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = -5.0
-bus = "Blaster"
-
 [node name="Node2D" type="Node2D" parent="."]
 editor/display_folded = true
 
 [node name="b_shadow" type="Sprite" parent="Node2D"]
 position = Vector2( -10.6273, 53.9485 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -268,94 +262,94 @@ __meta__ = {
 [node name="b_d_01" type="Sprite" parent="Node2D"]
 position = Vector2( -33.8957, -3.30798 )
 scale = Vector2( 1.01329, 0.992025 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 offset = Vector2( -21.0936, -5.12617 )
 
 [node name="b_d_02" type="Sprite" parent="Node2D"]
 position = Vector2( 30.9052, 6.61043 )
 scale = Vector2( 1.01016, 1.02939 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 offset = Vector2( 52.6126, 4.0954 )
 
 [node name="b_t_01" type="Sprite" parent="Node2D"]
 position = Vector2( -2.6662, 9.12086 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="b_d_03" type="Sprite" parent="Node2D"]
 position = Vector2( 31.3416, 18.4257 )
 scale = Vector2( 1.0172, 1.02508 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 offset = Vector2( 41.9315, 7.41251 )
 
 [node name="b_d_05" type="Sprite" parent="Node2D"]
 position = Vector2( -76.6225, 24.8879 )
 scale = Vector2( 1.03582, 1.03626 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 offset = Vector2( -27.9931, 1.70706 )
 
 [node name="b_d_04" type="Sprite" parent="Node2D"]
 position = Vector2( -56.4635, 19.0377 )
 scale = Vector2( 1.01341, 1.01076 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 offset = Vector2( -34.163, 23.2351 )
 
 [node name="b_d_06" type="Sprite" parent="Node2D"]
 position = Vector2( -21.3119, 39.6232 )
 scale = Vector2( 1.03712, 1.04896 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="b_d_07" type="Sprite" parent="Node2D"]
 position = Vector2( 8.17405, 40.7975 )
 scale = Vector2( 1.01311, 1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 offset = Vector2( 22.7917, 9.83397 )
 
 [node name="b_d_08" type="Sprite" parent="Node2D"]
 position = Vector2( 2.82011, 42.2446 )
 scale = Vector2( 1.01436, 0.994316 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 offset = Vector2( 7.33405, 31.163 )
 
 [node name="b_t_02" type="Sprite" parent="Node2D"]
 position = Vector2( -1.7738, -6.38015 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 offset = Vector2( -1.55582, -33.6864 )
 
 [node name="b_t_03" type="Sprite" parent="Node2D/b_t_02"]
 position = Vector2( -4.11642, -93.6241 )
 rotation = -0.0134048
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 offset = Vector2( -10.4125, -38.629 )
 
 [node name="b_u_04" type="Sprite" parent="Node2D/b_t_02"]
 position = Vector2( 13.6923, -0.234199 )
 scale = Vector2( 0.964782, 1.02974 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 offset = Vector2( -0.165863, 10.7806 )
 
 [node name="b_u_02" type="Sprite" parent="Node2D/b_t_02"]
 position = Vector2( 3.61743, -47.3928 )
 scale = Vector2( 1.02277, 1.0039 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 offset = Vector2( 11.9448, -11.6609 )
 
 [node name="b_t_04" type="Sprite" parent="Node2D/b_t_02"]
 position = Vector2( 12.8616, -98.6339 )
 rotation = 0.0414488
-texture = ExtResource( 18 )
+texture = ExtResource( 17 )
 offset = Vector2( 2.46344, -17.0336 )
 
 [node name="b_u_03" type="Sprite" parent="Node2D/b_t_02"]
 position = Vector2( -9.74464, -48.0711 )
 scale = Vector2( 1.04413, 1.00525 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 offset = Vector2( -16.0184, 15.5062 )
 
 [node name="b_u_01" type="Sprite" parent="Node2D/b_t_02"]
 position = Vector2( 41.527, -42.815 )
 scale = Vector2( 1.0149, 1 )
 z_index = -1
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 autoplay = "IdleBoss"

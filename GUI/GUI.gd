@@ -81,7 +81,7 @@ func _on_Player_die():
 #в главное меню
 func _on_Main_pressed():
 	get_tree().set_pause(false)
-	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
+	assert(get_tree().change_scene("res://MainMenu/MainMenu.tscn") == OK)
 #заряд оружия
 func _on_Player_damage(count):
 	current_count = count

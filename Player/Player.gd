@@ -35,7 +35,6 @@ func shooting() -> void:
 	if count > 1:
 		shoot()
 		damage(-1)
-		$Blaster.play()
 	
 		#сатрясам экран
 		#camera.shake()

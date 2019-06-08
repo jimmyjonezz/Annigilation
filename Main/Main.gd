@@ -2,12 +2,6 @@ extends Node
 
 class_name Main
 
-"""
-Помогите! Меня держат в подвале, я прикован наручниками к трубе.
-Не кормят, в потемках пишу код. Холодно.
-Позвоните моей маме...
-"""
-
 onready var camera = $Position/Player/Camera2D as Camera2D
 export var Kamikaze : PackedScene
 export var Boss : PackedScene
@@ -24,7 +18,6 @@ func for_boss():
 		count_enemy = 4
 		
 func spawn_boss():
-	$SpawnBoss.play()
 	var Boss_instance = Boss.instance()
 	Boss_instance.position = get_node("Boss").position
 	get_node("SpawnEnemy").add_child(Boss_instance)
@@ -35,7 +28,6 @@ func new_game() -> void:
 	$GUI/GUI/time.text = "19 : 00"
 	$GUI/GUI/score.text = "00000"
 	get_tree().paused = false
-	$Back.play()
 
 func _ready() -> void:
 	set_camera_limits()
@@ -77,7 +69,6 @@ func spawn_enemy() -> void:
 
 	#если массив больше 1 значит есть путь - создаем врага
 	if new_path.size() > 1:
-		$SpawnKamikaze.play()
 		get_node("SpawnEnemy").add_child(Kamikaze_instance)
 		Kamikaze_instance.path = new_path
 

@@ -195,4 +195,13 @@ position: (6477.826172, 1287.295044), 	target: (0.999066, 0.043203), 	pos: (6471
 var target_dir = (position - body.position).normalized()
 			print("position: %s, target: %s, pos: %s" % [position, target_dir, position * target_dir])
 			move_and_collide(position * target_dir * 0.065)
+			
+			
+			func _draw():
+	if _draw_path:
+		if path.size() > 1:
+			for p in path:
+				return
+				#draw_circle(p - get_global_position(), .6, Color(1, 0, 0))
+	
 

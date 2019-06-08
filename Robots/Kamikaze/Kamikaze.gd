@@ -21,12 +21,10 @@ func set_path(value: PoolVector2Array) -> void:
 	set_process(true)
 	
 func _draw():
-	if path.size() > 1:
-		for p in path:
-			draw_circle(p - get_global_position(), 10.8, Color(1, 0, 0))
-			
-func _process(delta):
-	update()
+	pass
+	#if path.size() > 1:
+	#	for p in path:
+	#		draw_circle(p - get_global_position(), 10.8, Color(1, 0, 0))
 	
 func _physics_process(delta) -> void:
 	var new_path = get_node("../../World/Navigation").get_simple_path(
