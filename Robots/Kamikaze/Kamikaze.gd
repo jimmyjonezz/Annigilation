@@ -72,11 +72,11 @@ func _on_hitbox_body_entered(body):
 		#yield($APlayer, "animation_finished")
 
 func _spawn_props():
-	var rnd = randi() % 3
+	var rnd = randi() % 2
 	match rnd:
 		0:
 			return
-		1, 2: 
+		1: 
 			#аптечка
 			var Ammo_instance = Ammo.instance()
 			Ammo_instance.set_position(global_position)

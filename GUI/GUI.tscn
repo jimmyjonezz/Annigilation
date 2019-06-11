@@ -102,7 +102,6 @@ margin_bottom = 325.01
 texture = ExtResource( 4 )
 
 [node name="GUI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -156,8 +155,8 @@ margin_top = 28.7059
 margin_right = 242.353
 margin_bottom = 68.7059
 rect_scale = Vector2( 0.5, 0.5 )
-max_value = 40.0
-value = 40.0
+max_value = 60.0
+value = 60.0
 rounded = true
 texture_under = ExtResource( 8 )
 texture_progress = ExtResource( 9 )

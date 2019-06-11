@@ -1,8 +1,7 @@
 extends "Character.gd"
 
-signal health_changed(health)
 signal die()
-signal damage(count)
+signal shake()
 
 var inbody = false
 
@@ -10,8 +9,6 @@ var inbody = false
 export var Bullet : PackedScene
 
 func _ready() -> void:
-	emit_signal("health_changed", health)
-	emit_signal("damage", count)
 	$Area2D.connect("body_entered", self, "_body_entered")
 	$Area2D.connect("body_exited", self, "_body_exited")
 
@@ -37,7 +34,7 @@ func shooting() -> void:
 		damage(-1)
 	
 		#сатрясам экран
-		#camera.shake()
+		emit_signal("shake")
 		$Gun/AFPlayer.play("fire")
 		$Reload.stop()
 	
@@ -59,7 +56,7 @@ func _body_entered(body):
 			body.hitbox() #call function "hit" on body
 	if body.is_in_group("ammo"):
 		var value = round(rand_range(6, 9))
-		if count < 40:
+		if count < 60:
 			damage(value)
 			body.hitbox()
 			
@@ -104,5 +101,5 @@ func _on_Damage_timeout():
 		hit()
 
 func _on_Reload_timeout():
-	if count < 40:
+	if count < 60:
 		damage(1)

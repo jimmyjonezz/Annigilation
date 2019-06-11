@@ -61,7 +61,7 @@ func victory():
 #кнопка рестарт
 func _on_Restart_pressed():
 	#get_tree().paused = false
-	get_tree().reload_current_scene()
+	assert(get_tree().reload_current_scene() == OK)
 #выход
 func _on_Exit_pressed():
 	get_tree().quit()

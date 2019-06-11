@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 class_name Character
 
+signal health_changed(health)
+signal damage(count)
+
 #переменные: скорость передвижения, вектор направления, перезарядка и стрельба
 export (int) var speed = 380
 var velocity = Vector2()
@@ -9,7 +12,7 @@ var is_reload = true
 var is_shooting = false
 var health = 15
 export(int) var max_health = 25
-var count = 40
+var count = 60
 
 #спрайт у Игрока зеркалим и ган тоже (вертикально)
 func direction():
@@ -57,6 +60,6 @@ func heal(amount):
 	
 func damage(amount):
 	count += amount
-	count = min(count, 40)
+	count = min(count, 60)
 	#print("health: %s / amount: %s" % [health, amount])
 	emit_signal("damage", count)

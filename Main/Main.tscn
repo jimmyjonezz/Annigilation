@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Robots/Kamikaze/Kamikaze.tscn" type="PackedScene" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://Point/Point.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Robots/Enemy/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Other/screenshake/screenshake.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -173,13 +174,16 @@ position = Vector2( 1899, 1392 )
 current = true
 zoom = Vector2( 1.6, 1.6 )
 
-[node name="GUI" parent="." instance=ExtResource( 10 )]
+[node name="screenshake" parent="Position/Player/Camera2D" instance=ExtResource( 10 )]
+
+[node name="GUI" parent="." instance=ExtResource( 11 )]
 editor/display_folded = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 1.8
+wait_time = 3.6
 autostart = true
 [connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]
 [connection signal="health_changed" from="Position/Player" to="GUI" method="_on_Player_health_changed"]
+[connection signal="shake" from="Position/Player" to="Position/Player/Camera2D/screenshake" method="start"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
