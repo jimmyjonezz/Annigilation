@@ -42,6 +42,7 @@ func hit() -> void:
 	
 	#если число жизни равно ZERO - удаляем объект
 	if current_health == 0:
+		$"../../Position/Player/Camera2D/screenshake".start()
 		$"../../GUI".take_score(30)
 		$"../../".for_boss()
 		spawn_boom()

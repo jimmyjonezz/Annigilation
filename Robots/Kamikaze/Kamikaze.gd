@@ -57,6 +57,8 @@ func hit() -> void:
 	$Timer.start()
 	
 	if current_health <= 0:
+		#сатрясам экран
+		$"../../Position/Player/Camera2D/screenshake".start()
 		spawn_boom()
 		$"../../GUI".take_score(10)
 		_spawn_props()

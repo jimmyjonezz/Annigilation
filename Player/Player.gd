@@ -1,7 +1,6 @@
 extends "Character.gd"
 
 signal die()
-signal shake()
 
 var inbody = false
 
@@ -33,8 +32,6 @@ func shooting() -> void:
 		shoot()
 		damage(-1)
 	
-		#сатрясам экран
-		emit_signal("shake")
 		$Gun/AFPlayer.play("fire")
 		$Reload.stop()
 	

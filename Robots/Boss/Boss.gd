@@ -5,6 +5,7 @@ var shooting = false
 var radius = 130
 
 export var Bullet : PackedScene
+export var Boom : PackedScene
 onready var player = get_node("../../Position/Player")
 
 func hit() -> void:
@@ -14,6 +15,8 @@ func hit() -> void:
 	
 	#если число жизни равно ZERO - удаляем объект
 	if total_health == 0:
+		$"../../Position/Player/Camera2D/screenshake".start()
+		spawn_boom()
 		$"../../GUI".take_score(30)
 		queue_free()
 		$"../../GUI".victory()
@@ -40,3 +43,8 @@ func _on_VisibilityNotifier2D_screen_entered():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	shooting = false
+	
+func spawn_boom():
+	var Boom_instance = Boom.instance()
+	Boom_instance.set_position(global_position)
+	$"../../Other/".add_child(Boom_instance)

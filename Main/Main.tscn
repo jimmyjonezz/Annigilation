@@ -50,7 +50,7 @@ position = Vector2( 2619, 718 )
 position = Vector2( 1984, 2492 )
 
 [node name="Chest9" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 3772, 4809 )
+position = Vector2( 3768, 4809 )
 
 [node name="Chest11" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 4927.54, 4799.27 )
@@ -59,10 +59,10 @@ position = Vector2( 4927.54, 4799.27 )
 position = Vector2( 5055.45, 4938.81 )
 
 [node name="Chest13" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 6337.3, 3390.54 )
+position = Vector2( 7871, 4165 )
 
 [node name="Chest14" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 6592.84, 3392.25 )
+position = Vector2( 6464, 3387 )
 
 [node name="Chest15" parent="SpawnProps" instance=ExtResource( 5 )]
 position = Vector2( 8256.53, 4927.53 )
@@ -80,7 +80,7 @@ position = Vector2( 8511.67, 1091.3 )
 position = Vector2( 2754.54, 4035.14 )
 
 [node name="Chest20" parent="SpawnProps" instance=ExtResource( 5 )]
-position = Vector2( 578, 4941 )
+position = Vector2( 578, 5065 )
 
 [node name="Ship" parent="SpawnProps" instance=ExtResource( 6 )]
 position = Vector2( 1923, 1677 )
@@ -92,13 +92,13 @@ editor/display_folded = true
 position = Vector2( 1215.94, 3004.77 )
 
 [node name="Point3" parent="Point" instance=ExtResource( 7 )]
-position = Vector2( 3153, 5051 )
+position = Vector2( 6212, 4801 )
 
 [node name="Point4" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 579, 4286.01 )
 
 [node name="Point20" parent="Point" instance=ExtResource( 7 )]
-position = Vector2( 1100, 5066 )
+position = Vector2( 2366, 5190 )
 
 [node name="Point5" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 6208.89, 1085.43 )
@@ -131,10 +131,10 @@ position = Vector2( 5055.44, 830.524 )
 position = Vector2( 2880.8, 3261 )
 
 [node name="Point15" parent="Point" instance=ExtResource( 7 )]
-position = Vector2( 2111.66, 4542.71 )
+position = Vector2( 3135, 4811 )
 
 [node name="Point16" parent="Point" instance=ExtResource( 7 )]
-position = Vector2( 6851, 3637 )
+position = Vector2( 6467, 3781 )
 
 [node name="Point17" parent="Point" instance=ExtResource( 7 )]
 position = Vector2( 7755, 3644 )
@@ -180,10 +180,9 @@ zoom = Vector2( 1.6, 1.6 )
 editor/display_folded = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 3.6
+wait_time = 3.4
 autostart = true
 [connection signal="damage" from="Position/Player" to="GUI" method="_on_Player_damage"]
 [connection signal="die" from="Position/Player" to="GUI" method="_on_Player_die"]
 [connection signal="health_changed" from="Position/Player" to="GUI" method="_on_Player_health_changed"]
-[connection signal="shake" from="Position/Player" to="Position/Player/Camera2D/screenshake" method="start"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
